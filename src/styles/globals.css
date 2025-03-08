@@ -1,0 +1,16 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Quicksand', sans-serif; /* Default font for English */
+  color: #000;
+  background-color: #fff;
+}
+
+body[lang="el"] {
+  font-family: 'EB Garamond', serif; /* Greek text with EB Garamond */
+}
+
+/* Additional styles */
