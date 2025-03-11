@@ -1,22 +1,20 @@
 import { NextResponse } from "next/server";
 
 export function middleware(req) {
-  const language = req.cookies.get("language")?.value || "EN"; // Get language cookie
-  const url = req.nextUrl.clone();
+    const url = req.nextUrl;
+    const language = req.cookies.get("language")?.value || "EN"; // Get language from cookies
 
-  if (language === "GR" && url.pathname === "/about") {
-    url.pathname = "/sxetika"; // Redirect "/about" → "/sxetika" for Greek users
-    return NextResponse.redirect(url);
-  }
+    if (language === "GR" && url.pathname === "/about") {
+        return NextResponse.redirect(new URL("/sxetika", req.url));
+    }
 
-  if (language === "EN" && url.pathname === "/sxetika") {
-    url.pathname = "/about"; // Redirect "/sxetika" → "/about" for English users
-    return NextResponse.redirect(url);
-  }
+    if (language === "EN" && url.pathname === "/sxetika") {
+        return NextResponse.redirect(new URL("/about", req.url));
+    }
 
-  return NextResponse.next();
+    return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/about", "/sxetika"], // Apply middleware to these routes
+    matcher: ["/about", "/sxetika"], // Apply middleware only for these paths
 };

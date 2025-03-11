@@ -1,32 +1,11 @@
+"use client";
 import React from "react";
 import Header from "../components/Header";
+import { useLanguage } from "../context/LanguageContext";
 
-// Server-side logic to handle language-based redirection
-export async function getServerSideProps({ req }) {
-  const language = req.cookies.language || "EN"; // Get the language from cookies (or fallback to EN)
+const AboutPage = () => {
+  const { language } = useLanguage(); // Get selected language from context
 
-  if (language === "GR" && req.url === "/about") {
-    return {
-      redirect: {
-        destination: "/sxetika", // Redirect to Greek version
-        permanent: false,
-      },
-    };
-  } else if (language === "EN" && req.url === "/sxetika") {
-    return {
-      redirect: {
-        destination: "/about", // Redirect to English version
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: { language }, // Pass language to the page component
-  };
-}
-
-const AboutPage = ({ language }) => {
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
