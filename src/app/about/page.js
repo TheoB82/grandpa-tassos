@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 
 // Server-side logic to handle language-based redirection
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps({ req }) {
   const language = req.cookies.language || "EN"; // Get the language from cookies (or fallback to EN)
 
   if (language === "GR" && req.url === "/about") {
