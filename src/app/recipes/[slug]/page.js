@@ -10,7 +10,6 @@ const RecipePage = () => {
   const { language } = useLanguage(); // Get the current language
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

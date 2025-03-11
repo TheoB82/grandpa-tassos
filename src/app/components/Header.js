@@ -4,20 +4,22 @@ import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
+import Link from "next/link"; // Import Link from next/link
+import Image from "next/image"; // Import Image from next/image
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [recipes, setRecipes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
 
+  // Fetch recipes data
   useEffect(() => {
     fetch("/recipes.json")
       .then((response) => response.json())
-      .then((data) => setRecipes(data))
+      .then((data) => setSearchResults(data)) // Update searchResults directly
       .catch((error) => console.error("Error loading recipes:", error));
   }, []);
 
@@ -27,7 +29,7 @@ const Header = () => {
       return;
     }
 
-    const filtered = recipes.filter((recipe) =>
+    const filtered = searchResults.filter((recipe) =>
       [recipe[`Title${language}`], recipe[`ShortDescription${language}`], recipe[`Tags${language}`]]
         .join(" ")
         .toLowerCase()
@@ -35,7 +37,7 @@ const Header = () => {
     );
 
     setSearchResults(filtered);
-  }, [searchQuery, language, recipes]);
+  }, [searchQuery, language, searchResults]);
 
   const handleRecipeClick = (recipe) => {
     router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
@@ -55,51 +57,45 @@ const Header = () => {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <a href="#" className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
+            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
               {language === "EN" ? "Recipes" : "Συνταγές"}
-            </a>
+            </span>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
                 {categoryMapping[language].map((category) => (
                   <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-                    <a
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        router.push(category.path);
-                      }}
-                    >
-                      {category.name}
-                    </a>
+                    <Link href={category.path}>
+                      <a>{category.name}</a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             )}
           </li>
           <li>
-            <a
-              href="/about"
-              className="text-gray-700 hover:text-blue-500"
-            >
-              {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-            </a>
+            <Link href="/about">
+              <a className="text-gray-700 hover:text-blue-500">
+                {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+              </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/contact"
-              className="text-gray-700 hover:text-blue-500"
-            >
-              {language === "EN" ? "Contact" : "Επικοινωνία"}
-            </a>
+            <Link href="/contact">
+              <a className="text-gray-700 hover:text-blue-500">
+                {language === "EN" ? "Contact" : "Επικοινωνία"}
+              </a>
+            </Link>
           </li>
         </ul>
       </nav>
 
       {/* Center - Logo */}
       <div className="flex justify-center flex-1 items-end">
-        <a href="/" className="block">
-          <img src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" />
-        </a>
+        <Link href="/">
+          <a className="block">
+            <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
+          </a>
+        </Link>
       </div>
 
       {/* Right - Search, Language Selector, Socials */}
