@@ -1,25 +1,32 @@
-"use client"; 
-
-import React, { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import { useLanguage } from "../context/LanguageContext";
+import React from "react";
 import Header from "../components/Header";
 
-const AboutPage = () => {
-  const { language } = useLanguage();
-  const [recipes, setRecipes] = useState([]);
-  const router = useRouter();
-  const pathname = usePathname();
+// Server-side logic to handle language-based redirection
+export async function getServerSideProps({ req, res }) {
+  const language = req.cookies.language || "EN"; // Get the language from cookies (or fallback to EN)
 
-  // Redirect based on language selection
-  useEffect(() => {
-    if (language === "GR" && pathname === "/about") {
-      router.push("/sxetika"); // Redirect to Greek version
-    } else if (language === "EN" && pathname === "/sxetika") {
-      router.push("/about"); // Redirect to English version
-    }
-  }, [language, pathname, router]);
+  if (language === "GR" && req.url === "/about") {
+    return {
+      redirect: {
+        destination: "/sxetika", // Redirect to Greek version
+        permanent: false,
+      },
+    };
+  } else if (language === "EN" && req.url === "/sxetika") {
+    return {
+      redirect: {
+        destination: "/about", // Redirect to English version
+        permanent: false,
+      },
+    };
+  }
 
+  return {
+    props: { language }, // Pass language to the page component
+  };
+}
+
+const AboutPage = ({ language }) => {
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}

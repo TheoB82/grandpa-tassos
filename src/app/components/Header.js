@@ -49,7 +49,12 @@ const Header = () => {
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Recipes Dropdown */}
-          <li className="relative" ref={dropdownRef} onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
+          <li
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
             <a href="#" className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
               {language === "EN" ? "Recipes" : "Συνταγές"}
             </a>
@@ -57,14 +62,36 @@ const Header = () => {
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
                 {categoryMapping[language].map((category) => (
                   <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-                    <a onClick={() => router.push(category.path)}>{category.name}</a>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        router.push(category.path);
+                      }}
+                    >
+                      {category.name}
+                    </a>
                   </li>
                 ))}
               </ul>
             )}
           </li>
-          <li><a href="/about" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</a></li>
-          <li><a href="/contact" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</a></li>
+          <li>
+            <a
+              href="/about"
+              className="text-gray-700 hover:text-blue-500"
+            >
+              {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+              className="text-gray-700 hover:text-blue-500"
+            >
+              {language === "EN" ? "Contact" : "Επικοινωνία"}
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -89,7 +116,11 @@ const Header = () => {
           {searchResults.length > 0 && (
             <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
               {searchResults.map((recipe) => (
-                <li key={recipe.TitleEN} className="p-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleRecipeClick(recipe)}>
+                <li
+                  key={recipe.TitleEN}
+                  className="p-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleRecipeClick(recipe)}
+                >
                   <div className="font-semibold">{recipe[`Title${language}`]}</div>
                   <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
                 </li>
@@ -100,15 +131,54 @@ const Header = () => {
 
         {/* Language Selector */}
         <div className="flex space-x-4">
-          <a href="#" className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("EN")}>EN</a>
-          <a href="#" className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("GR")}>ΕΛ</a>
+          <a
+            href="#"
+            className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+            onClick={(e) => {
+              e.preventDefault();
+              handleLanguageChange("EN");
+            }}
+          >
+            EN
+          </a>
+          <a
+            href="#"
+            className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+            onClick={(e) => {
+              e.preventDefault();
+              handleLanguageChange("GR");
+            }}
+          >
+            ΕΛ
+          </a>
         </div>
 
         {/* Social Media */}
         <div className="flex space-x-6">
-          <a href="https://www.youtube.com/channel/UCHls3VPN4XRvYFOALIYueFw" target="_blank" rel="noopener noreferrer" className="hover:text-red-500"><FaYoutube size={24} /></a>
-          <a href="https://www.facebook.com/grandpatassoscooking" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700"><FaFacebook size={24} /></a>
-          <a href="https://www.instagram.com/grandpa_tassos_cooking/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500"><FaInstagram size={24} /></a>
+          <a
+            href="https://www.youtube.com/channel/UCHls3VPN4XRvYFOALIYueFw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-red-500"
+          >
+            <FaYoutube size={24} />
+          </a>
+          <a
+            href="https://www.facebook.com/grandpatassoscooking"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-700"
+          >
+            <FaFacebook size={24} />
+          </a>
+          <a
+            href="https://www.instagram.com/grandpa_tassos_cooking/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-pink-500"
+          >
+            <FaInstagram size={24} />
+          </a>
         </div>
       </div>
     </header>

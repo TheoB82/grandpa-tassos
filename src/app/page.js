@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useLanguage } from "./context/LanguageContext"; // Adjust the path to the context
 import RecipeGrid from "./components/RecipeGrid"; // Correct path to RecipeGrid
 import Header from "./components/Header"; // Go up two levels and then into the components folder
-import { categoryMapping } from "../utils/categoryMapping";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -22,14 +21,9 @@ export default function Home() {
   // Filter recipes based on selected category
   const filteredRecipes = selectedCategory
     ? recipes.filter(
-        (recipe) =>
-          recipe[`Category${language}`] && recipe[`Category${language}`] === selectedCategory
+        (recipe) => recipe[`Category${language}`] === selectedCategory
       )
-    : recipes;  // Show all recipes if no category is selected
-
-  // Debugging: log selected category and filtered recipes
-  console.log("Selected Category: ", selectedCategory);
-  console.log("Filtered Recipes: ", filteredRecipes);
+    : recipes; // Show all recipes if no category is selected
 
   return (
     <div>

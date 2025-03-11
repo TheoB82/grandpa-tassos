@@ -1,24 +1,20 @@
 "use client"; 
 
-import React, { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import React from "react";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import Header from "../components/Header";
 
 const ContactPage = () => {
   const { language } = useLanguage();
-  const [recipes, setRecipes] = useState([]);
   const router = useRouter();
-  const pathname = usePathname();
 
-  // Redirect based on language selection
-  useEffect(() => {
-    if (language === "GR" && pathname === "/contact") {
-      router.push("/epikoinonia"); // Redirect to Greek version
-    } else if (language === "EN" && pathname === "/epikoinonia") {
-      router.push("/contact"); // Redirect to English version
-    }
-  }, [language, pathname, router]);
+  // Simplified redirect logic (consider handling this via dynamic routes if necessary)
+  if (language === "GR" && window.location.pathname === "/contact") {
+    router.push("/epikoinonia"); // Redirect to Greek version
+  } else if (language === "EN" && window.location.pathname === "/epikoinonia") {
+    router.push("/contact"); // Redirect to English version
+  }
 
   return (
     <div className="bg-white min-h-screen">
