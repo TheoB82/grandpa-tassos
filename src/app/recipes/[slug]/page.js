@@ -10,6 +10,7 @@ const RecipePage = () => {
   const { language } = useLanguage(); // Get the current language
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const RecipePage = () => {
           } else {
             setError("Recipe not found 😞");
           }
-        } catch (err) {
+        } catch (error) {
           setError("Error fetching recipe!");
         }
         setLoading(false);
@@ -121,8 +122,6 @@ const RecipePage = () => {
             <div className="text-lg text-center" dangerouslySetInnerHTML={{ __html: language === 'EN' ? recipe.IngredientsEN : recipe.IngredientsGR }}></div>
           </div>
         </div>
-
-
       </div>
     </div>
   );
