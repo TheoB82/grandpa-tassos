@@ -137,17 +137,17 @@ const Header = () => {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex space-x-4">
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-            <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <FaFacebook className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
-          </a>
-        </div>
+<div className="flex space-x-4">
+  <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+    <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
+  </a>
+  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+    <FaFacebook className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
+  </a>
+  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+    <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
+  </a>
+</div>
       </div>
     </header>
   );
