@@ -1,37 +1,44 @@
 import Link from "next/link";
+import Image from "next/image";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-export default function RecipeCard({ recipe, language }) {
-  // Ensure recipe.Image exists or use a default image
-  const imagePath = recipe.Image && recipe.Image !== "TBC" 
-    ? `/images/${recipe.Image}` 
-    : "/images/default-image.jpg";
-
-  // Generate a URL-friendly slug from TitleEN
-  const slug = recipe.TitleEN?.toLowerCase().trim()
-    .replace(/ /g, "-")
-    .replace(/[^\w-]+/g, "");
+export default function RecipeCard({ recipe }) {
+  const { language } = useLanguage();
 
   return (
-    <Link href={`/recipes/${slug}`} className="block">
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <img 
-          src={imagePath} 
-          alt={language === "GR" ? recipe.TitleGR : recipe.TitleEN} 
-          className="w-full h-48 object-cover" 
+    <div className="bg-white shadow-md rounded-lg overflow-hidden">
+      {/* Recipe Category */}
+      <p className="bg-gray-200 text-gray-700 text-sm font-semibold p-2 text-center">
+        {language === "EN" ? recipe.CategoryEN : recipe.CategoryGR}
+      </p>
+
+      {/* Recipe Image */}
+      <div className="relative w-full h-48">
+        <Image
+          src={recipe.Image}
+          alt={language === "EN" ? recipe.TitleEN : recipe.TitleGR}
+          layout="fill"
+          objectFit="cover"
+          priority
         />
-        <div className="p-4">
-          {/* Display category */}
-          <div className="text-sm text-gray-500">
-            {language === "GR" ? recipe.CategoryGR : recipe.CategoryEN}
-          </div>
-          <h3 className="text-xl font-bold mt-2">
-            {language === "GR" ? recipe.TitleGR : recipe.TitleEN}
-          </h3>
-          <p className="text-gray-600 mt-2">
-            {language === "GR" ? recipe.ShortDescriptionGR : recipe.ShortDescriptionEN}
-          </p>
-        </div>
       </div>
-    </Link>
+
+      {/* Recipe Info */}
+      <div className="p-4">
+        <h3 className="text-lg font-bold text-gray-800">
+          {language === "EN" ? recipe.TitleEN : recipe.TitleGR}
+        </h3>
+        <p className="text-sm text-gray-600 mt-2">
+          {language === "EN" ? recipe.ShortDescriptionEN : recipe.ShortDescriptionGR}
+        </p>
+
+        {/* View More Button */}
+        <Link href={`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`}>
+          <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+            {language === "EN" ? "View More" : "Δείτε Περισσότερα"}
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 }

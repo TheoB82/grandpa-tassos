@@ -7,6 +7,11 @@ import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link"; // Import Link from next/link
 import Image from "next/image"; // Import Image from next/image
 
+// Inside your JSX:
+<Link href="/" passHref>
+  <a>Your Link</a>
+</Link>
+
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
