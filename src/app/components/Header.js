@@ -4,6 +4,7 @@ import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
+import Link from 'next/link'
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
@@ -50,29 +51,29 @@ const Header = () => {
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Recipes Dropdown */}
           <li className="relative" ref={dropdownRef} onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
-            <a href="#" className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
+            <Link href="#" className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
               {language === "EN" ? "Recipes" : "Συνταγές"}
-            </a>
+            </Link>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
                 {categoryMapping[language].map((category) => (
                   <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-                    <a onClick={() => router.push(category.path)}>{category.name}</a>
+                    <Link onClick={() => router.push(category.path)}>{category.name}</Link>
                   </li>
                 ))}
               </ul>
             )}
           </li>
-          <li><a href="/about" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</a></li>
-          <li><a href="/contact" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</a></li>
+          <li><Link href="/about" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</Link></li>
+          <li><Link href="/contact" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</Link></li>
         </ul>
       </nav>
 
       {/* Center - Logo */}
       <div className="flex justify-center flex-1 items-end">
-        <a href="/" className="block">
+        <Link href="/" className="block">
           <img src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" />
-        </a>
+        </Link>
       </div>
 
       {/* Right - Search, Language Selector, Socials */}
@@ -100,21 +101,21 @@ const Header = () => {
 
         {/* Language Selector */}
         <div className="flex space-x-4">
-          <a href="#" className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("EN")}>EN</a>
-          <a href="#" className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("GR")}>ΕΛ</a>
+          <Link href="#" className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("EN")}>EN</Link>
+          <Link href="#" className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("GR")}>ΕΛ</Link>
         </div>
 
        {/* Social Media Icons */}
 <div className="flex space-x-4">
-  <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+  <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
     <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
-  </a>
-  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+  </Link>
+  <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
     <FaFacebook className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
-  </a>
-  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+  </Link>
+  <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
     <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
-  </a>
+  </Link>
 </div>
 
       </div>
