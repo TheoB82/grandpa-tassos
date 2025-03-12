@@ -45,10 +45,10 @@ const RecipePage = () => {
           if (matchedRecipe) {
             setRecipe(matchedRecipe);
           } else {
-            setError("Recipe not found 😞");
+            setRecipe(null); // Set recipe to null if not found
           }
         } catch (error) {
-          setError("Error fetching recipe!");
+          setRecipe(null); // Set recipe to null on error
         }
         setLoading(false);
       };
