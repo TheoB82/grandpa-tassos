@@ -34,9 +34,9 @@ export default function RecipeCard({ recipe }) {
 
         {/* View More Button */}
         <Link href={`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`}>
-          <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+          <a className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
             {language === "EN" ? "View More" : "Δείτε Περισσότερα"}
-          </button>
+          </a>
         </Link>
       </div>
     </div>

@@ -7,7 +7,6 @@ import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link"; // Import Link from next/link
 import Image from "next/image"; // Import Image from next/image
 
-
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
@@ -65,8 +64,8 @@ const Header = () => {
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
                 {categoryMapping[language].map((category) => (
                   <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-                    <Link href={category.path}>
-                      <a>{category.name}</a>
+                    <Link href={`/recipes/${category.path}`}>
+                      {category.name}
                     </Link>
                   </li>
                 ))}
@@ -181,6 +180,5 @@ const Header = () => {
     </header>
   );
 };
-
 
 export default Header;
