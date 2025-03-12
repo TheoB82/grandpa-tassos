@@ -5,6 +5,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
 import Link from 'next/link'
+import Image from 'next/image';
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
@@ -72,7 +73,7 @@ const Header = () => {
       {/* Center - Logo */}
       <div className="flex justify-center flex-1 items-end">
         <Link href="/" className="block">
-          <img src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" />
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={128} height={128} className="h-32" />
         </Link>
       </div>
 
