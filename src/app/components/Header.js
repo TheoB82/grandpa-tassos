@@ -4,22 +4,20 @@ import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
-import Link from "next/link";
-import Image from "next/image";
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
 
-  // Fetch recipes data
   useEffect(() => {
     fetch("/recipes.json")
       .then((response) => response.json())
-      .then((data) => setSearchResults(data))
+      .then((data) => setRecipes(data))
       .catch((error) => console.error("Error loading recipes:", error));
   }, []);
 
@@ -29,7 +27,7 @@ const Header = () => {
       return;
     }
 
-    const filtered = searchResults.filter((recipe) =>
+    const filtered = recipes.filter((recipe) =>
       [recipe[`Title${language}`], recipe[`ShortDescription${language}`], recipe[`Tags${language}`]]
         .join(" ")
         .toLowerCase()
@@ -37,7 +35,7 @@ const Header = () => {
     );
 
     setSearchResults(filtered);
-  }, [searchQuery, language, searchResults]);
+  }, [searchQuery, language, recipes]);
 
   const handleRecipeClick = (recipe) => {
     router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
@@ -51,43 +49,30 @@ const Header = () => {
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Recipes Dropdown */}
-          <li
-            className="relative"
-            ref={dropdownRef}
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
-          >
-            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
+          <li className="relative" ref={dropdownRef} onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
+            <a href="#" className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
               {language === "EN" ? "Recipes" : "Συνταγές"}
-            </span>
+            </a>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
                 {categoryMapping[language].map((category) => (
                   <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-                    <Link href={`/recipes/${category.path}`}>{category.name}</Link>
+                    <a onClick={() => router.push(category.path)}>{category.name}</a>
                   </li>
                 ))}
               </ul>
             )}
           </li>
-          <li>
-            <Link href="/about" className="text-gray-700 hover:text-blue-500">
-              {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-500">
-              {language === "EN" ? "Contact" : "Επικοινωνία"}
-            </Link>
-          </li>
+          <li><a href="/about" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</a></li>
+          <li><a href="/contact" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</a></li>
         </ul>
       </nav>
 
       {/* Center - Logo */}
       <div className="flex justify-center flex-1 items-end">
-        <Link href="/">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={128} height={128} />
-        </Link>
+        <a href="/" className="block">
+          <img src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" />
+        </a>
       </div>
 
       {/* Right - Search, Language Selector, Socials */}
@@ -102,14 +87,11 @@ const Header = () => {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {searchResults.length > 0 && (
-            <ul className="absolute left-0 mt-2 w-full bg-white border border-gray-300 shadow-lg rounded-md z-50">
+            <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
               {searchResults.map((recipe) => (
-                <li
-                  key={recipe.TitleEN}
-                  onClick={() => handleRecipeClick(recipe)}
-                  className="p-2 hover:bg-gray-100 cursor-pointer"
-                >
-                  {recipe[`Title${language}`]}
+                <li key={recipe.TitleEN} className="p-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleRecipeClick(recipe)}>
+                  <div className="font-semibold">{recipe[`Title${language}`]}</div>
+                  <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
                 </li>
               ))}
             </ul>
@@ -117,26 +99,12 @@ const Header = () => {
         </div>
 
         {/* Language Selector */}
-        <div className="flex space-x-2">
-          <button
-            onClick={() => handleLanguageChange("EN")}
-            className={`px-3 py-1 border rounded-md ${
-              language === "EN" ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
-          >
-            EN
-          </button>
-          <button
-            onClick={() => handleLanguageChange("GR")}
-            className={`px-3 py-1 border rounded-md ${
-              language === "GR" ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
-          >
-            ΕΛ
-          </button>
+        <div className="flex space-x-4">
+          <a href="#" className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("EN")}>EN</a>
+          <a href="#" className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("GR")}>ΕΛ</a>
         </div>
 
-        {/* Social Media Icons */}
+       {/* Social Media Icons */}
 <div className="flex space-x-4">
   <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
     <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
@@ -148,6 +116,7 @@ const Header = () => {
     <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
   </a>
 </div>
+
       </div>
     </header>
   );
