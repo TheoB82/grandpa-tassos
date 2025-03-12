@@ -47,7 +47,7 @@ const RecipePage = () => {
           } else {
             setRecipe(null); // Set recipe to null if not found
           }
-        } catch (error) {
+        } catch {
           setRecipe(null); // Set recipe to null on error
         }
         setLoading(false);
