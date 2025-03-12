@@ -10,7 +10,6 @@ const RecipePage = () => {
   const { language } = useLanguage(); // Get the current language
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -60,7 +59,6 @@ const RecipePage = () => {
 
   if (!isMounted) return null;
   if (loading) return <div>Loading...</div>;
-  if (error) return <div className="text-center text-xl mt-10">{error}</div>;
   if (!recipe) return <div className="text-center text-xl mt-10">Recipe not found 😞</div>;
 
   return (
