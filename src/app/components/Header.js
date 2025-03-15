@@ -79,18 +79,16 @@ const Header = () => {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
+            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
               {language === "EN" ? "Recipes" : "Συνταγές"}
             </span>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
                 {categoryMapping[language].map((category) => (
-                  <li
-                    key={category.path}
-                    className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleCategoryClick(category.path)}
-                  >
-                    {category.name}
+                  <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
+                    <Link href={`/recipes/${category.path}`}>
+                      <a>{category.name}</a>
+                    </Link>
                   </li>
                 ))}
               </ul>
