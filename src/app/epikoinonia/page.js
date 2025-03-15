@@ -1,6 +1,6 @@
 "use client"; 
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import Header from "../components/Header";
@@ -9,12 +9,14 @@ const ContactPage = () => {
   const { language } = useLanguage();
   const router = useRouter();
 
-  // Simplified redirect logic (consider handling this via dynamic routes if necessary)
-  if (language === "GR" && window.location.pathname === "/contact") {
-    router.push("/epikoinonia"); // Redirect to Greek version
-  } else if (language === "EN" && window.location.pathname === "/epikoinonia") {
-    router.push("/contact"); // Redirect to English version
-  }
+  useEffect(() => {
+    // Simplified redirect logic (consider handling this via dynamic routes if necessary)
+    if (language === "GR" && window.location.pathname === "/contact") {
+      router.push("/epikoinonia"); // Redirect to Greek version
+    } else if (language === "EN" && window.location.pathname === "/epikoinonia") {
+      router.push("/contact"); // Redirect to English version
+    }
+  }, [language, router]); // Dependency array to re-run when language or router changes
 
   return (
     <div className="bg-white min-h-screen">
@@ -55,8 +57,6 @@ const ContactPage = () => {
             ? "Contact Grandpa Tasso"
             : `Επικοινωνήστε με τον παππού Τάσο`}
         </p>
-
-        
       </main>
     </div>
   );
