@@ -57,12 +57,12 @@ const Header = () => {
     className="text-gray-700 hover:text-blue-500 transition-colors duration-300"
     onClick={(e) => {
       e.preventDefault();  // Prevent the default link behavior
-      setIsDropdownOpen(!isDropdownOpen);  // Toggle dropdown visibility
+      setIsDropdownOpen((prev) => !prev);  // Toggle dropdown visibility
     }}
   >
     {language === "EN" ? "Recipes" : "Συνταγές"}
   </Link>
-  {isDropdownOpen && (
+  {isDropdownOpen && categoryMapping[language] && categoryMapping[language].length > 0 && (
     <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
       {categoryMapping[language].map((category) => (
         <li
@@ -79,6 +79,7 @@ const Header = () => {
     </ul>
   )}
 </li>
+
 
           <li><Link href="/about" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</Link></li>
           <li><Link href="/contact" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</Link></li>
