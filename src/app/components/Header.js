@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -72,7 +71,7 @@ const Header = () => {
       {/* Left - Navigation */}
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
-          {/* Recipes Dropdown */}
+          {/* Simplified Recipes Dropdown */}
           <li
             className="relative"
             ref={dropdownRef}
@@ -84,13 +83,22 @@ const Header = () => {
             </span>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
-                {categoryMapping[language].map((category) => (
-                  <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-                    <Link href={`/recipes/${category.path}`}>
-                      <a>{category.name}</a>
-                    </Link>
-                  </li>
-                ))}
+                {/* Hardcoded Categories */}
+                <li className="p-2 hover:bg-gray-100 cursor-pointer">
+                  <Link href="/recipes/category1">
+                    <a>Category 1</a>
+                  </Link>
+                </li>
+                <li className="p-2 hover:bg-gray-100 cursor-pointer">
+                  <Link href="/recipes/category2">
+                    <a>Category 2</a>
+                  </Link>
+                </li>
+                <li className="p-2 hover:bg-gray-100 cursor-pointer">
+                  <Link href="/recipes/category3">
+                    <a>Category 3</a>
+                  </Link>
+                </li>
               </ul>
             )}
           </li>
