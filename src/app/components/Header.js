@@ -62,29 +62,33 @@ const Header = () => {
     setSearchResults([]);
   };
 
+  const handleCategoryClick = (categoryPath) => {
+    router.push(`/recipes/${categoryPath}`);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <header className="w-full p-4 bg-white text-gray-900 flex items-end justify-between fixed top-0 left-0 right-0 shadow-md z-50">
       {/* Left - Navigation */}
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Recipes Dropdown */}
-          <li className="relative" ref={dropdownRef}>
-            <button
-              className="text-gray-700 hover:text-blue-500 transition-colors duration-300"
-              onClick={() => setIsDropdownOpen((prev) => !prev)}
-            >
+          <li
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
               {language === "EN" ? "Recipes" : "Συνταγές"}
-            </button>
-            {isDropdownOpen && categoryMapping[language]?.length > 0 && (
+            </span>
+            {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
                 {categoryMapping[language].map((category) => (
                   <li
                     key={category.path}
                     className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => {
-                      router.push(category.path);
-                      setIsDropdownOpen(false);
-                    }}
+                    onClick={() => handleCategoryClick(category.path)}
                   >
                     {category.name}
                   </li>
@@ -92,15 +96,18 @@ const Header = () => {
               </ul>
             )}
           </li>
-
           <li>
-            <Link href="/about" className="text-gray-700 hover:text-blue-500">
-              {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+            <Link href="/about">
+              <a className="text-gray-700 hover:text-blue-500">
+                {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+              </a>
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-500">
-              {language === "EN" ? "Contact" : "Επικοινωνία"}
+            <Link href="/contact">
+              <a className="text-gray-700 hover:text-blue-500">
+                {language === "EN" ? "Contact" : "Επικοινωνία"}
+              </a>
             </Link>
           </li>
         </ul>
@@ -108,8 +115,10 @@ const Header = () => {
 
       {/* Center - Logo */}
       <div className="flex justify-center flex-1 items-end">
-        <Link href="/" className="block">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={128} height={128} className="h-32" />
+        <Link href="/">
+          <a className="block">
+            <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
+          </a>
         </Link>
       </div>
 
