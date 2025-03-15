@@ -22,7 +22,6 @@ const Header = () => {
     fetch("/recipes.json")
       .then((response) => response.json())
       .then((data) => {
-        // Ensure the recipes data is available before setting the state
         if (data && Array.isArray(data)) {
           setRecipes(data);
         } else {
@@ -64,7 +63,6 @@ const Header = () => {
   }, []);
 
   const handleRecipeClick = (recipe) => {
-    // Safeguard: Ensure recipe and TitleEN are available
     if (recipe && recipe.TitleEN) {
       router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
       setSearchQuery("");
@@ -75,7 +73,6 @@ const Header = () => {
   };
 
   const handleCategoryClick = (categoryPath) => {
-    // Safeguard: Ensure categoryPath is available
     if (categoryPath) {
       router.push(`/recipes/${categoryPath}`);
       setIsDropdownOpen(false);
