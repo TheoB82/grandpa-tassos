@@ -79,7 +79,7 @@ const Header = () => {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
+            <span className="text-gray-700 transition-colors duration-300 cursor-pointer">
               {language === "EN" ? "Recipes" : "Συνταγές"}
             </span>
             {isDropdownOpen && (
