@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; // This is Next.js's router
 import { categoryMapping } from "../../utils/categoryMapping";
-import Link from "next/link";
+import Link from "next/link"; // Next.js Link component
 import Image from "next/image";
 
 const Header = () => {
