@@ -4,8 +4,8 @@ import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
-import Link from 'next/link'
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
@@ -14,8 +14,10 @@ const Header = () => {
   const [recipes, setRecipes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const searchRef = useRef(null);
   const router = useRouter();
 
+  // Fetch recipes from JSON
   useEffect(() => {
     fetch("/recipes.json")
       .then((response) => response.json())
@@ -23,6 +25,7 @@ const Header = () => {
       .catch((error) => console.error("Error loading recipes:", error));
   }, []);
 
+  // Filter search results
   useEffect(() => {
     if (!searchQuery.trim()) {
       setSearchResults([]);
@@ -39,6 +42,20 @@ const Header = () => {
     setSearchResults(filtered);
   }, [searchQuery, language, recipes]);
 
+  // Handle clicking outside to close dropdown and search results
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchResults([]);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handleRecipeClick = (recipe) => {
     router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
     setSearchQuery("");
@@ -51,38 +68,41 @@ const Header = () => {
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Recipes Dropdown */}
-          <li className="relative">
-  <Link
-    href="#"
-    className="text-gray-700 hover:text-blue-500 transition-colors duration-300"
-    onClick={(e) => {
-      e.preventDefault();  // Prevent the default link behavior
-      setIsDropdownOpen((prev) => !prev);  // Toggle dropdown visibility
-    }}
-  >
-    {language === "EN" ? "Recipes" : "Συνταγές"}
-  </Link>
-  {isDropdownOpen && categoryMapping[language] && categoryMapping[language].length > 0 && (
-    <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
-      {categoryMapping[language].map((category) => (
-        <li
-          key={category.path}
-          className="p-2 hover:bg-gray-100 cursor-pointer"
-          onClick={() => {
-            router.push(category.path);  // Navigate to selected category
-            setIsDropdownOpen(false);  // Close dropdown after selection
-          }}
-        >
-          {category.name}
-        </li>
-      ))}
-    </ul>
-  )}
-</li>
+          <li className="relative" ref={dropdownRef}>
+            <button
+              className="text-gray-700 hover:text-blue-500 transition-colors duration-300"
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+            >
+              {language === "EN" ? "Recipes" : "Συνταγές"}
+            </button>
+            {isDropdownOpen && categoryMapping[language]?.length > 0 && (
+              <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
+                {categoryMapping[language].map((category) => (
+                  <li
+                    key={category.path}
+                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => {
+                      router.push(category.path);
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    {category.name}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
 
-
-          <li><Link href="/about" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</Link></li>
-          <li><Link href="/contact" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</Link></li>
+          <li>
+            <Link href="/about" className="text-gray-700 hover:text-blue-500">
+              {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-500">
+              {language === "EN" ? "Contact" : "Επικοινωνία"}
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -96,7 +116,7 @@ const Header = () => {
       {/* Right - Search, Language Selector, Socials */}
       <div className="flex-1 flex justify-end items-end space-x-6 mr-4 relative">
         {/* Search Bar */}
-        <div className="relative">
+        <div className="relative" ref={searchRef}>
           <input
             type="text"
             placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
@@ -107,7 +127,11 @@ const Header = () => {
           {searchResults.length > 0 && (
             <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
               {searchResults.map((recipe) => (
-                <li key={recipe.TitleEN} className="p-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleRecipeClick(recipe)}>
+                <li
+                  key={recipe.TitleEN}
+                  className="p-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleRecipeClick(recipe)}
+                >
                   <div className="font-semibold">{recipe[`Title${language}`]}</div>
                   <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
                 </li>
@@ -118,23 +142,32 @@ const Header = () => {
 
         {/* Language Selector */}
         <div className="flex space-x-4">
-          <Link href="#" className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("EN")}>EN</Link>
-          <Link href="#" className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`} onClick={() => handleLanguageChange("GR")}>ΕΛ</Link>
+          <button
+            className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => handleLanguageChange("EN")}
+          >
+            EN
+          </button>
+          <button
+            className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => handleLanguageChange("GR")}
+          >
+            ΕΛ
+          </button>
         </div>
 
-       {/* Social Media Icons */}
-<div className="flex space-x-4">
-  <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-    <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
-  </Link>
-  <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-    <FaFacebook className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
-  </Link>
-  <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-    <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
-  </Link>
-</div>
-
+        {/* Social Media Icons */}
+        <div className="flex space-x-4">
+          <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+            <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
+          </Link>
+          <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <FaFacebook className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
+          </Link>
+          <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
+          </Link>
+        </div>
       </div>
     </header>
   );
