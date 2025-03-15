@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
+import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -20,7 +21,14 @@ const Header = () => {
   useEffect(() => {
     fetch("/recipes.json")
       .then((response) => response.json())
-      .then((data) => setRecipes(data))
+      .then((data) => {
+        // Ensure the recipes data is available before setting the state
+        if (data && Array.isArray(data)) {
+          setRecipes(data);
+        } else {
+          console.error("Invalid recipe data:", data);
+        }
+      })
       .catch((error) => console.error("Error loading recipes:", error));
   }, []);
 
@@ -56,19 +64,24 @@ const Header = () => {
   }, []);
 
   const handleRecipeClick = (recipe) => {
-    router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
-    setSearchQuery("");
-    setSearchResults([]);
+    // Safeguard: Ensure recipe and TitleEN are available
+    if (recipe && recipe.TitleEN) {
+      router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
+      setSearchQuery("");
+      setSearchResults([]);
+    } else {
+      console.error("Invalid recipe clicked:", recipe);
+    }
   };
 
   const handleCategoryClick = (categoryPath) => {
-    router.push(`/recipes/${categoryPath}`);
-    setIsDropdownOpen(false);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-    console.log("Dropdown toggled:", isDropdownOpen);  // Debugging line
+    // Safeguard: Ensure categoryPath is available
+    if (categoryPath) {
+      router.push(`/recipes/${categoryPath}`);
+      setIsDropdownOpen(false);
+    } else {
+      console.error("Invalid category clicked:", categoryPath);
+    }
   };
 
   return (
@@ -76,32 +89,31 @@ const Header = () => {
       {/* Left - Navigation */}
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
-          {/* Simplified Recipes Dropdown */}
-          <li className="relative" ref={dropdownRef}>
-            <span
-              className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer"
-              onClick={toggleDropdown}  // Toggle dropdown on click
-            >
+          {/* Recipes Dropdown */}
+          <li
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
               {language === "EN" ? "Recipes" : "Συνταγές"}
             </span>
             {isDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
-                {/* Hardcoded Categories */}
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">
-                  <Link href="/recipes/category1">
-                    <a>Category 1</a>
-                  </Link>
-                </li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">
-                  <Link href="/recipes/category2">
-                    <a>Category 2</a>
-                  </Link>
-                </li>
-                <li className="p-2 hover:bg-gray-100 cursor-pointer">
-                  <Link href="/recipes/category3">
-                    <a>Category 3</a>
-                  </Link>
-                </li>
+                {categoryMapping[language] && categoryMapping[language].length > 0 ? (
+                  categoryMapping[language].map((category) => (
+                    <li
+                      key={category.path}
+                      className="p-2 hover:bg-gray-100 cursor-pointer"
+                      onClick={() => handleCategoryClick(category.path)}
+                    >
+                      <a>{category.name}</a>
+                    </li>
+                  ))
+                ) : (
+                  <li className="p-2 text-gray-500">No categories available</li>
+                )}
               </ul>
             )}
           </li>
