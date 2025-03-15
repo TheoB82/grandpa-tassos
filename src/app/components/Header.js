@@ -51,20 +51,35 @@ const Header = () => {
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Recipes Dropdown */}
-          <li className="relative" ref={dropdownRef} onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)}>
-            <Link href="#" className="text-gray-700 hover:text-blue-500 transition-colors duration-300">
-              {language === "EN" ? "Recipes" : "Συνταγές"}
-            </Link>
-            {isDropdownOpen && (
-              <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
-                {categoryMapping[language].map((category) => (
-                  <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-                    <Link onClick={() => router.push(category.path)}>{category.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
+          <li className="relative">
+  <Link
+    href="#"
+    className="text-gray-700 hover:text-blue-500 transition-colors duration-300"
+    onClick={(e) => {
+      e.preventDefault();  // Prevent the default link behavior
+      setIsDropdownOpen(!isDropdownOpen);  // Toggle dropdown visibility
+    }}
+  >
+    {language === "EN" ? "Recipes" : "Συνταγές"}
+  </Link>
+  {isDropdownOpen && (
+    <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
+      {categoryMapping[language].map((category) => (
+        <li
+          key={category.path}
+          className="p-2 hover:bg-gray-100 cursor-pointer"
+          onClick={() => {
+            router.push(category.path);  // Navigate to selected category
+            setIsDropdownOpen(false);  // Close dropdown after selection
+          }}
+        >
+          {category.name}
+        </li>
+      ))}
+    </ul>
+  )}
+</li>
+
           <li><Link href="/about" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</Link></li>
           <li><Link href="/contact" className="text-gray-700 hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</Link></li>
         </ul>
