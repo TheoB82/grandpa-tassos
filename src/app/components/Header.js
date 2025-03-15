@@ -66,19 +66,22 @@ const Header = () => {
     setIsDropdownOpen(false);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    console.log("Dropdown toggled:", isDropdownOpen);  // Debugging line
+  };
+
   return (
     <header className="w-full p-4 bg-white text-gray-900 flex items-end justify-between fixed top-0 left-0 right-0 shadow-md z-50">
       {/* Left - Navigation */}
       <nav className="flex-1 flex justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Simplified Recipes Dropdown */}
-          <li
-            className="relative"
-            ref={dropdownRef}
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
-          >
-            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
+          <li className="relative" ref={dropdownRef}>
+            <span
+              className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer"
+              onClick={toggleDropdown}  // Toggle dropdown on click
+            >
               {language === "EN" ? "Recipes" : "Συνταγές"}
             </span>
             {isDropdownOpen && (
