@@ -13,6 +13,8 @@ const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
+  const [isMouseOverDropdown, setIsMouseOverDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
   const router = useRouter();
@@ -69,13 +71,36 @@ const Header = () => {
     }
   };
 
+  // Moved outside handleCategoryClick
+  const handleMouseEnter = () => {
+    clearTimeout(dropdownTimeout);
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Delay the dropdown close but check if the mouse is still inside the dropdown
+    const timeout = setTimeout(() => {
+      if (!isMouseOverDropdown) {
+        setIsDropdownOpen(false);
+      }
+    }, 200); // Delay before closing
+    setDropdownTimeout(timeout);
+  };
+
   const handleCategoryClick = (categoryPath) => {
     if (categoryPath) {
-      router.push(`/recipes/${categoryPath}`);
-      setIsDropdownOpen(false);
+      router.push(`${categoryPath}`);
     } else {
       console.error("Invalid category clicked:", categoryPath);
     }
+  };
+
+  const handleDropdownMouseEnter = () => {
+    setIsMouseOverDropdown(true); // Mouse is inside the dropdown
+  };
+
+  const handleDropdownMouseLeave = () => {
+    setIsMouseOverDropdown(false); // Mouse left the dropdown
   };
 
   return (
@@ -85,32 +110,36 @@ const Header = () => {
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           {/* Recipes Dropdown */}
           <li
-  className="relative"
-  ref={dropdownRef}
-  onMouseEnter={() => setIsDropdownOpen(true)}
-  onMouseLeave={() => setIsDropdownOpen(false)}
->
-  <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
-    {language === "EN" ? "Recipes" : "Συνταγές"}
-  </span>
-  <div
-    className={`absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50 ${isDropdownOpen ? 'block' : 'hidden'}`}
-  >
-    {categoryMapping[language] && categoryMapping[language].length > 0 ? (
-      categoryMapping[language].map((category) => (
-        <li
-          key={category.path}
-          className="p-2 hover:bg-gray-100 cursor-pointer"
-          onClick={() => handleCategoryClick(category.path)}
-        >
-          {category.name}
-        </li>
-      ))
-    ) : (
-      <li className="p-2 text-gray-500">No categories available</li>
-    )}
-  </div>
-</li>
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
+              {language === "EN" ? "Recipes" : "Συνταγές"}
+            </span>
+            {isDropdownOpen && (
+              <ul
+                className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50"
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
+              >
+                {categoryMapping[language] && categoryMapping[language].length > 0 ? (
+                  categoryMapping[language].map((category) => (
+                    <li
+                      key={category.path}
+                      className="p-2 hover:bg-gray-100 cursor-pointer"
+                      onClick={() => handleCategoryClick(category.path)}
+                    >
+                      {category.name}
+                    </li>
+                  ))
+                ) : (
+                  <li className="p-2 text-gray-500">No categories available</li>
+                )}
+              </ul>
+            )}
+          </li>
           <li>
             <Link href="/about" className="text-gray-700 hover:text-blue-500">
               {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
