@@ -11,7 +11,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Custom font import removed */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="antialiased">
         <LanguageProvider>
