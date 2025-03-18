@@ -28,9 +28,24 @@ export default function Home() {
   return (
     <div>
       <Header setCategory={setSelectedCategory} /> {/* Pass the setter function to Header */}
-      <h1 className="text-4xl font-bold text-center mt-18">
+
+      <h1 className="text-4xl font-bold text-center mt-24 mb-6">
         {language === "EN" ? "My Recipes" : "Οι Συνταγές μου"}
       </h1>
+
+      {/* Embedded YouTube Video */}
+      <div className="flex justify-center mb-10 px-4">
+        <div className="w-full max-w-4xl aspect-w-16 aspect-h-9">
+          <iframe
+            className="w-full h-full rounded-xl shadow-lg"
+            src="https://youtu.be/domQLeVFwfQ?feature=shared"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
 
       <RecipeGrid recipes={filteredRecipes} language={language} />
     </div>
