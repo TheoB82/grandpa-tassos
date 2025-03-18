@@ -1,9 +1,10 @@
+console.log("Testing header update");
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from "../../utils/categoryMapping";
+import { categoryMapping } from "../../utils  /categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
 
