@@ -3,14 +3,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Importing Mynerve font */
+@font-face {
+  font-family: 'Mynerve';
+  src: url('/fonts/Mynerve-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Default font for English */
 body {
   font-family: 'Quicksand', sans-serif; /* Default font for English */
   color: #000;
   background-color: #fff;
 }
 
+/* Greek text with Mynerve font */
 body[lang="el"] {
-  font-family: 'EB Garamond', serif; /* Greek text with EB Garamond */
+  font-family: 'Mynerve', serif; /* Greek text with Mynerve */
 }
 
 /* Additional styles */

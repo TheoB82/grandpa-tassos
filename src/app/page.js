@@ -16,7 +16,7 @@ export default function Home() {
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((error) => console.error("Error loading recipes:", error));
-  }, []);
+  }, []); 
 
   // Filter recipes based on selected category
   const filteredRecipes = selectedCategory
@@ -26,28 +26,33 @@ export default function Home() {
     : recipes; // Show all recipes if no category is selected
 
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
+      {/* Header Component */}
       <Header setCategory={setSelectedCategory} /> {/* Pass the setter function to Header */}
 
-      <h1 className="text-4xl font-bold text-center mt-24 mb-6">
+      {/* Title */}
+      <h1 className="text-4xl font-bold text-center mt-4 mb-6">
         {language === "EN" ? "My Recipes" : "Οι Συνταγές μου"}
       </h1>
 
       {/* Embedded YouTube Video */}
-      <div className="flex justify-center mb-10 px-4">
-        <div className="w-full max-w-4xl aspect-w-16 aspect-h-9">
-          <iframe
-            className="w-full h-full rounded-xl shadow-lg"
-            src="https://youtu.be/domQLeVFwfQ?feature=shared"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+      <div className="flex justify-center mb-10">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/domQLeVFwfQ?si=6NIiFQmQc7-5kLoH"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="rounded-xl shadow-lg"
+        ></iframe>
       </div>
 
+      {/* Recipe Grid */}
       <RecipeGrid recipes={filteredRecipes} language={language} />
+
     </div>
   );
 }
