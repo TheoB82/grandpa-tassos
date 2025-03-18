@@ -1,4 +1,3 @@
-console.log("Testing header update");
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
