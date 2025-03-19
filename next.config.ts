@@ -1,36 +1,23 @@
-import type { NextConfig } from "next";
-
 /** @type {import('next').NextConfig} */
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'youtube.com', 
-      'www.youtube.com', 
-      'i.ytimg.com', 
-      'your-image-domain.com' // Replace with your own image source domains, if necessary
-    ],
+    domains: ['youtube.com', 'www.youtube.com'], // For thumbnails
   },
-  async headers() {
-    return [
-      {
-        source: "/(.*)", // Apply to all routes
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value: `
-              default-src 'self';
-              frame-src https://www.youtube.com https://www.youtube-nocookie.com;
-              script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.youtube-nocookie.com;
-              style-src 'self' 'unsafe-inline';
-              connect-src 'self';
-              img-src 'self' data: https://www.youtube.com https://i.ytimg.com https://your-image-domain.com; // Make sure this includes your image domain
-            `.replace(/\s{2,}/g, ' ').trim(), // Collapse whitespace
-          },
-        ],
-      },
-    ];
-  },
+  // Remove CSP for now to test
+  // async headers() {
+  //   return [
+  //     {
+  //       source: "/(.*)", // Apply to all routes
+  //       headers: [
+  //         {
+  //           key: "Content-Security-Policy",
+  //           value: "frame-src https://www.youtube.com https://www.youtube-nocookie.com; default-src 'self';",
+  //         },
+  //       ],
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
