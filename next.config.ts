@@ -1,5 +1,7 @@
+import type { NextConfig } from "next";
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['youtube.com', 'www.youtube.com'], // For thumbnails
@@ -11,7 +13,14 @@ const nextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: "frame-src https://www.youtube.com https://www.youtube-nocookie.com; default-src 'self';",
+            value: `
+              default-src 'self';
+              frame-src https://www.youtube.com https://www.youtube-nocookie.com;
+              script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.youtube-nocookie.com;
+              style-src 'self' 'unsafe-inline';
+              connect-src 'self';
+              img-src 'self' data: https://www.youtube.com https://i.ytimg.com;
+            `.replace(/\s{2,}/g, ' ').trim(), // Collapse whitespace
           },
         ],
       },
