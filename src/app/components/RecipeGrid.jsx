@@ -9,11 +9,14 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
 
   // Sort recipes by Date (most recent first)
   const sortedRecipes = [...recipes].sort((a, b) => {
-    // Ensure Date is a string before splitting
+    console.log('a.Date:', a.Date); // Add this line
+    console.log('b.Date:', b.Date); // Add this line
+  
     const dateA = typeof a.Date === "string" ? a.Date.split("/").reverse().join("-") : "";
     const dateB = typeof b.Date === "string" ? b.Date.split("/").reverse().join("-") : "";
     return new Date(dateB) - new Date(dateA);
   });
+  
   
 
   // Function to get the image link from YouTube link
