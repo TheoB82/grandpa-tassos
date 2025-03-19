@@ -1,6 +1,4 @@
-/* globals.css */
-@import './fonts.css'; /* Make sure this is correct and points to the right file */
-
+/* src/styles/global.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +10,7 @@ body {
 }
 
 body[lang="el"] {
-  font-family: 'Mynerve', sans-serif; /* Apply Mynerve font to Greek */
+  font-family: 'Mynerve', serif; /* Apply Mynerve font for Greek text */
 }
 
 /* Additional styles */
