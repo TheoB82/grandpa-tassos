@@ -1,4 +1,6 @@
 /* globals.css */
+@import './fonts.css'; /* Import custom fonts */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +12,7 @@ body {
 }
 
 body[lang="el"] {
-  font-family: 'EB Garamond', serif; /* Greek text with EB Garamond */
+  font-family: 'Mynerve', sans-serif; /* Greek text with Mynerve font */
 }
 
 /* Additional styles */
