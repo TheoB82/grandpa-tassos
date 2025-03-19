@@ -17,8 +17,6 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
     return new Date(dateB) - new Date(dateA);
   });
   
-  
-
   // Function to get the image link from YouTube link
   const getImageLink = (recipe) => {
     const ytLink = recipe.LinkYT;
@@ -95,7 +93,7 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
             onClick={loadMore}
             className="bg-blue-600 text-white px-6 py-2 rounded-lg text-lg hover:bg-blue-700 transition"
           >
-            Show More
+            {language === "GR" ? "Δείξε Περισσότερα" : "Show More"}
           </button>
         </div>
       )}
