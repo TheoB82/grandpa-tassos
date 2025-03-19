@@ -4,7 +4,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['youtube.com', 'www.youtube.com'], // Allow images from YouTube (for thumbnails, etc.)
+    domains: [
+      'youtube.com', 
+      'www.youtube.com', 
+      'i.ytimg.com', 
+      'your-image-domain.com' // Replace with your own image source domains, if necessary
+    ],
   },
   async headers() {
     return [
@@ -19,7 +24,7 @@ const nextConfig: NextConfig = {
               script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.youtube-nocookie.com;
               style-src 'self' 'unsafe-inline';
               connect-src 'self';
-              img-src 'self' data: https://www.youtube.com https://i.ytimg.com https://your-image-domain.com; // Add your image domains here
+              img-src 'self' data: https://www.youtube.com https://i.ytimg.com https://your-image-domain.com; // Make sure this includes your image domain
             `.replace(/\s{2,}/g, ' ').trim(), // Collapse whitespace
           },
         ],
