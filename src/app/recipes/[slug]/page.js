@@ -47,7 +47,7 @@ const RecipePage = () => {
           } else {
             setRecipe(null); // Set recipe to null if not found
           }
-        } catch {
+        } catch (error) {
           setRecipe(null); // Set recipe to null on error
         }
         setLoading(false);
@@ -57,60 +57,69 @@ const RecipePage = () => {
     }
   }, [slug]);
 
-  // Function to format Execution steps as a numbered list
-  const formatExecutionSteps = (executionText) => {
-    const steps = executionText
-      .split("\n") // Split based on line breaks
-      .filter((step) => step.trim() !== "") // Filter out empty steps
-      .map((step, index) => `${index + 1}. ${step.trim()}`); // Add numbering
-    return steps.map((step, index) => <li key={index}>{step}</li>);
-  };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!recipe) {
-    return <div>Recipe not found</div>;
-  }
-
-  const executionText =
-    language === "EN" ? recipe.ExecutionEN : recipe.ExecutionGR;
+  if (!isMounted) return null;
+  if (loading) return <div>Loading...</div>;
+  if (!recipe) return <div className="text-center text-xl mt-10">Recipe not found 😞</div>;
 
   return (
     <div>
       <Header />
-      <div>
-        <h1>{language === "EN" ? recipe.TitleEN : recipe.TitleGR}</h1>
-        <img src={recipe.Image} alt={recipe.TitleEN} />
-        <p>{language === "EN" ? recipe.ShortDescriptionEN : recipe.ShortDescriptionGR}</p>
-        
-        {/* Ingredients */}
-        <h3>{language === "EN" ? "Ingredients" : "Συστατικά"}</h3>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: language === "EN" ? recipe.IngredientsEN : recipe.IngredientsGR,
-          }}
-        />
+      
+      <div className="max-w-4xl mx-auto p-8 mt-4">
+        {/* Recipe Title */}
+        <h1 className="text-3xl font-bold text-center mb-4">
+          {language === 'EN' ? recipe.TitleEN : recipe.TitleGR}
+        </h1>
 
-        {/* Execution Steps */}
-        <h3>{language === "EN" ? "Execution" : "Εκτέλεση"}</h3>
-        <ol>{formatExecutionSteps(executionText)}</ol>
-
-        {/* Optional: YouTube Video */}
-        {recipe.LinkYT && (
-          <div>
-            <h3>{language === "EN" ? "Watch the Recipe Video" : "Δείτε το βίντεο συνταγής"}</h3>
+        {/* YouTube Video (If Exists) */}
+        {recipe.LinkYT && getYouTubeEmbedUrl(recipe.LinkYT) && (
+          <div className="mt-6">
             <iframe
-              width="560"
-              height="315"
+              width="100%"
+              height="400"
               src={getYouTubeEmbedUrl(recipe.LinkYT)}
+              title={recipe.TitleEN}
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
           </div>
         )}
+
+        {/* Short Description */}
+        <p className="mt-6 text-xl text-center text-gray-800">
+          {language === 'EN' ? recipe.ShortDescriptionEN : recipe.ShortDescriptionGR}
+        </p>
+
+        {/* Long Description */}
+        {language === 'EL' || language === 'GR' ? (
+          <div className="mt-8 bg-gray-100 p-6 rounded-lg shadow-lg">
+            {language === 'GR' && (
+              <div dangerouslySetInnerHTML={{ __html: recipe.LongDescriptionGR }}></div>
+            )}
+            {language === 'EN' && (
+              <div dangerouslySetInnerHTML={{ __html: recipe.LongDescriptionEN }}></div>
+            )}
+          </div>
+        ) : null}
+
+        {/* Execution Section */}
+        <div className="mt-6 flex flex-wrap justify-center">
+          <div className="flex-1 mr-12 w-full md:w-1/2">
+            <h2 className="text-2xl font-bold mt-6 text-gray-800">
+              {language === 'EN' ? "Execution" : "Εκτέλεση"}
+            </h2>
+            <div className="text-lg" dangerouslySetInnerHTML={{ __html: language === 'EN' ? recipe.ExecutionEN : recipe.ExecutionGR }}></div>
+          </div>
+
+          {/* Ingredients Section */}
+          <div className="p-6 bg-white border border-gray-300 shadow-lg rounded-lg max-w-xs w-full md:w-1/2">
+            <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
+              {language === 'EN' ? "Ingredients" : "Συστατικά"}
+            </h2>
+            <div className="text-lg text-center" dangerouslySetInnerHTML={{ __html: language === 'EN' ? recipe.IngredientsEN : recipe.IngredientsGR }}></div>
+          </div>
+        </div>
       </div>
     </div>
   );
