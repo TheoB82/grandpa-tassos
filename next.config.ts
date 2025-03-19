@@ -1,11 +1,22 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['youtube.com', 'www.youtube.com'], // Allow images from YouTube (for thumbnails, etc.)
+    domains: ['youtube.com', 'www.youtube.com'], // For thumbnails
   },
-  // No need for the `allowImportingInPage` option.
+  async headers() {
+    return [
+      {
+        source: "/(.*)", // Apply to all routes
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "frame-src https://www.youtube.com https://www.youtube-nocookie.com; default-src 'self';",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

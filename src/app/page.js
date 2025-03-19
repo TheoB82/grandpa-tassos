@@ -36,7 +36,7 @@ export default function Home() {
       </h1>
 
       {/* Embedded YouTube Video */}
-      <div className="flex justify-center mb-10 mt-10 min-h-[315px]">
+      <div className="flex justify-center mb-10 min-h-[315px]">
   <iframe
     className="rounded-xl shadow-lg w-[560px] h-[315px]"
     src="https://www.youtube.com/embed/domQLeVFwfQ"
