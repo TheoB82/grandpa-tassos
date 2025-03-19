@@ -1,4 +1,3 @@
-// src/app/recipes/[slug].js
 import { useRouter } from 'next/router';
 import recipes from '../../recipes.json';
 
@@ -12,14 +11,31 @@ const RecipePage = () => {
   );
 
   if (!recipe) {
-    return <div>Recipe not found skdjs😞</div>;
+    return <div>Recipe not found 😞</div>;
   }
+
+  // Destructure execution steps
+  const executionStepsGR = recipe.ExecutionGR || [];
+  const executionStepsEN = recipe.ExecutionEN || [];
 
   return (
     <div>
       <h1>{recipe.TitleEN}</h1>
       <p>{recipe.ShortDescriptionEN}</p>
-      {/* Render recipe details */}
+
+      <h2>Execution (Greek)</h2>
+      <ul>
+        {executionStepsGR.map((step, index) => (
+          <li key={index}>{step}</li>
+        ))}
+      </ul>
+
+      <h2>Execution (English)</h2>
+      <ul>
+        {executionStepsEN.map((step, index) => (
+          <li key={index}>{step}</li>
+        ))}
+      </ul>
     </div>
   );
 };
