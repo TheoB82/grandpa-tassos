@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['youtube.com', 'www.youtube.com', 'i.ytimg.com', 'your-image-domain.com'], // Add any other image domains here
+    domains: ['youtube.com', 'www.youtube.com'], // Allow images from YouTube (for thumbnails, etc.)
   },
   async headers() {
     return [
