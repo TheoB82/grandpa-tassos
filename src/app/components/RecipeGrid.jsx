@@ -93,7 +93,7 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
             onClick={loadMore}
             className="bg-blue-600 text-white px-6 py-2 rounded-lg text-lg hover:bg-blue-700 transition"
           >
-            {language === "GR" ? "Δείξε Περισσότερα" : "Show More"}
+            {language === "GR" ? "Περισσότερα" : "Show More"}
           </button>
         </div>
       )}
