@@ -36,19 +36,18 @@ export default function Home() {
       </h1>
 
       {/* Embedded YouTube Video */}
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-10 min-h-[315px]">
   <iframe
-    width="560"
-    height="315"
+    className="rounded-xl shadow-lg w-[560px] h-[315px]"
     src="https://www.youtube.com/embed/domQLeVFwfQ"
     title="YouTube video player"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerPolicy="strict-origin-when-cross-origin"
     allowFullScreen
-    className="rounded-xl shadow-lg"
   ></iframe>
 </div>
+
 
 
       {/* Recipe Grid */}
