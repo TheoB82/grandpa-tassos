@@ -36,9 +36,9 @@ export default function Home() {
       </h1>
 
       {/* Embedded YouTube Video */}
-      <div className="relative pb-[56.25%] h-0 mb-10 w-full max-w-4xl mx-auto">
+      <div className="flex justify-center mb-10 min-h-[315px]">
   <iframe
-    className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg"
+    className="rounded-xl shadow-lg w-[560px] h-[315px]"
     src="https://www.youtube.com/embed/domQLeVFwfQ"
     title="YouTube video player"
     frameBorder="0"
@@ -47,6 +47,8 @@ export default function Home() {
     allowFullScreen
   ></iframe>
 </div>
+
+
 
       {/* Recipe Grid */}
       <RecipeGrid recipes={filteredRecipes} language={language} />
