@@ -31,24 +31,25 @@ export default function Home() {
       <Header setCategory={setSelectedCategory} /> {/* Pass the setter function to Header */}
 
       {/* Title */}
-      <h1 className="text-4xl font-bold text-center mt-4 mb-6">
+      <h1 className="text-4xl font-bold text-center mt-2 mb-6">
         {language === "EN" ? "My Recipes" : "Οι Συνταγές μου"}
       </h1>
 
       {/* Embedded YouTube Video */}
       <div className="flex justify-center mb-10">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/domQLeVFwfQ?si=6NIiFQmQc7-5kLoH"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-          className="rounded-xl shadow-lg"
-        ></iframe>
-      </div>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/domQLeVFwfQ"
+    title="YouTube video player"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+    className="rounded-xl shadow-lg"
+  ></iframe>
+</div>
+
 
       {/* Recipe Grid */}
       <RecipeGrid recipes={filteredRecipes} language={language} />
