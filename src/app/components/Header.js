@@ -71,19 +71,17 @@ const Header = () => {
     }
   };
 
-  // Moved outside handleCategoryClick
   const handleMouseEnter = () => {
     clearTimeout(dropdownTimeout);
     setIsDropdownOpen(true);
   };
 
   const handleMouseLeave = () => {
-    // Delay the dropdown close but check if the mouse is still inside the dropdown
     const timeout = setTimeout(() => {
       if (!isMouseOverDropdown) {
         setIsDropdownOpen(false);
       }
-    }, 200); // Delay before closing
+    }, 200);
     setDropdownTimeout(timeout);
   };
 
@@ -96,11 +94,11 @@ const Header = () => {
   };
 
   const handleDropdownMouseEnter = () => {
-    setIsMouseOverDropdown(true); // Mouse is inside the dropdown
+    setIsMouseOverDropdown(true);
   };
 
   const handleDropdownMouseLeave = () => {
-    setIsMouseOverDropdown(false); // Mouse left the dropdown
+    setIsMouseOverDropdown(false);
   };
 
   return (
@@ -171,18 +169,24 @@ const Header = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          {searchResults.length > 0 && (
+          {searchQuery.trim() && (
             <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-              {searchResults.map((recipe) => (
-                <li
-                  key={recipe.TitleEN}
-                  className="p-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleRecipeClick(recipe)}
-                >
-                  <div className="font-semibold">{recipe[`Title${language}`]}</div>
-                  <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+              {searchResults.length > 0 ? (
+                searchResults.map((recipe) => (
+                  <li
+                    key={recipe.TitleEN}
+                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => handleRecipeClick(recipe)}
+                  >
+                    <div className="font-semibold">{recipe[`Title${language}`]}</div>
+                    <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+                  </li>
+                ))
+              ) : (
+                <li className="p-2 text-gray-500">
+                  {language === "EN" ? "No results found" : "Δεν βρέθηκαν αποτελέσματα"}
                 </li>
-              ))}
+              )}
             </ul>
           )}
         </div>
@@ -205,25 +209,13 @@ const Header = () => {
 
         {/* Social Media Icons */}
         <div className="flex space-x-4">
-          <Link
-            href="https://www.youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
             <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
           </Link>
-          <Link
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
           </Link>
-          <Link
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
             <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
           </Link>
         </div>
