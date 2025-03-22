@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram, FaBars, FaTimes } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from "../../utils/categoryMapping";
+import { categoryMapping } from '../../utils/categoryMapping';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,6 +13,7 @@ const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMouseOverDropdown, setIsMouseOverDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const dropdownRef = useRef(null);
@@ -177,43 +178,60 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="lg:hidden mt-4 space-y-4">
-          <ul className="space-y-4 text-lg font-semibold">
-            <li>
-              <span
-                className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
-                {language === "EN" ? "Recipes" : "Συνταγές"}
-              </span>
-              {isDropdownOpen && (
-                <ul className="mt-2 space-y-2">
-                  {categoryMapping[language]?.map((category) => (
-                    <li
-                      key={category.path}
-                      className="p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleCategoryClick(category.path)}
-                    >
+          <div className="flex flex-col space-y-2 text-lg font-semibold">
+            <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="text-left">
+              {language === "EN" ? "Recipes" : "Συνταγές"}
+            </button>
+            {isDropdownOpen && (
+              <ul className="pl-4 space-y-1">
+                {categoryMapping[language]?.map((category) => (
+                  <li key={category.path}>
+                    <button onClick={() => handleCategoryClick(category.path)} className="text-left text-gray-700 hover:text-blue-500">
                       {category.name}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link href="/about" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "Contact" : "Επικοινωνία"}
-              </Link>
-            </li>
-            {/* Mobile Language Toggle */}
-            <li className="flex space-x-4">
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <Link href="/about" className="text-gray-700 hover:text-blue-500" onClick={() => setMobileMenuOpen(false)}>
+              {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+            </Link>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-500" onClick={() => setMobileMenuOpen(false)}>
+              {language === "EN" ? "Contact" : "Επικοινωνία"}
+            </Link>
+          </div>
+
+          {/* Mobile Search Bar */}
+          <div className="relative mt-4" ref={searchRef}>
+            <input
+              type="text"
+              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {searchResults.length > 0 && (
+              <ul className="absolute top-12 left-0 w-full bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
+                {searchResults.map((recipe) => (
+                  <li
+                    key={recipe.TitleEN}
+                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => handleRecipeClick(recipe)}
+                  >
+                    <div className="font-semibold">{recipe[`Title${language}`]}</div>
+                    <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* Language Switch & Social Icons */}
+          <div className="flex justify-between items-center mt-4">
+            <div className="flex space-x-2">
               <button
                 className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
                 onClick={() => handleLanguageChange("EN")}
@@ -226,8 +244,19 @@ const Header = () => {
               >
                 ΕΛ
               </button>
-            </li>
-          </ul>
+            </div>
+            <div className="flex space-x-2 text-xl">
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-red-600">
+                <FaYoutube />
+              </a>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+                <FaFacebook />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">
+                <FaInstagram />
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </header>
