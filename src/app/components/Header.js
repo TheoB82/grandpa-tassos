@@ -110,7 +110,51 @@ const Header = () => {
 
   return (
     <header className="w-full p-4 bg-white text-gray-900 flex items-center justify-between fixed top-0 left-0 right-0 shadow-md z-50">
-      {/* Left - Navigation for Desktop */}
+      {/* Mobile View - Burger Menu */}
+      <div className="lg:hidden flex justify-between items-center w-full">
+        <div className="flex justify-start">
+          <button onClick={handleBurgerClick}>
+            <span className="text-gray-700 text-2xl">&#9776;</span>
+          </button>
+        </div>
+
+        {/* Logo (Centered, Smaller) */}
+        <Link href="/" className="block mx-auto">
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-12" width={48} height={48} />
+        </Link>
+
+        {/* Search & Language Toggle on Right */}
+        <div className="flex justify-end space-x-4 items-center">
+          {/* Search Icon */}
+          <div className="relative">
+            <input
+              type="text"
+              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          {/* Language Selector */}
+          <div className="flex space-x-4">
+            <button
+              className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+              onClick={() => handleLanguageChange("EN")}
+            >
+              EN
+            </button>
+            <button
+              className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+              onClick={() => handleLanguageChange("GR")}
+            >
+              ΕΛ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop View - Navigation */}
       <nav className="hidden lg:flex flex-1 justify-start ml-20">
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           <li
@@ -157,14 +201,14 @@ const Header = () => {
         </ul>
       </nav>
 
-      {/* Center - Logo */}
+      {/* Center - Logo for Desktop */}
       <div className="flex justify-center flex-1 items-center">
         <Link href="/" className="block">
           <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
         </Link>
       </div>
 
-      {/* Right - Search, Language Selector, Socials */}
+      {/* Right - Search, Language Selector, Socials for Desktop */}
       <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
         {/* Search Bar */}
         <div className="relative hidden lg:block" ref={searchRef}>
@@ -207,95 +251,34 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Social Media Icons */}
+        {/* Social Icons */}
         <div className="flex space-x-4">
-          <Link
-            href="https://www.youtube.com"
+          <a
+            href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-blue-500"
           >
-            <FaYoutube className="text-red-600 text-2xl hover:scale-110 transition-transform" />
-          </Link>
-          <Link
-            href="https://www.facebook.com"
+            <FaYoutube size={24} />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100089479543703"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-blue-500"
           >
-            <FaFacebook className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
-          </Link>
-          <Link
-            href="https://www.instagram.com"
+            <FaFacebook size={24} />
+          </a>
+          <a
+            href="https://www.instagram.com/grandpatazzos/"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-blue-500"
           >
-            <FaInstagram className="text-pink-500 text-2xl hover:scale-110 transition-transform" />
-          </Link>
+            <FaInstagram size={24} />
+          </a>
         </div>
       </div>
-
-      {/* Mobile View - Burger Menu */}
-      <div className="lg:hidden flex justify-between items-center w-full p-4">
-        <div className="flex justify-start">
-          <button onClick={handleBurgerClick}>
-            <span className="text-gray-700 text-2xl">&#9776;</span>
-          </button>
-        </div>
-
-        {/* Logo */}
-        <Link href="/" className="block">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-16" width={64} height={64} />
-        </Link>
-
-        {/* Mobile Search & Language Toggle */}
-        <div className="flex justify-end space-x-4">
-          {/* Search Icon */}
-          <div className="relative">
-            <input
-              type="text"
-              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          
-          {/* Language Selector */}
-          <div className="flex space-x-4">
-            <button
-              className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("EN")}
-            >
-              EN
-            </button>
-            <button
-              className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("GR")}
-            >
-              ΕΛ
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu - Visible if isMenuOpen is true */}
-      {isMenuOpen && (
-        <div className="lg:hidden absolute top-16 left-0 w-full bg-white shadow-md p-4 z-50">
-          <ul>
-            <li>
-              <Link href="/about" className="block text-gray-700 py-2">About Grandpa</Link>
-            </li>
-            <li>
-              <Link href="/contact" className="block text-gray-700 py-2">Contact</Link>
-            </li>
-            <li
-              className="text-gray-700 py-2"
-              onClick={() => handleCategoryClick("/recipes")}
-            >
-              {language === "EN" ? "Recipes" : "Συνταγές"}
-            </li>
-          </ul>
-        </div>
-      )}
     </header>
   );
 };
