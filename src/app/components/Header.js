@@ -9,53 +9,10 @@ import Image from "next/image";
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [recipes, setRecipes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
   const dropdownRef = useRef(null);
-  const searchRef = useRef(null);
   const router = useRouter();
-
-  useEffect(() => {
-    fetch("/recipes.json")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data && Array.isArray(data)) {
-          setRecipes(data);
-        } else {
-          console.error("Invalid recipe data:", data);
-        }
-      })
-      .catch((error) => console.error("Error loading recipes:", error));
-  }, []);
-
-  useEffect(() => {
-    if (!searchQuery.trim()) {
-      setSearchResults([]);
-      return;
-    }
-
-    const filtered = recipes.filter((recipe) =>
-      [recipe[`Title${language}`], recipe[`ShortDescription${language}`], recipe[`Tags${language}`]]
-        .join(" ")
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
-    );
-
-    setSearchResults(filtered);
-  }, [searchQuery, language, recipes]);
-
-  const handleRecipeClick = (recipe) => {
-    if (recipe && recipe.TitleEN) {
-      router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
-      setSearchQuery("");
-      setSearchResults([]);
-    } else {
-      console.error("Invalid recipe clicked:", recipe);
-    }
-  };
 
   const handleCategoryClick = (categoryPath) => {
     if (categoryPath) {
@@ -74,27 +31,6 @@ const Header = () => {
             <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-12 w-auto" width={128} height={128} />
           </Link>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-gray-700 hover:text-blue-500 focus:outline-none"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            ></path>
-          </svg>
-        </button>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6 text-lg font-semibold">
@@ -133,6 +69,43 @@ const Header = () => {
             </li>
           </ul>
         </nav>
+
+        {/* Language Toggle */}
+        <div className="hidden lg:flex space-x-4">
+          <button
+            className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => handleLanguageChange("EN")}
+          >
+            EN
+          </button>
+          <button
+            className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+            onClick={() => handleLanguageChange("GR")}
+          >
+            ΕΛ
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden text-gray-700 hover:text-blue-500 focus:outline-none"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+            ></path>
+          </svg>
+        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -169,6 +142,21 @@ const Header = () => {
               <Link href="/contact" className="text-gray-700 hover:text-blue-500">
                 {language === "EN" ? "Contact" : "Επικοινωνία"}
               </Link>
+            </li>
+            {/* Mobile Language Toggle */}
+            <li className="flex space-x-4">
+              <button
+                className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+                onClick={() => handleLanguageChange("EN")}
+              >
+                EN
+              </button>
+              <button
+                className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+                onClick={() => handleLanguageChange("GR")}
+              >
+                ΕΛ
+              </button>
             </li>
           </ul>
         </div>
