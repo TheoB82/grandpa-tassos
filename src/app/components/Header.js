@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from '../../utils/categoryMapping';
+import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -49,19 +49,6 @@ const Header = () => {
     setSearchResults(filtered);
   }, [searchQuery, language, recipes]);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setSearchResults([]);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   const handleRecipeClick = (recipe) => {
     if (recipe && recipe.TitleEN) {
       router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
@@ -72,7 +59,6 @@ const Header = () => {
     }
   };
 
-  // Moved outside handleCategoryClick
   const handleMouseEnter = () => {
     clearTimeout(dropdownTimeout);
     setIsDropdownOpen(true);
@@ -83,7 +69,7 @@ const Header = () => {
       if (!isMouseOverDropdown) {
         setIsDropdownOpen(false);
       }
-    }, 200); // Delay before closing
+    }, 200);
     setDropdownTimeout(timeout);
   };
 
@@ -96,14 +82,13 @@ const Header = () => {
   };
 
   const handleDropdownMouseEnter = () => {
-    setIsMouseOverDropdown(true); // Mouse is inside the dropdown
+    setIsMouseOverDropdown(true);
   };
 
   const handleDropdownMouseLeave = () => {
-    setIsMouseOverDropdown(false); // Mouse left the dropdown
+    setIsMouseOverDropdown(false);
   };
 
-  // Toggle menu state for mobile view
   const handleBurgerClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -113,7 +98,7 @@ const Header = () => {
       {/* Mobile View - Burger Menu */}
       <div className="lg:hidden flex justify-between items-center w-full">
         <div className="flex justify-start">
-          <button onClick={handleBurgerClick}>
+          <button onClick={handleBurgerClick} aria-label="Toggle menu">
             <span className="text-gray-700 text-2xl">&#9776;</span>
           </button>
         </div>
@@ -123,14 +108,12 @@ const Header = () => {
           <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-12" width={48} height={48} />
         </Link>
 
-        {/* Search & Language Toggle on Right */}
+        {/* Search Icon for Mobile */}
         <div className="flex justify-end space-x-4 items-center">
-  {/* Search Icon */}
-  <button onClick={handleBurgerClick} className="text-gray-700 text-xl">
-    🔍
-  </button>
-</div>
-
+          <button onClick={() => setSearchQuery("")} className="text-gray-700 text-xl">
+            🔍
+          </button>
+        </div>
       </div>
 
       {/* Desktop View - Navigation */}
