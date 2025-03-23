@@ -161,7 +161,7 @@ const Header = () => {
       </nav>
 
       {/* Right - Language Selector, Socials and Search for Desktop */}
-      <div className="flex-1 flex justify-end items-center space-x-6 mr-4">
+      <div className="flex-1 flex flex-col justify-end items-end space-y-4 mr-4">
         {/* Language Selector */}
         <div className="flex space-x-4">
           <button
@@ -178,8 +178,15 @@ const Header = () => {
           </button>
         </div>
 
+        {/* Search Icon for Desktop */}
+        <div className="flex justify-end">
+          <button onClick={handleSearchIconClick} className="text-gray-700 text-xl">
+            🔍
+          </button>
+        </div>
+
         {/* Social Icons */}
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 mt-2">
           <a
             href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q"
             target="_blank"
@@ -205,31 +212,31 @@ const Header = () => {
             <FaInstagram size={24} />
           </a>
         </div>
+      </div>
 
-        {/* Search Bar */}
-        <div className="relative hidden lg:block" ref={searchRef}>
-          <input
-            type="text"
-            placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {searchResults.length > 0 && (
-            <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-              {searchResults.map((recipe) => (
-                <li
-                  key={recipe.TitleEN}
-                  className="p-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleRecipeClick(recipe)}
-                >
-                  <div className="font-semibold">{recipe[`Title${language}`]}</div>
-                  <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+      {/* Search Bar on Desktop */}
+      <div className="relative hidden lg:block" ref={searchRef}>
+        <input
+          type="text"
+          placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        {searchResults.length > 0 && (
+          <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
+            {searchResults.map((recipe) => (
+              <li
+                key={recipe.TitleEN}
+                className="p-2 hover:bg-gray-100 cursor-pointer"
+                onClick={() => handleRecipeClick(recipe)}
+              >
+                <div className="font-semibold">{recipe[`Title${language}`]}</div>
+                <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </header>
   );
