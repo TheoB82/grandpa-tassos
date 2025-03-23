@@ -18,7 +18,6 @@ const Header = () => {
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
   const router = useRouter();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     fetch("/recipes.json")
@@ -72,7 +71,6 @@ const Header = () => {
     }
   };
 
-  // Moved outside handleCategoryClick
   const handleMouseEnter = () => {
     clearTimeout(dropdownTimeout);
     setIsDropdownOpen(true);
@@ -83,7 +81,7 @@ const Header = () => {
       if (!isMouseOverDropdown) {
         setIsDropdownOpen(false);
       }
-    }, 200); // Delay before closing
+    }, 200); 
     setDropdownTimeout(timeout);
   };
 
@@ -96,16 +94,11 @@ const Header = () => {
   };
 
   const handleDropdownMouseEnter = () => {
-    setIsMouseOverDropdown(true); // Mouse is inside the dropdown
+    setIsMouseOverDropdown(true); 
   };
 
   const handleDropdownMouseLeave = () => {
-    setIsMouseOverDropdown(false); // Mouse left the dropdown
-  };
-
-  // Toggle menu state for mobile view
-  const handleBurgerClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMouseOverDropdown(false); 
   };
 
   return (
@@ -113,7 +106,7 @@ const Header = () => {
       {/* Mobile View - Burger Menu */}
       <div className="lg:hidden flex justify-between items-center w-full">
         <div className="flex justify-start">
-          <button onClick={handleBurgerClick}>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <span className="text-gray-700 text-2xl">&#9776;</span>
           </button>
         </div>
