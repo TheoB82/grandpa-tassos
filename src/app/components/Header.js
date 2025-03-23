@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from '../../utils/categoryMapping';
+import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,10 +13,8 @@ const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [dropdownTimeout, setDropdownTimeout] = useState(null);
-  const [isMouseOverDropdown, setIsMouseOverDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // For mobile search toggle
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
   const router = useRouter();
@@ -87,18 +85,19 @@ const Header = () => {
     <header className="w-full p-4 bg-white text-gray-900 flex items-center justify-between fixed top-0 left-0 right-0 shadow-md z-50">
       {/* Mobile View - Burger Menu */}
       <div className="lg:hidden flex justify-between items-center w-full">
+        {/* Burger Menu */}
         <div className="flex justify-start">
           <button onClick={handleBurgerClick}>
             <span className="text-gray-700 text-2xl">&#9776;</span>
           </button>
         </div>
 
-        {/* Logo (Centered, Smaller) */}
+        {/* Logo (Centered, Larger) */}
         <Link href="/" className="block mx-auto">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-12" width={48} height={48} />
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-16" width={64} height={64} />
         </Link>
 
-        {/* Search Icon for Mobile */}
+        {/* Right - Search Icon and Language Selector for Mobile */}
         <div className="flex justify-end space-x-4 items-center">
           <button onClick={handleSearchIconClick} className="text-gray-700 text-xl">
             🔍
@@ -106,8 +105,18 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Desktop View - Navigation */}
-      <nav className={`hidden lg:flex flex-1 justify-start ml-20 ${isMenuOpen ? 'block' : 'hidden'}`}>
+      {/* Desktop View */}
+      <nav
+        className={`hidden lg:flex flex-1 justify-center items-center ${
+          isMenuOpen ? "block" : "hidden"
+        }`}
+      >
+        {/* Logo */}
+        <Link href="/" className="block mx-auto">
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-16" width={64} height={64} />
+        </Link>
+
+        {/* Menu Items */}
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           <li
             className="relative"
@@ -151,33 +160,8 @@ const Header = () => {
         </ul>
       </nav>
 
-      {/* Right - Search, Language Selector, Socials for Desktop */}
-      <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
-        {/* Search Bar */}
-        <div className="relative hidden lg:block" ref={searchRef}>
-          <input
-            type="text"
-            placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {searchResults.length > 0 && (
-            <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-              {searchResults.map((recipe) => (
-                <li
-                  key={recipe.TitleEN}
-                  className="p-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleRecipeClick(recipe)}
-                >
-                  <div className="font-semibold">{recipe[`Title${language}`]}</div>
-                  <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
+      {/* Right - Language Selector, Socials and Search for Desktop */}
+      <div className="flex-1 flex justify-end items-center space-x-6 mr-4">
         {/* Language Selector */}
         <div className="flex space-x-4">
           <button
@@ -220,6 +204,31 @@ const Header = () => {
           >
             <FaInstagram size={24} />
           </a>
+        </div>
+
+        {/* Search Bar */}
+        <div className="relative hidden lg:block" ref={searchRef}>
+          <input
+            type="text"
+            placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          {searchResults.length > 0 && (
+            <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
+              {searchResults.map((recipe) => (
+                <li
+                  key={recipe.TitleEN}
+                  className="p-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleRecipeClick(recipe)}
+                >
+                  <div className="font-semibold">{recipe[`Title${language}`]}</div>
+                  <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </header>
