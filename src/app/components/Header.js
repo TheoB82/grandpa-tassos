@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -97,8 +96,25 @@ const Header = () => {
           <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-16" width={64} height={64} />
         </Link>
 
-        {/* Right - Search Icon and Language Selector for Mobile */}
-        <div className="flex justify-end space-x-4 items-center">
+        {/* Right Section: Language Toggle and Search Icon */}
+        <div className="flex flex-col items-end space-y-2">
+          {/* Language Toggle */}
+          <div className="flex space-x-2">
+            <button
+              className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+              onClick={() => handleLanguageChange("EN")}
+            >
+              EN
+            </button>
+            <button
+              className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+              onClick={() => handleLanguageChange("GR")}
+            >
+              ΕΛ
+            </button>
+          </div>
+
+          {/* Search Icon */}
           <button onClick={handleSearchIconClick} className="text-gray-700 text-xl">
             🔍
           </button>
@@ -106,11 +122,7 @@ const Header = () => {
       </div>
 
       {/* Desktop View */}
-      <nav
-        className={`hidden lg:flex flex-1 justify-center items-center ${
-          isMenuOpen ? "block" : "hidden"
-        }`}
-      >
+      <nav className={`hidden lg:flex flex-1 justify-center items-center ${isMenuOpen ? "block" : "hidden"}`}>
         {/* Logo */}
         <Link href="/" className="block mx-auto">
           <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-16" width={64} height={64} />
@@ -128,9 +140,8 @@ const Header = () => {
               {language === "EN" ? "Recipes" : "Συνταγές"}
             </span>
             {isDropdownOpen && (
-              <ul
-                className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50"
-              >
+              <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
+                {/* Map categories dynamically */}
                 {categoryMapping[language] && categoryMapping[language].length > 0 ? (
                   categoryMapping[language].map((category) => (
                     <li
@@ -160,55 +171,16 @@ const Header = () => {
         </ul>
       </nav>
 
-      {/* Right - Language Selector, Socials and Search for Desktop */}
-      <div className="flex-1 flex flex-col justify-end items-end space-y-4 mr-4">
-        {/* Language Selector */}
+      {/* Right Section: Social Icons */}
+      <div className="flex-1 flex flex-col justify-end items-end space-y-2 mr-4">
         <div className="flex space-x-4">
-          <button
-            className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("EN")}
-          >
-            EN
-          </button>
-          <button
-            className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("GR")}
-          >
-            ΕΛ
-          </button>
-        </div>
-
-        {/* Search Icon for Desktop */}
-        <div className="flex justify-end">
-          <button onClick={handleSearchIconClick} className="text-gray-700 text-xl">
-            🔍
-          </button>
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex space-x-4 mt-2">
-          <a
-            href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-500"
-          >
+          <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer">
             <FaYoutube size={24} />
           </a>
-          <a
-            href="https://www.facebook.com/profile.php?id=100089479543703"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-500"
-          >
+          <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={24} />
           </a>
-          <a
-            href="https://www.instagram.com/grandpatazzos/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-500"
-          >
+          <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={24} />
           </a>
         </div>
