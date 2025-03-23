@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from "../../utils/categoryMapping";
+import { categoryMapping } from '../../utils/categoryMapping';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,10 +15,11 @@ const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const [isMouseOverDropdown, setIsMouseOverDropdown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // For mobile search toggle
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
   const router = useRouter();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     fetch("/recipes.json")
@@ -49,6 +50,19 @@ const Header = () => {
     setSearchResults(filtered);
   }, [searchQuery, language, recipes]);
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchResults([]);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handleRecipeClick = (recipe) => {
     if (recipe && recipe.TitleEN) {
       router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
@@ -59,38 +73,14 @@ const Header = () => {
     }
   };
 
-  const handleMouseEnter = () => {
-    clearTimeout(dropdownTimeout);
-    setIsDropdownOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      if (!isMouseOverDropdown) {
-        setIsDropdownOpen(false);
-      }
-    }, 200);
-    setDropdownTimeout(timeout);
-  };
-
-  const handleCategoryClick = (categoryPath) => {
-    if (categoryPath) {
-      router.push(`${categoryPath}`);
-    } else {
-      console.error("Invalid category clicked:", categoryPath);
-    }
-  };
-
-  const handleDropdownMouseEnter = () => {
-    setIsMouseOverDropdown(true);
-  };
-
-  const handleDropdownMouseLeave = () => {
-    setIsMouseOverDropdown(false);
-  };
-
+  // Mobile Menu Toggle
   const handleBurgerClick = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Toggle Search Bar on Mobile
+  const handleSearchIconClick = () => {
+    setIsSearchOpen(!isSearchOpen);
   };
 
   return (
@@ -98,7 +88,7 @@ const Header = () => {
       {/* Mobile View - Burger Menu */}
       <div className="lg:hidden flex justify-between items-center w-full">
         <div className="flex justify-start">
-          <button onClick={handleBurgerClick} aria-label="Toggle menu">
+          <button onClick={handleBurgerClick}>
             <span className="text-gray-700 text-2xl">&#9776;</span>
           </button>
         </div>
@@ -110,20 +100,20 @@ const Header = () => {
 
         {/* Search Icon for Mobile */}
         <div className="flex justify-end space-x-4 items-center">
-          <button onClick={() => setSearchQuery("")} className="text-gray-700 text-xl">
+          <button onClick={handleSearchIconClick} className="text-gray-700 text-xl">
             🔍
           </button>
         </div>
       </div>
 
       {/* Desktop View - Navigation */}
-      <nav className="hidden lg:flex flex-1 justify-start ml-20">
+      <nav className={`hidden lg:flex flex-1 justify-start ml-20 ${isMenuOpen ? 'block' : 'hidden'}`}>
         <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
           <li
             className="relative"
             ref={dropdownRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
           >
             <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
               {language === "EN" ? "Recipes" : "Συνταγές"}
@@ -131,8 +121,6 @@ const Header = () => {
             {isDropdownOpen && (
               <ul
                 className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50"
-                onMouseEnter={handleDropdownMouseEnter}
-                onMouseLeave={handleDropdownMouseLeave}
               >
                 {categoryMapping[language] && categoryMapping[language].length > 0 ? (
                   categoryMapping[language].map((category) => (
@@ -162,13 +150,6 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-
-      {/* Center - Logo for Desktop */}
-      <div className="flex justify-center flex-1 items-center">
-        <Link href="/" className="block">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
-        </Link>
-      </div>
 
       {/* Right - Search, Language Selector, Socials for Desktop */}
       <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
