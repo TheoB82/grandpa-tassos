@@ -125,33 +125,12 @@ const Header = () => {
 
         {/* Search & Language Toggle on Right */}
         <div className="flex justify-end space-x-4 items-center">
-          {/* Search Icon */}
-          <div className="relative">
-            <input
-              type="text"
-              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+  {/* Search Icon */}
+  <button onClick={handleBurgerClick} className="text-gray-700 text-xl">
+    🔍
+  </button>
+</div>
 
-          {/* Language Selector */}
-          <div className="flex space-x-4">
-            <button
-              className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("EN")}
-            >
-              EN
-            </button>
-            <button
-              className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("GR")}
-            >
-              ΕΛ
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* Desktop View - Navigation */}
