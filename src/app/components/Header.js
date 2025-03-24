@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
-import MobileHeader from "./mobileheader"; // Import the MobileHeader component
+import MobileHeader from './mobileHeader'; // Ensure this path is correct
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
