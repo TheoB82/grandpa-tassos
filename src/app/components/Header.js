@@ -175,7 +175,7 @@ const Header = () => {
   {/* Desktop View */}
 <div className="hidden lg:flex items-center justify-between">
   {/* Left Nav */}
-  <nav className="flex flex-1 justify-start ml-20 relative z-50"> {/* Added relative and z-50 */}
+  <nav className="flex flex-1 justify-start ml-20 relative z-50 overflow-visible"> {/* Added relative, z-50, and overflow-visible */}
     <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
       <li
         className="relative"
