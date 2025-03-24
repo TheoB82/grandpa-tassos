@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { useRouter } from "next/navigation";
-import { categoryMapping } from '../../utils/categoryMapping';
+import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -81,7 +81,7 @@ const Header = () => {
       if (!isMouseOverDropdown) {
         setIsDropdownOpen(false);
       }
-    }, 200); 
+    }, 200);
     setDropdownTimeout(timeout);
   };
 
@@ -94,11 +94,11 @@ const Header = () => {
   };
 
   const handleDropdownMouseEnter = () => {
-    setIsMouseOverDropdown(true); 
+    setIsMouseOverDropdown(true);
   };
 
   const handleDropdownMouseLeave = () => {
-    setIsMouseOverDropdown(false); 
+    setIsMouseOverDropdown(false);
   };
 
   return (
