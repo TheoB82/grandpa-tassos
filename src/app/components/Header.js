@@ -173,114 +173,114 @@ const Header = () => {
   )}
 
   {/* Desktop View */}
-  <div className="hidden lg:flex items-center justify-between">
-    {/* Left Nav */}
-    <nav className="flex flex-1 justify-start ml-20">
-      <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
-        <li
-          className="relative"
-          ref={dropdownRef}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-            {language === "EN" ? "Recipes" : "Συνταγές"}
-          </span>
-          {isDropdownOpen && (
-            <ul
-              className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50"
-              onMouseEnter={handleDropdownMouseEnter}
-              onMouseLeave={handleDropdownMouseLeave}
-            >
-              {categoryMapping[language]?.map((category) => (
-                <li
-                  key={category.path}
-                  className="p-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleCategoryClick(category.path)}
-                >
-                  {category.name}
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-        <li>
-          <Link href="/about" className="text-gray-700 hover:text-blue-500">
-            {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact" className="text-gray-700 hover:text-blue-500">
-            {language === "EN" ? "Contact" : "Επικοινωνία"}
-          </Link>
-        </li>
-      </ul>
-    </nav>
-
-    {/* Logo Center */}
-    <div className="flex justify-center flex-1 items-center">
-      <Link href="/" className="block">
-        <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
-      </Link>
-    </div>
-
-    {/* Right Side */}
-    <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
-      {/* Search Bar */}
-      <div className="relative" ref={searchRef}>
-        <input
-          type="text"
-          placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        {searchResults.length > 0 && (
-          <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-            {searchResults.map((recipe) => (
+<div className="hidden lg:flex items-center justify-between">
+  {/* Left Nav */}
+  <nav className="flex flex-1 justify-start ml-20 relative z-50"> {/* Added relative and z-50 */}
+    <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
+      <li
+        className="relative"
+        ref={dropdownRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
+          {language === "EN" ? "Recipes" : "Συνταγές"}
+        </span>
+        {isDropdownOpen && (
+          <ul
+            className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50"
+            onMouseEnter={handleDropdownMouseEnter}
+            onMouseLeave={handleDropdownMouseLeave}
+          >
+            {categoryMapping[language]?.map((category) => (
               <li
-                key={recipe.TitleEN}
+                key={category.path}
                 className="p-2 hover:bg-gray-100 cursor-pointer"
-                onClick={() => handleRecipeClick(recipe)}
+                onClick={() => handleCategoryClick(category.path)}
               >
-                <div className="font-semibold">{recipe[`Title${language}`]}</div>
-                <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+                {category.name}
               </li>
             ))}
           </ul>
         )}
-      </div>
+      </li>
+      <li>
+        <Link href="/about" className="text-gray-700 hover:text-blue-500">
+          {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+        </Link>
+      </li>
+      <li>
+        <Link href="/contact" className="text-gray-700 hover:text-blue-500">
+          {language === "EN" ? "Contact" : "Επικοινωνία"}
+        </Link>
+      </li>
+    </ul>
+  </nav>
 
-      {/* Language Selector */}
-      <div className="flex space-x-4">
-        <button
-          className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-          onClick={() => handleLanguageChange("EN")}
-        >
-          EN
-        </button>
-        <button
-          className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-          onClick={() => handleLanguageChange("GR")}
-        >
-          ΕΛ
-        </button>
-      </div>
+  {/* Logo Center */}
+  <div className="flex justify-center flex-1 items-center">
+    <Link href="/" className="block">
+      <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
+    </Link>
+  </div>
 
-      {/* Social Icons */}
-      <div className="flex space-x-4">
-        <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-          <FaYoutube size={24} />
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-          <FaFacebook size={24} />
-        </a>
-        <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-          <FaInstagram size={24} />
-        </a>
-      </div>
+  {/* Right Side */}
+  <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
+    {/* Search Bar */}
+    <div className="relative" ref={searchRef}>
+      <input
+        type="text"
+        placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      {searchResults.length > 0 && (
+        <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
+          {searchResults.map((recipe) => (
+            <li
+              key={recipe.TitleEN}
+              className="p-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleRecipeClick(recipe)}
+            >
+              <div className="font-semibold">{recipe[`Title${language}`]}</div>
+              <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    {/* Language Selector */}
+    <div className="flex space-x-4">
+      <button
+        className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+        onClick={() => handleLanguageChange("EN")}
+      >
+        EN
+      </button>
+      <button
+        className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+        onClick={() => handleLanguageChange("GR")}
+      >
+        ΕΛ
+      </button>
+    </div>
+
+    {/* Social Icons */}
+    <div className="flex space-x-4">
+      <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+        <FaYoutube size={24} />
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+        <FaFacebook size={24} />
+      </a>
+      <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+        <FaInstagram size={24} />
+      </a>
     </div>
   </div>
+</div>
 </header>
   );
 };
