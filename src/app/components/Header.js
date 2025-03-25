@@ -129,9 +129,13 @@ const Header = () => {
               key={category.path}
               className="p-2 hover:bg-gray-100 cursor-pointer"
               onClick={() => {
-                handleCategoryClick(category.path); // Navigate to the category
-                setIsDropdownOpen(false); // Close the dropdown
-                setIsMenuOpen(false); // Close the mobile menu
+                if (category.path) {
+                  router.push(category.path); // Navigate to the category
+                  setIsDropdownOpen(false); // Close the dropdown
+                  setIsMenuOpen(false); // Close the mobile menu
+                } else {
+                  console.error("Invalid category path:", category.path);
+                }
               }}
             >
               {category.name}
