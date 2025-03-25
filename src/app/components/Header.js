@@ -220,7 +220,7 @@ const Header = () => {
           <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
             <FaInstagram size={24} />
           </a>
-        </div>
+      </div>
     </header>
   );
 };
