@@ -130,9 +130,15 @@ const Header = () => {
               className="p-2 hover:bg-gray-100 cursor-pointer"
               onClick={() => {
                 if (category.path) {
-                  router.push(category.path); // Navigate to the category
-                  setIsDropdownOpen(false); // Close the dropdown
-                  setIsMenuOpen(false); // Close the mobile menu
+                  console.log("Navigating to:", category.path); // Debugging log
+                  router.push(category.path) // Navigate to the category
+                    .then(() => {
+                      setIsDropdownOpen(false); // Close the dropdown
+                      setIsMenuOpen(false); // Close the mobile menu
+                    })
+                    .catch((error) => {
+                      console.error("Navigation error:", error);
+                    });
                 } else {
                   console.error("Invalid category path:", category.path);
                 }
