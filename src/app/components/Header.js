@@ -48,10 +48,11 @@ const Header = () => {
     setDropdownTimeout(timeout);
   };
 
-  // Handle category selection
-  const handleCategoryClick = (categoryPath) => {
-    router.push(`/recipes/${categoryPath}`);
-    setIsDropdownOpen(false); // Close the dropdown after a category is clicked
+  // Handle category selection and navigate to the correct category page
+  const handleCategoryClick = (category) => {
+    // Redirect to the category page using its path
+    router.push(`/recipes/${category.path}`);
+    setIsDropdownOpen(false); // Close the dropdown after category selection
   };
 
   return (
@@ -102,7 +103,7 @@ const Header = () => {
                   <li
                     key={category.path}
                     className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleCategoryClick(category.path)}
+                    onClick={() => handleCategoryClick(category)} // Use the updated category click handler
                   >
                     {category.name}
                   </li>
@@ -163,7 +164,7 @@ const Header = () => {
                     <li
                       key={category.path}
                       className="p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleCategoryClick(category.path)}
+                      onClick={() => handleCategoryClick(category)} // Use the updated category click handler
                     >
                       {category.name}
                     </li>
@@ -200,38 +201,16 @@ const Header = () => {
               placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-48 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {searchResults.length > 0 && (
-              <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-                {searchResults.map((recipe) => (
-                  <li
-                    key={recipe.TitleEN}
-                    className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleRecipeClick(recipe)}
-                  >
-                    <div className="font-semibold">{recipe[`Title${language}`]}</div>
-                    <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {/* Language Selector */}
-          <div className="flex space-x-4">
-            <button
-              className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("EN")}
-            >
-              EN
-            </button>
-            <button
-              className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("GR")}
-            >
-              ΕΛ
-            </button>
+            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+              <button
+                onClick={() => setSearchQuery("")}
+                className="hover:text-blue-500"
+              >
+                X
+              </button>
+            </div>
           </div>
 
           {/* Social Icons */}
