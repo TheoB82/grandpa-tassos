@@ -48,6 +48,12 @@ const Header = () => {
     setDropdownTimeout(timeout);
   };
 
+  // Handle category selection
+  const handleCategoryClick = (categoryPath) => {
+    router.push(`/recipes/${categoryPath}`);
+    setIsDropdownOpen(false); // Close the dropdown after a category is clicked
+  };
+
   return (
     <header className="w-full max-w-screen p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
       {/* Mobile View */}
@@ -80,62 +86,62 @@ const Header = () => {
       </div>
 
       {/* Mobile Dropdown Menu */}
-{isMenuOpen && (
-  <div className="lg:hidden mt-4 space-y-2 bg-white border-t border-gray-200 pt-4">
-    <div className="relative">
-      <button
-        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle the dropdown
-      >
-        {language === "EN" ? "Recipes" : "Συνταγές"}
-      </button>
-
-      {isDropdownOpen && (
-        <ul className="space-y-2 pl-4">
-          {categoryMapping[language]?.map((category) => (
-            <li
-              key={category.path}
-              className="p-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => handleCategoryClick(category.path)}
+      {isMenuOpen && (
+        <div className="lg:hidden mt-4 space-y-2 bg-white border-t border-gray-200 pt-4">
+          <div className="relative">
+            <button
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle the dropdown
             >
-              {category.name}
-            </li>
-          ))}
-        </ul>
+              {language === "EN" ? "Recipes" : "Συνταγές"}
+            </button>
+
+            {isDropdownOpen && (
+              <ul className="space-y-2 pl-4">
+                {categoryMapping[language]?.map((category) => (
+                  <li
+                    key={category.path}
+                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => handleCategoryClick(category.path)}
+                  >
+                    {category.name}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+          </Link>
+          <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            {language === "EN" ? "Contact" : "Επικοινωνία"}
+          </Link>
+
+          {/* Mobile Search */}
+          <div className="px-4 mt-2">
+            <input
+              type="text"
+              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex justify-center space-x-4 mt-4">
+            <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+              <FaYoutube size={24} />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+              <FaFacebook size={24} />
+            </a>
+            <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+              <FaInstagram size={24} />
+            </a>
+          </div>
+        </div>
       )}
-    </div>
-    <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-      {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-    </Link>
-    <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-      {language === "EN" ? "Contact" : "Επικοινωνία"}
-    </Link>
-
-    {/* Mobile Search */}
-    <div className="px-4 mt-2">
-      <input
-        type="text"
-        placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-    </div>
-
-    {/* Social Icons */}
-    <div className="flex justify-center space-x-4 mt-4">
-      <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-        <FaYoutube size={24} />
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-        <FaFacebook size={24} />
-      </a>
-      <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-        <FaInstagram size={24} />
-      </a>
-    </div>
-  </div>
-)}
 
       {/* Desktop View */}
       <div className="hidden lg:flex items-center justify-between">
@@ -245,6 +251,5 @@ const Header = () => {
     </header>
   );
 };
-
 
 export default Header;
