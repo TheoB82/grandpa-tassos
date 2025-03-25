@@ -35,7 +35,6 @@ const Header = () => {
   }, []);
 
   const handleDropdownEnter = () => {
-    // Clear any existing timeout to prevent immediate closing
     if (dropdownTimeout) {
       clearTimeout(dropdownTimeout);
     }
@@ -43,23 +42,28 @@ const Header = () => {
   };
 
   const handleDropdownLeave = () => {
-    // Set a timeout to close the dropdown after a short delay
     const timeout = setTimeout(() => setIsDropdownOpen(false), 200); // Delay of 200ms
     setDropdownTimeout(timeout);
   };
 
-  // Handle category selection and navigate to the correct category page
   const handleCategoryClick = (category) => {
-    // Redirect to the category page directly (e.g., /starters, /mains)
-    router.push(`/${category.path}`); // Direct category routing
-    setIsDropdownOpen(false); // Close the dropdown after category selection
+    router.push(`/${category.path}`);
+    setIsDropdownOpen(false);
+  };
+
+  // Mouse enter and leave handlers for desktop menu
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDropdownOpen(false);
   };
 
   return (
     <header className="w-full max-w-screen p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
       {/* Mobile View */}
       <div className="lg:hidden flex justify-between items-center">
-        {/* Burger Menu Button */}
         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 text-2xl">
           &#9776;
         </button>
@@ -103,7 +107,7 @@ const Header = () => {
                   <li
                     key={category.path}
                     className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleCategoryClick(category)} // Use the updated category click handler
+                    onClick={() => handleCategoryClick(category)} // Pass the category object to the handler
                   >
                     {category.name}
                   </li>
@@ -159,15 +163,15 @@ const Header = () => {
             {isDropdownOpen && (
               <ul
                 className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50"
-                onMouseEnter={handleDropdownMouseEnter}
-                onMouseLeave={handleDropdownMouseLeave}
+                onMouseEnter={handleDropdownEnter}
+                onMouseLeave={handleDropdownLeave}
               >
                 {categoryMapping[language] && categoryMapping[language].length > 0 ? (
                   categoryMapping[language].map((category) => (
                     <li
                       key={category.path}
                       className="p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleCategoryClick(category.path)}
+                      onClick={() => handleCategoryClick(category)} // Use the correct category object
                     >
                       {category.name}
                     </li>
@@ -191,35 +195,35 @@ const Header = () => {
         </ul>
       </nav>
 
-        {/* Logo */}
-        <Link href="/" className="mx-auto">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={48} height={48} className="h-12 w-12 object-contain" />
-        </Link>
+      {/* Logo */}
+      <Link href="/" className="mx-auto">
+        <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={48} height={48} className="h-12 w-12 object-contain" />
+      </Link>
 
-        {/* Right Nav - Language and Social */}
-        <div className="flex items-center space-x-4">
-          <button
-            className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("EN")}
-          >
-            EN
-          </button>
-          <button
-            className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("GR")}
-          >
-            ΕΛ
-          </button>
+      {/* Right Nav - Language and Social */}
+      <div className="flex items-center space-x-4">
+        <button
+          className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+          onClick={() => handleLanguageChange("EN")}
+        >
+          EN
+        </button>
+        <button
+          className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+          onClick={() => handleLanguageChange("GR")}
+        >
+          ΕΛ
+        </button>
 
-          <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-            <FaYoutube size={24} />
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-            <FaFacebook size={24} />
-          </a>
-          <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-            <FaInstagram size={24} />
-          </a>
+        <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+          <FaYoutube size={24} />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+          <FaFacebook size={24} />
+        </a>
+        <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+          <FaInstagram size={24} />
+        </a>
       </div>
     </header>
   );
