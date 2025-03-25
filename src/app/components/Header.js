@@ -113,38 +113,42 @@ const Header = () => {
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden mt-4 space-y-2 bg-white border-t border-gray-200 pt-4">
-          <div className="relative">
-            <button
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle the dropdown
-            >
-              {language === "EN" ? "Recipes" : "Συνταγές"}
-            </button>
+  <div className="lg:hidden mt-4 space-y-2 bg-white border-t border-gray-200 pt-4">
+    <div className="relative">
+      <button
+        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle the dropdown
+      >
+        {language === "EN" ? "Recipes" : "Συνταγές"}
+      </button>
 
-            {isDropdownOpen && (
-              <ul className="space-y-2 pl-4">
-                {categoryMapping[language]?.map((category) => (
-                  <li
-                    key={category.path}
-                    className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleCategoryClick(category.path)}
-                  >
-                    {category.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          {/* Other links like About Grandpa and Contact */}
-          <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-            {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-          </Link>
-          <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-            {language === "EN" ? "Contact" : "Επικοινωνία"}
-          </Link>
-        </div>
+      {isDropdownOpen && (
+        <ul className="space-y-2 pl-4">
+          {categoryMapping[language]?.map((category) => (
+            <li
+              key={category.path}
+              className="p-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => {
+                handleCategoryClick(category.path); // Navigate to the category
+                setIsDropdownOpen(false); // Close the dropdown
+                setIsMenuOpen(false); // Close the mobile menu
+              }}
+            >
+              {category.name}
+            </li>
+          ))}
+        </ul>
       )}
+    </div>
+    {/* Other links like About Grandpa and Contact */}
+    <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+      {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+    </Link>
+    <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+      {language === "EN" ? "Contact" : "Επικοινωνία"}
+    </Link>
+  </div>
+)}
 
       {/* Desktop View */}
       <div className="hidden lg:flex items-center justify-between">
