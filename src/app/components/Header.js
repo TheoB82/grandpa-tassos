@@ -18,6 +18,9 @@ const Header = () => {
   const searchRef = useRef(null);
   const router = useRouter();
 
+  // New state to manage the timeout for closing the dropdown
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
+
   useEffect(() => {
     fetch("/recipes.json")
       .then((response) => response.json())
@@ -31,51 +34,18 @@ const Header = () => {
       .catch((error) => console.error("Error loading recipes:", error));
   }, []);
 
-  useEffect(() => {
-    if (!searchQuery.trim()) {
-      setSearchResults([]);
-      return;
+  const handleDropdownEnter = () => {
+    // Clear any existing timeout to prevent immediate closing
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
     }
-
-    const filtered = recipes.filter((recipe) =>
-      [recipe[`Title${language}`], recipe[`ShortDescription${language}`], recipe[`Tags${language}`]]
-        .join(" ")
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
-    );
-
-    setSearchResults(filtered);
-  }, [searchQuery, language, recipes]);
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setSearchResults([]);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const handleRecipeClick = (recipe) => {
-    if (recipe && recipe.TitleEN) {
-      router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
-      setSearchQuery("");
-      setSearchResults([]);
-    } else {
-      console.error("Invalid recipe clicked:", recipe);
-    }
+    setIsDropdownOpen(true);
   };
 
-  const handleCategoryClick = (categoryPath) => {
-    if (categoryPath) {
-      router.push(`${categoryPath}`);
-    } else {
-      console.error("Invalid category clicked:", categoryPath);
-    }
+  const handleDropdownLeave = () => {
+    // Set a timeout to close the dropdown after a short delay
+    const timeout = setTimeout(() => setIsDropdownOpen(false), 200); // Delay of 200ms
+    setDropdownTimeout(timeout);
   };
 
   return (
@@ -156,8 +126,8 @@ const Header = () => {
             <li
               className="relative"
               ref={dropdownRef}
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
+              onMouseEnter={handleDropdownEnter} // Use the new function here
+              onMouseLeave={handleDropdownLeave} // Use the new function here
             >
               <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
                 {language === "EN" ? "Recipes" : "Συνταγές"}
@@ -256,5 +226,6 @@ const Header = () => {
     </header>
   );
 };
+
 
 export default Header;
