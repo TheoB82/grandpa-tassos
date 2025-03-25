@@ -79,7 +79,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full max-w-screen overflow-x-hidden p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
+    <header className="w-full max-w-screen p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
       {/* Mobile View */}
       <div className="lg:hidden flex justify-between items-center">
         {/* Burger Menu Button */}
@@ -153,12 +153,6 @@ const Header = () => {
         {/* Left Nav */}
         <nav className="flex flex-1 justify-start ml-20 relative z-50">
           <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
-            <li
-              className="relative"
-              ref={dropdownRef}
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
               <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
                 {language === "EN" ? "Recipes" : "Συνταγές"}
               </span>
