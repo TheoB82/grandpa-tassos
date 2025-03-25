@@ -16,6 +16,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null); // Ref to manage dropdown timeout
   const router = useRouter();
 
   useEffect(() => {
@@ -153,8 +154,15 @@ const Header = () => {
             <li
               className="relative"
               ref={dropdownRef}
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
+              onMouseEnter={() => {
+                clearTimeout(dropdownTimeoutRef.current); // Clear any existing timeout
+                setIsDropdownOpen(true);
+              }}
+              onMouseLeave={() => {
+                dropdownTimeoutRef.current = setTimeout(() => {
+                  setIsDropdownOpen(false);
+                }, 200); // Add a small delay before closing
+              }}
             >
               <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
                 {language === "EN" ? "Recipes" : "Συνταγές"}
