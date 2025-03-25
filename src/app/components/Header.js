@@ -12,14 +12,11 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For desktop dropdown
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
   const router = useRouter();
-
-  // New state to manage the timeout for closing the dropdown
-  const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
   useEffect(() => {
     fetch("/recipes.json")
@@ -34,25 +31,52 @@ const Header = () => {
       .catch((error) => console.error("Error loading recipes:", error));
   }, []);
 
-  const handleDropdownEnter = () => {
-    // Clear any existing timeout to prevent immediate closing
-    if (dropdownTimeout) {
-      clearTimeout(dropdownTimeout);
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      return;
     }
-    setIsDropdownOpen(true);
+
+    const filtered = recipes.filter((recipe) =>
+      [recipe[`Title${language}`], recipe[`ShortDescription${language}`], recipe[`Tags${language}`]]
+        .join(" ")
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
+    );
+
+    setSearchResults(filtered);
+  }, [searchQuery, language, recipes]);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchResults([]);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleRecipeClick = (recipe) => {
+    if (recipe && recipe.TitleEN) {
+      router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
+      setSearchQuery("");
+      setSearchResults([]);
+    } else {
+      console.error("Invalid recipe clicked:", recipe);
+    }
   };
 
-  const handleDropdownLeave = () => {
-    // Set a timeout to close the dropdown after a short delay
-    const timeout = setTimeout(() => setIsDropdownOpen(false), 200); // Delay of 200ms
-    setDropdownTimeout(timeout);
-  };
-
-  // Handle category selection and navigate to the correct category page
-  const handleCategoryClick = (category) => {
-    // Redirect to the category page directly (e.g., /starters, /mains)
-    router.push(`/${category.path}`); // Direct category routing
-    setIsDropdownOpen(false); // Close the dropdown after category selection
+  const handleCategoryClick = (categoryPath) => {
+    if (categoryPath) {
+      router.push(`${categoryPath}`);
+      setIsMenuOpen(false); // Close mobile menu after navigation
+    } else {
+      console.error("Invalid category clicked:", categoryPath);
+    }
   };
 
   return (
@@ -103,7 +127,7 @@ const Header = () => {
                   <li
                     key={category.path}
                     className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleCategoryClick(category)} // Use the updated category click handler
+                    onClick={() => handleCategoryClick(category.path)}
                   >
                     {category.name}
                   </li>
@@ -111,49 +135,26 @@ const Header = () => {
               </ul>
             )}
           </div>
+          {/* Other links like About Grandpa and Contact */}
           <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
             {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
           </Link>
           <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
             {language === "EN" ? "Contact" : "Επικοινωνία"}
           </Link>
-
-          {/* Mobile Search */}
-          <div className="px-4 mt-2">
-            <input
-              type="text"
-              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex justify-center space-x-4 mt-4">
-            <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaYoutube size={24} />
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaFacebook size={24} />
-            </a>
-            <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaInstagram size={24} />
-            </a>
-          </div>
         </div>
       )}
 
       {/* Desktop View */}
       <div className="hidden lg:flex items-center justify-between">
         {/* Left Nav */}
-        <nav className="flex flex-1 justify-start ml-20 relative z-50"> {/* Added relative and z-50 */}
+        <nav className="flex flex-1 justify-start ml-20 relative z-50">
           <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
             <li
               className="relative"
               ref={dropdownRef}
-              onMouseEnter={handleDropdownEnter} // Use the new function here
-              onMouseLeave={handleDropdownLeave} // Use the new function here
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
             >
               <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
                 {language === "EN" ? "Recipes" : "Συνταγές"}
@@ -164,7 +165,7 @@ const Header = () => {
                     <li
                       key={category.path}
                       className="p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleCategoryClick(category)} // Use the updated category click handler
+                      onClick={() => handleCategoryClick(category.path)}
                     >
                       {category.name}
                     </li>
@@ -185,35 +186,68 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Logo */}
-        <Link href="/" className="mx-auto">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={48} height={48} className="h-12 w-12 object-contain" />
-        </Link>
+        {/* Logo Center */}
+        <div className="flex justify-center flex-1 items-center">
+          <Link href="/" className="block">
+            <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
+          </Link>
+        </div>
 
-        {/* Right Nav - Language and Social */}
-        <div className="flex items-center space-x-4">
-          <button
-            className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("EN")}
-          >
-            EN
-          </button>
-          <button
-            className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("GR")}
-          >
-            ΕΛ
-          </button>
+        {/* Right Side */}
+        <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
+          {/* Search Bar */}
+          <div className="relative" ref={searchRef}>
+            <input
+              type="text"
+              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {searchResults.length > 0 && (
+              <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
+                {searchResults.map((recipe) => (
+                  <li
+                    key={recipe.TitleEN}
+                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => handleRecipeClick(recipe)}
+                  >
+                    <div className="font-semibold">{recipe[`Title${language}`]}</div>
+                    <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-          <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-            <FaYoutube size={24} />
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-            <FaFacebook size={24} />
-          </a>
-          <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-            <FaInstagram size={24} />
-          </a>
+          {/* Language Selector */}
+          <div className="flex space-x-4">
+            <button
+              className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+              onClick={() => handleLanguageChange("EN")}
+            >
+              EN
+            </button>
+            <button
+              className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+              onClick={() => handleLanguageChange("GR")}
+            >
+              ΕΛ
+            </button>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex space-x-4">
+            <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+              <FaYoutube size={24} />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+              <FaFacebook size={24} />
+            </a>
+            <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+              <FaInstagram size={24} />
+            </a>
+          </div>
         </div>
       </div>
     </header>
