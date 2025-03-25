@@ -153,6 +153,12 @@ const Header = () => {
         {/* Left Nav */}
         <nav className="flex flex-1 justify-start ml-20 relative z-50">
           <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
+            <li
+              className="relative"
+              ref={dropdownRef}
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
+            >
               <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
                 {language === "EN" ? "Recipes" : "Συνταγές"}
               </span>
