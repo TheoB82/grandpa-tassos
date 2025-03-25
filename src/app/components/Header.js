@@ -144,46 +144,52 @@ const Header = () => {
         </div>
       )}
 
-      {/* Desktop View */}
-      <div className="hidden lg:flex items-center justify-between">
-        {/* Left Nav */}
-        <nav className="flex flex-1 justify-start ml-20 relative z-50">
-          <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
-            <li
-              className="relative"
-              ref={dropdownRef}
-              onMouseEnter={handleDropdownEnter} // Use the new function here
-              onMouseLeave={handleDropdownLeave} // Use the new function here
-            >
-              <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                {language === "EN" ? "Recipes" : "Συνταγές"}
-              </span>
-              {isDropdownOpen && (
-                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
-                  {categoryMapping[language]?.map((category) => (
+      {/* Desktop View - Navigation */}
+      <nav className="hidden lg:flex flex-1 justify-start ml-20">
+        <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
+          <li
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <span className="text-gray-700 hover:text-blue-500 transition-colors duration-300 cursor-pointer">
+              {language === "EN" ? "Recipes" : "Συνταγές"}
+            </span>
+            {isDropdownOpen && (
+              <ul
+                className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50"
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
+              >
+                {categoryMapping[language] && categoryMapping[language].length > 0 ? (
+                  categoryMapping[language].map((category) => (
                     <li
                       key={category.path}
                       className="p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleCategoryClick(category)} // Use the updated category click handler
+                      onClick={() => handleCategoryClick(category.path)}
                     >
                       {category.name}
                     </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link href="/about" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "Contact" : "Επικοινωνία"}
-              </Link>
-            </li>
-          </ul>
-        </nav>
+                  ))
+                ) : (
+                  <li className="p-2 text-gray-500">No categories available</li>
+                )}
+              </ul>
+            )}
+          </li>
+          <li>
+            <Link href="/about" className="text-gray-700 hover:text-blue-500">
+              {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-500">
+              {language === "EN" ? "Contact" : "Επικοινωνία"}
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
         {/* Logo */}
         <Link href="/" className="mx-auto">
@@ -215,7 +221,6 @@ const Header = () => {
             <FaInstagram size={24} />
           </a>
         </div>
-      </div>
     </header>
   );
 };
