@@ -12,18 +12,18 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For desktop dropdown
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Desktop dropdown
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false); // Mobile dropdown for categories
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
-  const dropdownTimeoutRef = useRef(null); // Ref to manage dropdown timeout
   const router = useRouter();
 
   useEffect(() => {
     fetch("/recipes.json")
       .then((response) => response.json())
       .then((data) => {
-        if (data && Array.isArray(data)) {
+        if (Array.isArray(data)) {
           setRecipes(data);
         } else {
           console.error("Invalid recipe data:", data);
@@ -62,7 +62,7 @@ const Header = () => {
   }, []);
 
   const handleRecipeClick = (recipe) => {
-    if (recipe && recipe.TitleEN) {
+    if (recipe?.TitleEN) {
       router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
       setSearchQuery("");
       setSearchResults([]);
@@ -73,25 +73,28 @@ const Header = () => {
 
   const handleCategoryClick = (categoryPath) => {
     if (categoryPath) {
-      router.push(`${categoryPath}`);
+      router.push(categoryPath);
       setIsMenuOpen(false); // Close mobile menu after navigation
-    } else {
-      console.error("Invalid category clicked:", categoryPath);
+      setIsDropdownOpen(false);
+      setIsMobileDropdownOpen(false);
     }
   };
 
   return (
-    <header className="w-full max-w-screen p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
+    <header className="w-full p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
       {/* Mobile View */}
       <div className="lg:hidden flex justify-between items-center">
         {/* Burger Menu Button */}
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 text-2xl">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-gray-700 text-2xl"
+        >
           &#9776;
         </button>
 
         {/* Logo Centered */}
         <Link href="/" className="mx-auto">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={48} height={48} className="h-12 w-12 object-contain" />
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={48} height={48} />
         </Link>
 
         {/* Language Toggle */}
@@ -113,160 +116,73 @@ const Header = () => {
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-  <div className="lg:hidden mt-4 space-y-2 bg-white border-t border-gray-200 pt-4">
-    <div className="relative">
-      <button
-        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle the dropdown
-      >
-        {language === "EN" ? "Recipes" : "Συνταγές"}
-      </button>
-
-      {isDropdownOpen && (
-        <ul className="space-y-2 pl-4">
-          {categoryMapping[language]?.map((category) => (
-            <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
-            <Link 
-              href={category.path} 
-              className="block w-full"
-              onClick={(e) => {
-                e.preventDefault(); // Prevent default to ensure state updates first
-                setIsDropdownOpen(false);
-                setIsMenuOpen(false);
-          
-                setTimeout(() => {
-                  router.push(category.path);
-                }, 100); // Delay navigation slightly to allow UI update
-              }}
+        <div className="lg:hidden mt-4 bg-white border-t border-gray-200 pt-4">
+          <div className="relative">
+            <button
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+              onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
             >
-              {category.name}
-            </Link>
-          </li>
-          
-          ))}
-        </ul>
+              {language === "EN" ? "Recipes" : "Συνταγές"}
+            </button>
+            {isMobileDropdownOpen && (
+              <ul className="space-y-2 pl-4">
+                {categoryMapping[language]?.map((category) => (
+                  <li key={category.path} className="p-2 hover:bg-gray-100">
+                    <Link href={category.path} onClick={() => handleCategoryClick(category.path)}>
+                      {category.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <Link href="/about" className="block px-4 py-2 hover:bg-gray-100">
+            {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+          </Link>
+          <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100">
+            {language === "EN" ? "Contact" : "Επικοινωνία"}
+          </Link>
+        </div>
       )}
-    </div>
-    {/* Other links like About Grandpa and Contact */}
-    <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-      {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-    </Link>
-    <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-      {language === "EN" ? "Contact" : "Επικοινωνία"}
-    </Link>
-  </div>
-)}
 
       {/* Desktop View */}
       <div className="hidden lg:flex items-center justify-between">
         {/* Left Nav */}
-        <nav className="flex flex-1 justify-start ml-20 relative z-50">
-          <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
+        <nav className="flex flex-1 justify-start ml-20 relative">
+          <ul className="flex space-x-6 text-lg font-semibold">
             <li
               className="relative"
               ref={dropdownRef}
-              onMouseEnter={() => {
-                clearTimeout(dropdownTimeoutRef.current); // Clear any existing timeout
-                setIsDropdownOpen(true);
-              }}
-              onMouseLeave={() => {
-                dropdownTimeoutRef.current = setTimeout(() => {
-                  setIsDropdownOpen(false);
-                }, 200); // Add a small delay before closing
-              }}
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
+              <span className="cursor-pointer">
                 {language === "EN" ? "Recipes" : "Συνταγές"}
               </span>
               {isDropdownOpen && (
-                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
+                <ul className="absolute left-0 mt-2 w-48 bg-white border shadow-lg rounded-md">
                   {categoryMapping[language]?.map((category) => (
-                    <li
-                      key={category.path}
-                      className="p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleCategoryClick(category.path)}
-                    >
+                    <li key={category.path} className="p-2 hover:bg-gray-100" onClick={() => handleCategoryClick(category.path)}>
                       {category.name}
                     </li>
                   ))}
                 </ul>
               )}
             </li>
-            <li>
-              <Link href="/about" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "Contact" : "Επικοινωνία"}
-              </Link>
-            </li>
+            <li><Link href="/about" className="hover:text-blue-500">{language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}</Link></li>
+            <li><Link href="/contact" className="hover:text-blue-500">{language === "EN" ? "Contact" : "Επικοινωνία"}</Link></li>
           </ul>
         </nav>
 
         {/* Logo Center */}
-        <div className="flex justify-center flex-1 items-center">
-          <Link href="/" className="block">
-            <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
-          </Link>
-        </div>
+        <Link href="/" className="flex-1 flex justify-center">
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={128} height={128} />
+        </Link>
 
-        {/* Right Side */}
-        <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
-          {/* Search Bar */}
-          <div className="relative" ref={searchRef}>
-            <input
-              type="text"
-              placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {searchResults.length > 0 && (
-              <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-                {searchResults.map((recipe) => (
-                  <li
-                    key={recipe.TitleEN}
-                    className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleRecipeClick(recipe)}
-                  >
-                    <div className="font-semibold">{recipe[`Title${language}`]}</div>
-                    <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {/* Language Selector */}
-          <div className="flex space-x-4">
-            <button
-              className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("EN")}
-            >
-              EN
-            </button>
-            <button
-              className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-              onClick={() => handleLanguageChange("GR")}
-            >
-              ΕΛ
-            </button>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex space-x-4">
-            <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaYoutube size={24} />
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaFacebook size={24} />
-            </a>
-            <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaInstagram size={24} />
-            </a>
-          </div>
+        {/* Language Selector */}
+        <div className="flex space-x-4">
+          <button onClick={() => handleLanguageChange("EN")} className="hover:text-blue-500">EN</button>
+          <button onClick={() => handleLanguageChange("GR")} className="hover:text-blue-500">ΕΛ</button>
         </div>
       </div>
     </header>
