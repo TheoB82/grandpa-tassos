@@ -125,28 +125,24 @@ const Header = () => {
       {isDropdownOpen && (
         <ul className="space-y-2 pl-4">
           {categoryMapping[language]?.map((category) => (
-            <li
-              key={category.path}
-              className="p-2 hover:bg-gray-100 cursor-pointer"
+            <li key={category.path} className="p-2 hover:bg-gray-100 cursor-pointer">
+            <Link 
+              href={category.path} 
+              className="block w-full"
               onClick={(e) => {
-                e.stopPropagation(); // Prevent event bubbling
-                if (category.path) {
-                  console.log("Navigating to:", category.path); // Debugging log
-                  router.push(category.path) // Navigate to the category
-                    .then(() => {
-                      setIsDropdownOpen(false); // Close the dropdown
-                      setIsMenuOpen(false); // Close the mobile menu
-                    })
-                    .catch((error) => {
-                      console.error("Navigation error:", error);
-                    });
-                } else {
-                  console.error("Invalid category path:", category.path);
-                }
+                e.preventDefault(); // Prevent default to ensure state updates first
+                setIsDropdownOpen(false);
+                setIsMenuOpen(false);
+          
+                setTimeout(() => {
+                  router.push(category.path);
+                }, 100); // Delay navigation slightly to allow UI update
               }}
             >
               {category.name}
-            </li>
+            </Link>
+          </li>
+          
           ))}
         </ul>
       )}
