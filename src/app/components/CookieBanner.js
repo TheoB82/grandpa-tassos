@@ -1,9 +1,15 @@
-import { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 
 export default function CookieBanner() {
-  const [isAccepted, setIsAccepted] = useState(
-    typeof window !== "undefined" && localStorage.getItem("cookiesAccepted")
-  );
+  const [isAccepted, setIsAccepted] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsAccepted(localStorage.getItem("cookiesAccepted") === "true");
+    }
+  }, []);
 
   const acceptCookies = () => {
     localStorage.setItem("cookiesAccepted", "true");
