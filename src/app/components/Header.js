@@ -18,6 +18,8 @@ const Header = () => {
   const dropdownRef = useRef(null);
   const searchRef = useRef(null);
   const router = useRouter();
+  const dropdownTimeoutRef = useRef(null);
+
 
   useEffect(() => {
     fetch("/recipes.json")
