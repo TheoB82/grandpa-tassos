@@ -96,7 +96,7 @@ const Header = () => {
 
         {/* Logo Centered */}
         <Link href="/" className="mx-auto">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={48} height={48} />
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={68} height={68} />
         </Link>
 
         {/* Language Toggle */}
@@ -198,7 +198,7 @@ const Header = () => {
         {/* Logo Center */}
         <div className="flex justify-center flex-1 items-center">
           <Link href="/" className="block">
-            <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
+            <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" ml-6 md:ml-4 width={128} height={128} />
           </Link>
         </div>
 
