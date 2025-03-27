@@ -128,7 +128,8 @@ const Header = () => {
             <li
               key={category.path}
               className="p-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent event bubbling
                 if (category.path) {
                   console.log("Navigating to:", category.path); // Debugging log
                   router.push(category.path) // Navigate to the category
