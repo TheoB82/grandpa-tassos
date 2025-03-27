@@ -126,24 +126,26 @@ const Header = () => {
         <ul className="space-y-2 pl-4">
           {categoryMapping[language]?.map((category) => (
             <li
-            key={category.path}
-            className="p-2 hover:bg-gray-100 cursor-pointer"
-            onClick={() => {
-              if (category.path) {
-                console.log("Navigating to:", category.path); // Debugging log
-                router.push(category.path);
-                setTimeout(() => {
-                  setIsDropdownOpen(false);
-                  setIsMenuOpen(false);
-                }, 300); // Delay to ensure navigation happens smoothly
-              } else {
-                console.error("Invalid category path:", category.path);
-              }
-            }}
-          >
-            {category.name}
-          </li>
-          
+              key={category.path}
+              className="p-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => {
+                if (category.path) {
+                  console.log("Navigating to:", category.path); // Debugging log
+                  router.push(category.path) // Navigate to the category
+                    .then(() => {
+                      setIsDropdownOpen(false); // Close the dropdown
+                      setIsMenuOpen(false); // Close the mobile menu
+                    })
+                    .catch((error) => {
+                      console.error("Navigation error:", error);
+                    });
+                } else {
+                  console.error("Invalid category path:", category.path);
+                }
+              }}
+            >
+              {category.name}
+            </li>
           ))}
         </ul>
       )}
