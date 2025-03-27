@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { LanguageProvider } from "./context/LanguageContext"; // Correct path
 import Header from "./components/Header"; // Corrected path relative to src/app
+import CookieBanner from "./components/CookieBanner"; // Import CookieBanner component
 
 export const metadata = {
   title: "Grandpa Tassos",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <LanguageProvider>
           <Header />
           <div className="pt-52">{children}</div>
+          <CookieBanner /> {/* Add the CookieBanner here */}
         </LanguageProvider>
       </body>
     </html>
