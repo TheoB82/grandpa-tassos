@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { categoryMapping } from "../../utils/categoryMapping"; // Correct path based on your folder structure
 
 const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
   const [visibleRecipes, setVisibleRecipes] = useState(12);
+  const [imageError, setImageError] = useState({}); // Track which images have failed
 
   // Sort recipes by Date (most recent first)
   const sortedRecipes = [...recipes].sort((a, b) => {
@@ -23,17 +24,19 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
     const videoId = videoIdMatch ? videoIdMatch[1] : null;
 
     if (videoId) {
-      // Try to load the max resolution image first
-      const imageUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-
-      // If max resolution image fails, fallback to 'hqdefault.jpg'
-      const fallbackImageUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-
-      return { imageUrl, fallbackImageUrl };
+      return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
     }
-    
+
     // Return a default image if no video ID is found
-    return { imageUrl: "/path/to/default-image.jpg", fallbackImageUrl: "/path/to/default-image.jpg" };
+    return "/path/to/default-image.jpg";
+  };
+
+  // Function to handle image errors and set the fallback image
+  const handleImageError = (index) => {
+    setImageError((prevState) => ({
+      ...prevState,
+      [index]: true,
+    }));
   };
 
   // Function to get the category path using categoryMapping
@@ -48,12 +51,18 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
     setVisibleRecipes((prev) => prev + 12);
   };
 
+  useEffect(() => {
+    // Reset image error state when the recipe list changes (for new images)
+    setImageError({});
+  }, [visibleRecipes]);
+
   return (
     <div>
       {/* Recipe Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
         {sortedRecipes.slice(0, visibleRecipes).map((recipe, index) => {
-          const { imageUrl, fallbackImageUrl } = getImageLink(recipe);
+          const imageUrl = getImageLink(recipe);
+          const fallbackImageUrl = "/path/to/default-image.jpg";
 
           return (
             <div key={index} className="bg-white border rounded-lg p-4 hover:shadow-lg transition">
@@ -74,10 +83,10 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
               {/* Image */}
               <div className="h-48 bg-gray-300 mb-4">
                 <img
-                  src={imageUrl}
+                  src={imageError[index] ? fallbackImageUrl : imageUrl}
                   alt={language === "GR" ? recipe.TitleGR : recipe.TitleEN}
                   className="w-full h-full object-cover"
-                  onError={(e) => e.target.src = fallbackImageUrl}  // Fallback to the alternative image if error occurs
+                  onError={() => handleImageError(index)}  // Handle image error
                 />
               </div>
 
