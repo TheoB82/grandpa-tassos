@@ -5,11 +5,18 @@ export default function AdminLogin() {
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
 
-  const handleLogin = () => {
-    if (password === "your-secure-password") {
+  const handleLogin = async () => {
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+
+    const data = await res.json();
+    if (data.success) {
       setAuthenticated(true);
     } else {
-      alert("Incorrect password!");
+      alert(data.message);
     }
   };
 
