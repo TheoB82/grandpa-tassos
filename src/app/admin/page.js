@@ -20,7 +20,7 @@ export default function AdminLogin() {
       <h2 className="text-2xl font-bold mb-4">Admin Login</h2>
       <input
         type="password"
-        value={SakisBratelis82}
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Enter Admin Password"
         className="border p-2 rounded"
