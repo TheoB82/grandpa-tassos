@@ -5,7 +5,7 @@ export async function POST(req) {
   const { password } = await req.json();
 
   // Use the environment variable without the NEXT_PUBLIC_ prefix
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
 
   if (password === adminPassword) {
     return NextResponse.json({ success: true });
