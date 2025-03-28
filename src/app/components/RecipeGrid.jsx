@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import { categoryMapping } from "../../utils/categoryMapping"; // Correct path based on your folder structure
@@ -27,7 +29,6 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       // If max resolution image fails, fallback to 'hqdefault.jpg'
       const fallbackImageUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
-      // Return the image URLs for rendering
       return { imageUrl, fallbackImageUrl };
     }
     
@@ -53,13 +54,6 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
         {sortedRecipes.slice(0, visibleRecipes).map((recipe, index) => {
           const { imageUrl, fallbackImageUrl } = getImageLink(recipe);
-          
-          const [imageSrc, setImageSrc] = useState(imageUrl);
-
-          const handleError = () => {
-            // On error, switch to the fallback image
-            setImageSrc(fallbackImageUrl);
-          };
 
           return (
             <div key={index} className="bg-white border rounded-lg p-4 hover:shadow-lg transition">
@@ -80,10 +74,10 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
               {/* Image */}
               <div className="h-48 bg-gray-300 mb-4">
                 <img
-                  src={imageSrc}
+                  src={imageUrl}
                   alt={language === "GR" ? recipe.TitleGR : recipe.TitleEN}
                   className="w-full h-full object-cover"
-                  onError={handleError}  // Handle image error and fallback
+                  onError={(e) => e.target.src = fallbackImageUrl}  // Fallback to the alternative image if error occurs
                 />
               </div>
 
