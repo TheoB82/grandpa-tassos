@@ -138,14 +138,12 @@ const Header = () => {
               </ul>
             )}
           </div>
-          <Link href="/about" className="relative text-gray-700 hover:text-blue-500">
-  {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-  <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 ease-in-out transform -translate-x-1/2 group-hover:w-full"></span>
-</Link>
-          <Link href="/contact" className="relative text-gray-700 hover:text-blue-500">
-  {language === "EN" ? "Contact" : "Επικοινωνία"}
-  <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 ease-in-out transform -translate-x-1/2 group-hover:w-full"></span>
-</Link>
+          <Link href="/about" className="block px-4 py-2 hover:bg-gray-100">
+            {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+          </Link>
+          <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100">
+            {language === "EN" ? "Contact" : "Επικοινωνία"}
+          </Link>
         </div>
       )}
 
