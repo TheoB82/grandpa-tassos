@@ -24,11 +24,28 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
     );
     const videoId = videoIdMatch ? videoIdMatch[1] : null;
+  
     if (videoId) {
-      return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+      // Try to load the max resolution image first
+      const imageUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  
+      // If max resolution image fails, fallback to 'hqdefault.jpg'
+      const fallbackImageUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  
+      const image = new Image();
+      image.src = imageUrl;
+  
+      image.onerror = () => {
+        return fallbackImageUrl; // Return fallback image on error
+      };
+  
+      // If the image is valid, return it, else return fallback
+      return image.complete ? imageUrl : fallbackImageUrl;
     }
-    return "/path/to/default-image.jpg";  // Fallback image
-  };
+  
+    // Return a default image if no video ID is found
+    return "/path/to/default-image.jpg";
+  };  
 
   // Function to get the category path using categoryMapping
   const getCategoryPath = (categoryName) => {
