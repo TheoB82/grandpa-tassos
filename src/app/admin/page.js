@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import AdminPanel from "./AdminPanel"; // Import AdminPanel
 
 export default function AdminLogin() {
   const [password, setPassword] = useState("");
@@ -37,8 +38,4 @@ export default function AdminLogin() {
       </button>
     </div>
   );
-}
-
-function AdminPanel() {
-  return <h1>Admin Panel Here</h1>; // Replace with the real admin panel
 }
