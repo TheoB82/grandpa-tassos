@@ -3,7 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req) {
   const { password } = await req.json();
-  const adminPassword = process.env.ADMIN_PASSWORD;  // Correct variable
+
+  // Use the environment variable without the NEXT_PUBLIC_ prefix
+  const adminPassword = process.env.ADMIN_PASSWORD;
 
   if (password === adminPassword) {
     return NextResponse.json({ success: true });
