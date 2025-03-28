@@ -96,7 +96,7 @@ const Header = () => {
 
         {/* Logo Centered */}
         <Link href="/" className="mx-auto">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={68} height={68} />
+          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={78} height={78} />
         </Link>
 
         {/* Language Toggle */}
