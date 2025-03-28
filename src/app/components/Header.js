@@ -247,13 +247,13 @@ const Header = () => {
 
           {/* Social Icons */}
           <div className="flex space-x-4">
-            <a href="https://www.youtube.com/channel/UC9Y7UEg7WItFJOsV2UNqZ9Q" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+            <a href="https://www.youtube.com/@GrandpaTassoscooking" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
               <FaYoutube size={24} />
             </a>
-            <a href="https://www.facebook.com/profile.php?id=100089479543703" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+            <a href="https://www.facebook.com/grandpatassoscooking" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
               <FaFacebook size={24} />
             </a>
-            <a href="https://www.instagram.com/grandpatazzos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+            <a href="https://www.instagram.com/grandpa_tassos_cooking/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
               <FaInstagram size={24} />
             </a>
           </div>
