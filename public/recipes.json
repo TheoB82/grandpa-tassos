@@ -6084,71 +6084,24 @@
         "Date": "14/11/2022"
     },
     {
-        "CategoryGR": "Γλυκά ",
-        "CategoryEN": "Desserts",
-        "titleEN": "Galatopita, milkpie'",
-        "titleGR": "Γαλατόπιτα Ξυπόλυτη",
-        "ShortDescriptionGR": "Τραγανό φύλλο, βελούδινη κρέμα και αρωματικό σιρόπι σε ένα κλασικό ελληνικό γλυκό.",
-        "ShortDescriptionEN": "Crispy filo, velvety custard, and fragrant syrup come together in this classic Greek dessert.",
-        "LongDescriptionGR":"Είναι σίγουρα μια εξαιρετική επιλογή για να γιορτάσεις την Εβδομάδα της Τυρινής  και να απολαύσεις γλυκές στιγμές με την οικογένεια και τους φίλους σου. Τρώγεται όλο το χρόνο. Καλή απόλαυση!",
-        "LinkYT": "https://www.youtube.com/watch?v=q78c1gTBeCM",
-        "Date": "20/02/2025",
-        "ingredients": {
-          "cream": {
-            "EN": [
-              "1 liter milk",
-              "300g (1.5 cups) sugar",
-              "150g (1 cup) fine semolina",
-              "2-3 beaten eggs",
-              "125g cow butter",
-              "2 tsp vanilla extract"
-            ],
-            "GR": [
-              "1 λίτρο γάλα",
-              "300 γρ ή 1,5 φλιτζάνι ζάχαρη",
-              "150 γρ ή 1 φλιτζάνι σιμιγδάλι ψιλό",
-              "2-3 αυγά χτυπημένα",
-              "125 γρ βούτυρο αγελαδινό",
-              "2 κ.γ. εκχύλισμα βανίλιας"
-            ]
-          },
-          "syrup": {
-            "EN": [
-              "200g (1 cup) sugar",
-              "200ml (1 cup) water",
-              "Orange or lemon peel"
-            ],
-            "GR": [
-              "200 γρ ή 1 φλιτζάνι ζάχαρη",
-              "200 μλ ή 1 φλιτζάνι νερό",
-              "Φλούδα από πορτοκάλι ή λεμόνι"
-            ]
+        
+            "CategoryGR": "Γλυκά",
+            "CategoryEN": "Desserts",
+            "Image": "",
+            "TitleGR": "Γαλατόπιτα Ξυπόλυτη",
+            "TitleEN": "Galatopita, Milk Pie",
+            "ShortDescriptionGR": "Τραγανό φύλλο, βελούδινη κρέμα και αρωματικό σιρόπι σε ένα κλασικό ελληνικό γλυκό.",
+            "ShortDescriptionEN": "Crispy filo, velvety custard, and fragrant syrup come together in this classic Greek dessert.",
+            "IngredientsGR": "<p class=\"font_7\"><u>Κρέμα:</u></p>\n<p class=\"font_7\">1 λίτρο γάλα</p>\n<p class=\"font_7\">300 γρ ή 1,5 φλιτζάνι ζάχαρη</p>\n<p class=\"font_7\">150 γρ ή 1 φλιτζάνι σιμιγδάλι ψιλό</p>\n<p class=\"font_7\">2-3 αυγά χτυπημένα</p>\n<p class=\"font_7\">125 γρ βούτυρο αγελαδινό</p>\n<p class=\"font_7\">2 κ.γ. εκχύλισμα βανίλιας</p>\n<p class=\"font_7\"><u>Σιρόπι:</u></p>\n<p class=\"font_7\">200 γρ ή 1 φλιτζάνι ζάχαρη</p>\n<p class=\"font_7\">200 μλ ή 1 φλιτζάνι νερό</p>\n<p class=\"font_7\">Φλούδα από πορτοκάλι ή λεμόνι</p>",
+            "IngredientsEN": "<p class=\"font_7\"><u>Cream:</u></p>\n<p class=\"font_7\">1 liter milk</p>\n<p class=\"font_7\">300g (1.5 cups) sugar</p>\n<p class=\"font_7\">150g (1 cup) fine semolina</p>\n<p class=\"font_7\">2-3 beaten eggs</p>\n<p class=\"font_7\">125g cow butter</p>\n<p class=\"font_7\">2 tsp vanilla extract</p>\n<p class=\"font_7\"><u>Syrup:</u></p>\n<p class=\"font_7\">200g (1 cup) sugar</p>\n<p class=\"font_7\">200ml (1 cup) water</p>\n<p class=\"font_7\">Orange or lemon peel</p>",
+            "LongDescriptionGR": "<p class=\"font_8\">Είναι σίγουρα μια εξαιρετική επιλογή για να γιορτάσεις την Εβδομάδα της Τυρινής και να απολαύσεις γλυκές στιγμές με την οικογένεια και τους φίλους σου. Τρώγεται όλο το χρόνο. Καλή απόλαυση!</p>",
+            "ExecutionGR": "<ol class=\"font_8\">\n  <li><p class=\"font_8\">Προετοιμάστε το σιρόπι: Σε μια κατσαρόλα, συνδυάστε ζάχαρη, νερό και φλούδα εσπεριδοειδών. Βράστε για 5-6 λεπτά. Αφήστε να κρυώσει εντελώς.</p></li>\n  <li><p class=\"font_8\">Προετοιμάστε την κρέμα: Χτυπήστε ελαφρώς τα αυγά. Προθερμάνετε τον φούρνο στους 160°C (αέρας) ή 180°C (αντιστάσεις).</p></li>\n  <li><p class=\"font_8\">Ζεστάνετε το γάλα με τη ζάχαρη σε μια κατσαρόλα. Βουτυρώστε ένα ταψί 28 εκ. και πασπαλίστε με σιμιγδάλι. Αφαιρέστε το περίσσιο.</p></li>\n  <li><p class=\"font_8\">Μόλις αρχίσει να βράζει το γάλα, προσθέστε σιμιγδάλι αργά ενώ ανακατεύετε. Μαγειρέψτε μέχρι να πήξει, έπειτα αφαιρέστε από τη φωτιά.</p></li>\n  <li><p class=\"font_8\">Προσθέστε το βούτυρο και τη βανίλια. Αφήστε να κρυώσει ελαφρώς πριν προσθέσετε σταδιακά τα αυγά, ανακατεύοντας συνεχώς.</p></li>\n  <li><p class=\"font_8\">Ρίξτε το μείγμα στο προετοιμασμένο ταψί. Ψήστε στους 160°C (αέρας) για 44 λεπτά.</p></li>\n  <li><p class=\"font_8\">Χρησιμοποιήστε ένα ξυλάκι για να τρυπήσετε αν χρειάζεται και περιχύστε το κρύο σιρόπι πάνω στο ζεστό κέικ.</p></li>\n  <li><p class=\"font_8\">Αφήστε το κέικ να κρυώσει εντελώς πριν το σερβίρετε.</p></li>\n  <li><p class=\"font_8\">Κόψτε σε κομμάτια και πασπαλίστε με κανέλα και ξύσμα πορτοκαλιού αν επιθυμείτε.</p></li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Prepare the syrup: In a pot, combine sugar, water, and citrus peel. Boil for 5-6 minutes. Let cool completely.</p></li>\n  <li><p class=\"font_7\">Prepare the cream: Lightly beat the eggs. Preheat oven to 160°C (fan) or 180°C (top-bottom).</p></li>\n  <li><p class=\"font_7\">Heat the milk with sugar in a pot. Grease a 28cm baking pan with butter and sprinkle with semolina. Remove excess.</p></li>\n  <li><p class=\"font_7\">Once the milk starts boiling, slowly add semolina while stirring. Cook until thickened, then remove from heat.</p></li>\n  <li><p class=\"font_7\">Stir in butter and vanilla. Let cool slightly before gradually adding the eggs while stirring.</p></li>\n  <li><p class=\"font_7\">Pour the mixture into the prepared baking pan. Bake at 160°C (fan) for 44 minutes.</p></li>\n  <li><p class=\"font_7\">Use a skewer to poke holes if needed, then pour the cooled syrup over the hot cake.</p></li>\n  <li><p class=\"font_7\">Let the cake cool completely before serving.</p></li>\n  <li><p class=\"font_7\">Cut into pieces and sprinkle with cinnamon and orange zest if desired.</p></li>\n</ol>",
+            "LinkYT": "https://www.youtube.com/watch?v=q78c1gTBeCM",
+            "TagsGR": "[\"Γλυκά\", \"Γαλατόπιτα\", \"Ελληνικό γλυκό\", \"Σιμιγδάλι\", \"Κρέμα\", \"Σιρόπι\"]",
+            "TagsEN": "[\"Desserts\", \"Galatopita\", \"Greek dessert\", \"Semolina\", \"Custard\", \"Syrup\"]",
+            "Date": "20/02/2025"
           }
-        },
-        "Execution": {
-          "EN": [
-            "Prepare the syrup: In a pot, combine sugar, water, and citrus peel. Boil for 5-6 minutes. Let cool completely.",
-            "Prepare the cream: Lightly beat the eggs. Preheat oven to 160°C (fan) or 180°C (top-bottom).",
-            "Heat the milk with sugar in a pot. Grease a 28cm baking pan with butter and sprinkle with semolina. Remove excess.",
-            "Once the milk starts boiling, slowly add semolina while stirring. Cook until thickened, then remove from heat.",
-            "Stir in butter and vanilla. Let cool slightly before gradually adding the eggs while stirring.",
-            "Pour the mixture into the prepared baking pan. Bake at 160°C (fan) for 44 minutes.",
-            "Use a skewer to poke holes if needed, then pour the cooled syrup over the hot cake.",
-            "Let the cake cool completely before serving.",
-            "Cut into pieces and sprinkle with cinnamon and orange zest if desired."
-          ],
-          "GR": [
-            "Προετοιμάστε το σιρόπι: Σε μια κατσαρόλα, συνδυάστε ζάχαρη, νερό και φλούδα εσπεριδοειδών. Βράστε για 5-6 λεπτά. Αφήστε να κρυώσει εντελώς.",
-            "Προετοιμάστε την κρέμα: Χτυπήστε ελαφρώς τα αυγά. Προθερμάνετε τον φούρνο στους 160°C (αέρας) ή 180°C (αντιστάσεις).",
-            "Ζεστάνετε το γάλα με τη ζάχαρη σε μια κατσαρόλα. Βουτυρώστε ένα ταψί 28 εκ. και πασπαλίστε με σιμιγδάλι. Αφαιρέστε το περίσσιο.",
-            "Μόλις αρχίσει να βράζει το γάλα, προσθέστε σιμιγδάλι αργά ενώ ανακατεύετε. Μαγειρέψτε μέχρι να πήξει, έπειτα αφαιρέστε από τη φωτιά.",
-            "Προσθέστε το βούτυρο και τη βανίλια. Αφήστε να κρυώσει ελαφρώς πριν προσθέσετε σταδιακά τα αυγά, ανακατεύοντας συνεχώς.",
-            "Ρίξτε το μείγμα στο προετοιμασμένο ταψί. Ψήστε στους 160°C (αέρας) για 44 λεπτά.",
-            "Χρησιμοποιήστε ένα ξυλάκι για να τρυπήσετε αν χρειάζεται και περιχύστε το κρύο σιρόπι πάνω στο ζεστό κέικ.",
-            "Αφήστε το κέικ να κρυώσει εντελώς πριν το σερβίρετε.",
-            "Κόψτε σε κομμάτια και πασπαλίστε με κανέλα και ξύσμα πορτοκαλιού αν επιθυμείτε."
-          ]
-        }
-      }
+          
       
 ]
