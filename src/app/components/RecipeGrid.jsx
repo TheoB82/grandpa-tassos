@@ -2,22 +2,17 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { categoryMapping } from "../../utils/categoryMapping"; // Correct path based on your folder structure
+import { categoryMapping } from "../../utils/categoryMapping";
 
 const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
   const [visibleRecipes, setVisibleRecipes] = useState(12);
 
   // Sort recipes by Date (most recent first)
- const sortedRecipes = [...recipes].sort((a, b) => {
-  console.log('a.Date:', a.Date); // Add this line
-  console.log('b.Date:', b.Date); // Add this line
-
-  const dateA = typeof a.Date === "string" ? a.Date.split("/").reverse().join("-") : "";
-  const dateB = typeof b.Date === "string" ? b.Date.split("/").reverse().join("-") : "";
-  return new Date(dateB) - new Date(dateA);
-});
-
-  
+  const sortedRecipes = [...recipes].sort((a, b) => {
+    const dateA = typeof a.Date === "string" ? a.Date.split("/").reverse().join("-") : "";
+    const dateB = typeof b.Date === "string" ? b.Date.split("/").reverse().join("-") : "";
+    return new Date(dateB) - new Date(dateA);
+  });
 
   // Function to get the image link from YouTube link
   const getImageLink = (recipe) => {
@@ -26,29 +21,10 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
     );
     const videoId = videoIdMatch ? videoIdMatch[1] : null;
-  
-    if (videoId) {
-      // Try to load the max resolution image first
-      const imageUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-  
-      // If max resolution image fails, fallback to 'hqdefault.jpg'
-      const fallbackImageUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  
-      const image = new Image();
-      image.src = imageUrl;
-  
-      image.onerror = () => {
-        return fallbackImageUrl; // Return fallback image on error
-      };
-  
-      // If the image is valid, return it, else return fallback
-      return image.complete ? imageUrl : fallbackImageUrl;
-    }
-  
-    // Return a default image if no video ID is found
-    return "/path/to/default-image.jpg";
+    return videoId
+      ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+      : "/path/to/default-image.jpg"; // Fallback image
   };
-  
 
   // Function to get the category path using categoryMapping
   const getCategoryPath = (categoryName) => {
@@ -67,15 +43,18 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       {/* Recipe Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
         {sortedRecipes.slice(0, visibleRecipes).map((recipe, index) => (
-          <div key={index} className="bg-white border rounded-lg p-4 hover:shadow-lg transition">
+          <div
+            key={index}
+            className="bg-white border rounded-xl p-4 shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105"
+          >
             {/* Category - Only render if not on the category page */}
             {!isCategoryPage && (
-              <div className="text-lg font-semibold mb-2 text-center">
+              <div className="text-sm font-semibold mb-2 text-center uppercase tracking-wide">
                 <Link
                   href={getCategoryPath(
                     language === "GR" ? recipe.CategoryGR : recipe.CategoryEN
                   )}
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-600 hover:underline"
                 >
                   {language === "GR" ? recipe.CategoryGR : recipe.CategoryEN}
                 </Link>
@@ -83,23 +62,23 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
             )}
 
             {/* Image */}
-            <div className="h-48 bg-gray-300 mb-4">
+            <div className="h-48 bg-gray-200 rounded-md overflow-hidden">
               <img
                 src={getImageLink(recipe)}
                 alt={language === "GR" ? recipe.TitleGR : recipe.TitleEN}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-opacity duration-300 hover:opacity-90"
               />
             </div>
 
             {/* Title */}
-            <h3 className="text-xl font-bold mb-2 text-center">
+            <h3 className="text-lg font-bold mt-3 text-center">
               <Link href={`/recipes/${recipe.TitleEN.toLowerCase().replace(/ /g, "-")}`}>
                 {language === "GR" ? recipe.TitleGR : recipe.TitleEN}
               </Link>
             </h3>
 
             {/* Short Description */}
-            <p className="text-gray-600 text-sm mb-4 text-center">
+            <p className="text-gray-600 text-sm mt-2 text-center leading-relaxed">
               {language === "GR" ? recipe.ShortDescriptionGR : recipe.ShortDescriptionEN}
             </p>
           </div>
@@ -108,12 +87,12 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
 
       {/* Show More Button */}
       {visibleRecipes < sortedRecipes.length && (
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-8">
           <button
             onClick={loadMore}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-lg hover:bg-blue-700 transition transform hover:scale-105"
           >
-            Show More
+            {language === "EN" ? "Show More" : "Δείτε Περισσότερα"}
           </button>
         </div>
       )}
