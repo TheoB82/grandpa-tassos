@@ -6101,6 +6101,25 @@
             "TagsGR": "[\"Γλυκά\", \"Γαλατόπιτα\", \"Ελληνικό γλυκό\", \"Σιμιγδάλι\", \"Κρέμα\", \"Σιρόπι\"]",
             "TagsEN": "[\"Desserts\", \"Galatopita\", \"Greek dessert\", \"Semolina\", \"Custard\", \"Syrup\"]",
             "Date": "20/02/2025"
+          },
+          {
+        
+            "CategoryGR": "Ψωμιά & Ζύμες",
+            "CategoryEN": "Breads & Dough",
+            "Image": "",
+            "TitleGR": "ΛΑΓΑΝΑ σαν κουλούρι",
+            "TitleEN": "Lagana bread",
+            "ShortDescriptionGR": "Η λαγάνα είναι το παραδοσιακό ψωμί της Καθαράς Δευτέρας, αφράτο, σουσαμένιο και απόλυτα νηστίσιμο!",
+            "ShortDescriptionEN": "And the secret to make it like a koulouri.",
+            "IngredientsGR": "<p class=\"font_7\"><u>Συστατικά για 2 Λαγάνες:</u></p>\n<p class=\"font_7\">600 g αλεύρι για ψωμί</p>\n<p class=\"font_7\">420 ml νερό ζεστό 35°- 40°C</p>\n<p class=\"font_7\">12 g μαγιά ξερή</p>\n<p class=\"font_7\">1 κ.γ. ζάχαρη</p>\n<p class=\"font_7\">12 g αλάτι</p>\n<p class=\"font_7\">2 κ.σ. ελαιόλαδο ή ταχινέλαιο</p>\n<p class=\"font_7\"><u>Για την επικάλυψη:</u></p>\n<p class=\"font_7\">60 ml νερό ζεστό</p>\n<p class=\"font_7\">1-2 κ.γ. μέλι ή 1-2 κ.γ. ζάχαρη</p>\n<p class=\"font_7\">100 -120 g Σουσάμι</p>",
+            "IngredientsEN": "<p class=\"font_7\"><u>Ingredients for 2 Laganas:</u></p>\n<p class=\"font_7\">600 g bread flour</p>\n<p class=\"font_7\">420 ml warm water (35°- 40°C)</p>\n<p class=\"font_7\">12 g dry yeast</p>\n<p class=\"font_7\">1 tsp sugar</p>\n<p class=\"font_7\">12 g salt</p>\n<p class=\"font_7\">2 tbsp olive oil or tahini oil</p>\n<p class=\"font_7\"><u>For the topping:</u></p>\n<p class=\"font_7\">60 ml warm water</p>\n<p class=\"font_7\">1-2 tsp honey or 1-2 tsp sugar</p>\n<p class=\"font_7\">100 -120 g sesame seeds</p>",
+            "LongDescriptionGR": "<p class=\"font_8\">Είναι σίγουρα μια εξαιρετική επιλογή για να γιορτάσεις την Εβδομάδα της Τυρινής και να απολαύσεις γλυκές στιγμές με την οικογένεια και τους φίλους σου. Τρώγεται όλο το χρόνο. Καλή απόλαυση!</p>",
+            "ExecutionGR": "<ol class=\"font_8\">\n  <li><p class=\"font_8\">Σε ένα μπολ, διαλύστε τη μαγιά στο ζεστό νερό με τη ζάχαρη. Αφήστε το μείγμα να ενεργοποιηθεί για 10 λεπτά.</p></li>\n  <li><p class=\"font_8\">Προσθέστε το αλεύρι, το αλάτι και το ελαιόλαδο. Ζυμώστε μέχρι να έχετε μια ελαστική και μαλακή ζύμη.</p></li>\n  <li><p class=\"font_8\">Σκεπάστε τη ζύμη και αφήστε τη να φουσκώσει για 1-2 ώρες, μέχρι να διπλασιαστεί.</p></li>\n  <li><p class=\"font_8\">Χωρίστε τη ζύμη σε δύο μέρη και σχηματίστε τις λαγάνες. Τοποθετήστε τις σε ταψί με λαδόκολλα.</p></li>\n  <li><p class=\"font_8\">Ανακατέψτε το ζεστό νερό με το μέλι και αλείψτε τις λαγάνες. Πασπαλίστε με σουσάμι.</p></li>\n  <li><p class=\"font_8\">Ψήστε σε προθερμασμένο φούρνο στους 200°C για 20-25 λεπτά, μέχρι να πάρουν χρυσαφένιο χρώμα.</p></li>\n  <li><p class=\"font_8\">Αφήστε τις λαγάνες να κρυώσουν ελαφρώς πριν τις σερβίρετε.</p></li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_8\">\n  <li><p class=\"font_8\">In a bowl, dissolve the yeast in warm water with sugar. Let the mixture activate for 10 minutes.</p></li>\n  <li><p class=\"font_8\">Add the flour, salt, and olive oil. Knead until you have an elastic and soft dough.</p></li>\n  <li><p class=\"font_8\">Cover the dough and let it rise for 1-2 hours, until doubled in size.</p></li>\n  <li><p class=\"font_8\">Divide the dough into two parts and shape into laganas. Place them on a baking tray lined with parchment paper.</p></li>\n  <li><p class=\"font_8\">Mix the warm water with honey and brush over the laganas. Sprinkle with sesame seeds.</p></li>\n  <li><p class=\"font_8\">Bake in a preheated oven at 200°C for 20-25 minutes, until golden brown.</p></li>\n  <li><p class=\"font_8\">Allow the laganas to cool slightly before serving.</p></li>\n</ol>",
+            "LinkYT": "https://www.youtube.com/watch?v=KNwN-2ecR_I",
+            "TagsGR": "παραδοσιακό, ψωμί, νηστίσιμο, Σαρακοστιανό",
+            "TagsEN": "traditional, bread, vegan, Lenten",
+            "Date": "06/02/2025"
           }
           
       
