@@ -206,7 +206,7 @@ const Header = () => {
 
 
 {/* Logo Center */}
-<div className="flex justify-center flex-1 items-center mr-23"> {/* Add margin-right to shift it left */}
+<div className="flex justify-center flex-1 items-center mr-22"> {/* Add margin-right to shift it left */}
   <Link href="/" className="block">
     <Image
       src="/images/logo.png"

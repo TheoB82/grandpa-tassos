@@ -12,8 +12,14 @@ export default function RecipeCard({ recipe }) {
   // Split the steps by double newline and ensure each step is cleanly separated
   const stepsArray = steps.split("\n\n").map(step => step.trim());
 
+  // Meta tags for SEO (hidden from users but visible to search engines)
+  const tags = language === "EN" ? recipe.TagsEN : recipe.TagsGR;
+
   return (
     <div className="bg-white shadow-md rounded-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
+      {/* Meta tags for SEO */}
+      <meta name="keywords" content={tags.join(', ')} />
+
       {/* Recipe Category */}
       <p className="bg-gray-200 text-gray-700 text-sm font-semibold py-2 text-center uppercase tracking-wide">
         {language === "EN" ? recipe.CategoryEN : recipe.CategoryGR}
@@ -45,13 +51,23 @@ export default function RecipeCard({ recipe }) {
           <h4 className="font-semibold text-gray-800">
             {language === "EN" ? "Instructions" : "Οδηγίες"}
           </h4>
-          <ul className="mt-2 text-sm text-gray-700 space-y-2">
+          <ul className="mt-2 text-sm text-gray-700 space-y-2 pl-5 pr-8"> {/* Expand width for Execution */}
             {stepsArray.map((step, index) => (
               <li key={index} className="flex items-start">
                 <span className="font-bold">{index + 1}.</span>
                 <span className="ml-2">{step}</span>
               </li>
             ))}
+          </ul>
+        </div>
+
+        {/* Ingredients Section */}
+        <div className="mt-4">
+          <h4 className="font-semibold text-gray-800">
+            {language === "EN" ? "Ingredients" : "Υλικά"}
+          </h4>
+          <ul className="mt-2 text-sm text-gray-700 space-y-2 pr-5 pl-8"> {/* Expand width for Ingredients */}
+            {language === "EN" ? recipe.IngredientsEN : recipe.IngredientsGR}
           </ul>
         </div>
 
