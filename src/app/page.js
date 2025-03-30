@@ -39,7 +39,7 @@ export default function Home() {
       <div className="flex justify-center mb-10 min-h-[315px]">
   <iframe
     className="rounded-xl shadow-lg w-[560px] h-[315px]"
-    src="https://www.youtube.com/embed/domQLeVFwfQ"
+    src="https://www.youtube.com/watch?v=f_ZUEhudAWI"
     title="YouTube video player"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

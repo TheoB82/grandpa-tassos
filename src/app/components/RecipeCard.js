@@ -6,6 +6,12 @@ import { FaArrowRight } from "react-icons/fa";
 export default function RecipeCard({ recipe }) {
   const { language } = useLanguage();
 
+  // Get the recipe steps based on the selected language
+  const steps = language === "EN" ? recipe.ExecutionEN : recipe.ExecutionGR;
+  
+  // Split the steps by double newline and ensure each step is cleanly separated
+  const stepsArray = steps.split("\n\n").map(step => step.trim());
+
   return (
     <div className="bg-white shadow-md rounded-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
       {/* Recipe Category */}
@@ -33,6 +39,21 @@ export default function RecipeCard({ recipe }) {
         <p className="text-sm text-gray-600 mt-2 leading-relaxed">
           {language === "EN" ? recipe.ShortDescriptionEN : recipe.ShortDescriptionGR}
         </p>
+
+        {/* Display recipe steps */}
+        <div className="mt-4">
+          <h4 className="font-semibold text-gray-800">
+            {language === "EN" ? "Instructions" : "Οδηγίες"}
+          </h4>
+          <ul className="mt-2 text-sm text-gray-700 space-y-2">
+            {stepsArray.map((step, index) => (
+              <li key={index} className="flex items-start">
+                <span className="font-bold">{index + 1}.</span>
+                <span className="ml-2">{step}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* View More Button */}
         <Link href={`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`}>
