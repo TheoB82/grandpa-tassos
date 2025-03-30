@@ -147,53 +147,63 @@ const Header = () => {
         </div>
       )}
 
-       {/* Desktop View */}
-       <div className="hidden lg:flex items-center justify-between">
-        {/* Left Nav */}
-        <nav className="flex flex-1 justify-start ml-20 relative z-50">
-          <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
-            <li
-              className="relative"
-              ref={dropdownRef}
-              onMouseEnter={() => {
-                clearTimeout(dropdownTimeoutRef.current); // Clear any existing timeout
-                setIsDropdownOpen(true);
-              }}
-              onMouseLeave={() => {
-                dropdownTimeoutRef.current = setTimeout(() => {
-                  setIsDropdownOpen(false);
-                }, 200); // Add a small delay before closing
-              }}
-            >
-              <span className="text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                {language === "EN" ? "Recipes" : "Συνταγές"}
-              </span>
-              {isDropdownOpen && (
-                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
-                  {categoryMapping[language]?.map((category) => (
-                    <li
-                      key={category.path}
-                      className="p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleCategoryClick(category.path)}
-                    >
-                      {category.name}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link href="/about" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-500">
-                {language === "EN" ? "Contact" : "Επικοινωνία"}
-              </Link>
-            </li>
+      {/* Desktop View */}
+<div className="hidden lg:flex items-center justify-between">
+  {/* Left Nav */}
+  <nav className="flex flex-1 justify-start ml-20 relative z-50">
+    <ul className="flex space-x-6 text-lg font-semibold tracking-tight">
+      <li
+        className="relative"
+        ref={dropdownRef}
+        onMouseEnter={() => {
+          clearTimeout(dropdownTimeoutRef.current);
+          setIsDropdownOpen(true);
+        }}
+        onMouseLeave={() => {
+          dropdownTimeoutRef.current = setTimeout(() => {
+            setIsDropdownOpen(false);
+          }, 200);
+        }}
+      >
+        <span className="relative text-gray-700 hover:text-blue-500 cursor-pointer transition-colors duration-300 
+          after:block after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full hover:after:left-0">
+          {language === "EN" ? "Recipes" : "Συνταγές"}
+        </span>
+        {isDropdownOpen && (
+          <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 shadow-lg rounded-md z-50">
+            {categoryMapping[language]?.map((category) => (
+              <li
+                key={category.path}
+                className="p-2 hover:bg-gray-100 cursor-pointer"
+                onClick={() => handleCategoryClick(category.path)}
+              >
+                {category.name}
+              </li>
+            ))}
           </ul>
-        </nav>
+        )}
+      </li>
+      <li>
+        <Link
+          href="/about"
+          className="relative text-gray-700 hover:text-blue-500 transition-colors duration-300 
+            after:block after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full hover:after:left-0"
+        >
+          {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/contact"
+          className="relative text-gray-700 hover:text-blue-500 transition-colors duration-300 
+            after:block after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full hover:after:left-0"
+        >
+          {language === "EN" ? "Contact" : "Επικοινωνία"}
+        </Link>
+      </li>
+    </ul>
+  </nav>
+
 
         {/* Logo Center */}
         <div className="flex justify-center flex-1 items-center">
