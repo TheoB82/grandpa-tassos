@@ -256,17 +256,17 @@ const Header = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex space-x-4">
-            <a href="https://www.youtube.com/@GrandpaTassoscooking" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaYoutube size={24} />
-            </a>
-            <a href="https://www.facebook.com/grandpatassoscooking" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaFacebook size={24} />
-            </a>
-            <a href="https://www.instagram.com/grandpa_tassos_cooking/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaInstagram size={24} />
-            </a>
-          </div>
+<div className="flex space-x-4">
+  <a href="https://www.youtube.com/@GrandpaTassoscooking" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-blue-500">
+    <FaYoutube size={24} />
+  </a>
+  <a href="https://www.facebook.com/grandpatassoscooking" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-500">
+    <FaFacebook size={24} />
+  </a>
+  <a href="https://www.instagram.com/grandpa_tassos_cooking/" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-blue-500">
+    <FaInstagram size={24} />
+  </a>
+</div>
         </div>
       </div>
     </header>
