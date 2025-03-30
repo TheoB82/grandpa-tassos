@@ -1,4 +1,5 @@
 /* src/styles/global.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,6 +16,20 @@ body[lang="el"] {
 }
 
 /* Additional styles */
+
+/* Spin animation for logo */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-logo {
+  animation: spin 2s ease-out; /* Apply spin animation with a duration of 2s */
+}
 
 /* Hamburger Menu */
 .hamburger-menu {

@@ -205,12 +205,19 @@ const Header = () => {
   </nav>
 
 
-        {/* Logo Center */}
-        <div className="flex justify-center flex-1 items-center">
-          <Link href="/" className="block">
-            <Image src="/images/logo.png" alt="Grandpa Tassos Logo" className="h-32" width={128} height={128} />
-          </Link>
-        </div>
+{/* Logo Center */}
+<div className="flex justify-center flex-1 items-center mr-23"> {/* Add margin-right to shift it left */}
+  <Link href="/" className="block">
+    <Image
+      src="/images/logo.png"
+      alt="Grandpa Tassos Logo"
+      className="h-32 flip-logo"
+      width={128}
+      height={128}
+    />
+  </Link>
+</div>
+
 
         {/* Right Side */}
         <div className="flex-1 flex justify-end items-center space-x-6 mr-4 relative">
