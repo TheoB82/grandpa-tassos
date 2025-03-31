@@ -17,18 +17,20 @@ body[lang="el"] {
 
 /* Additional styles */
 
-/* Spin animation for logo */
-@keyframes spin {
+/* Flip animation for logo */
+@keyframes flip {
   0% {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotateY(180deg); /* Rotate halfway for the flip effect */
   }
 }
 
-.spin-logo {
-  animation: spin 2s ease-out; /* Apply spin animation with a duration of 2s */
+.flip-logo {
+  animation: flip 2s ease-out forwards; /* Apply flip animation */
+  transform-style: preserve-3d; /* Ensure 3D transform */
+  backface-visibility: hidden; /* Hide the backface when flipping */
 }
 
 /* Hamburger Menu */
