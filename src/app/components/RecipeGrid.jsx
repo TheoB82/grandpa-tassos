@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { categoryMapping } from "../../utils/categoryMapping"; // Correct path based on your folder structure
+import { categoryMapping } from "../../utils/categoryMapping";
 
 const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
   const [visibleRecipes, setVisibleRecipes] = useState(12);
-  const [imageError, setImageError] = useState({}); // Track which images have failed
+  const [imageError, setImageError] = useState({});
 
   // Sort recipes by Date (most recent first)
   const sortedRecipes = [...recipes].sort((a, b) => {
@@ -15,31 +15,33 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
     return new Date(dateB) - new Date(dateA);
   });
 
-  // Function to get the image link from YouTube link
-  const getImageLink = (recipe) => {
-    const ytLink = recipe.LinkYT;
-    const videoIdMatch = ytLink?.match(
+  // Function to get the video ID from YouTube link
+  const getVideoId = (ytLink) => {
+    const match = ytLink?.match(
       /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
     );
-    const videoId = videoIdMatch ? videoIdMatch[1] : null;
-
-    if (videoId) {
-      return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-    }
-
-    // Return a default image if no video ID is found
-    return "/path/to/default-image.jpg";
+    return match ? match[1] : null;
   };
 
-  // Function to handle image errors and set the fallback image
-  const handleImageError = (index) => {
-    setImageError((prevState) => ({
-      ...prevState,
-      [index]: true,
-    }));
+  // Function to get the YouTube thumbnail link
+  const getImageLink = (recipe) => {
+    const videoId = getVideoId(recipe.LinkYT);
+    return videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : "/path/to/default-image.jpg";
   };
 
-  // Function to get the category path using categoryMapping
+  // Function to handle image errors
+  const handleImageError = (index, videoId) => {
+    setImageError((prevState) => {
+      if (prevState[index] === "maxres" && videoId) {
+        return { ...prevState, [index]: "fallback" };
+      } else if (videoId) {
+        return { ...prevState, [index]: "maxres" };
+      }
+      return { ...prevState, [index]: "fallback" };
+    });
+  };
+
+  // Function to get the category path
   const getCategoryPath = (categoryName) => {
     const category = categoryMapping[language].find(
       (cat) => cat.name === categoryName || cat.en === categoryName
@@ -52,21 +54,19 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
   };
 
   useEffect(() => {
-    // Reset image error state when the recipe list changes (for new images)
     setImageError({});
   }, [visibleRecipes]);
 
   return (
     <div>
-      {/* Recipe Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
         {sortedRecipes.slice(0, visibleRecipes).map((recipe, index) => {
+          const videoId = getVideoId(recipe.LinkYT);
           const imageUrl = getImageLink(recipe);
           const fallbackImageUrl = "/path/to/default-image.jpg";
 
           return (
             <div key={index} className="bg-white border rounded-lg p-4 hover:shadow-lg transition">
-              {/* Category - Only render if not on the category page */}
               {!isCategoryPage && (
                 <div className="text-lg font-semibold mb-2 text-center">
                   <Link
@@ -80,24 +80,27 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
                 </div>
               )}
 
-              {/* Image */}
               <div className="h-48 bg-gray-300 mb-4">
                 <img
-                  src={imageError[index] ? fallbackImageUrl : imageUrl}
+                  src={
+                    imageError[index] === "fallback"
+                      ? fallbackImageUrl
+                      : imageError[index] === "maxres"
+                      ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                      : imageUrl
+                  }
                   alt={language === "GR" ? recipe.TitleGR : recipe.TitleEN}
                   className="w-full h-full object-cover"
-                  onError={() => handleImageError(index)}  // Handle image error
+                  onError={() => handleImageError(index, videoId)}
                 />
               </div>
 
-              {/* Title */}
               <h3 className="text-xl font-bold mb-2 text-center">
-                <Link href={`/recipes/${recipe.TitleEN.toLowerCase().replace(/ /g, "-")}`}>
+                <Link href={`/recipes/${encodeURIComponent(recipe.TitleEN.toLowerCase().replace(/\s+/g, "-"))}`}>
                   {language === "GR" ? recipe.TitleGR : recipe.TitleEN}
                 </Link>
               </h3>
 
-              {/* Short Description */}
               <p className="text-gray-600 text-sm mb-4 text-center">
                 {language === "GR" ? recipe.ShortDescriptionGR : recipe.ShortDescriptionEN}
               </p>
@@ -106,7 +109,6 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
         })}
       </div>
 
-      {/* Show More Button */}
       {visibleRecipes < sortedRecipes.length && (
         <div className="flex justify-center mt-6">
           <button
