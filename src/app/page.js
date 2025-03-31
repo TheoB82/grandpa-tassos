@@ -12,11 +12,19 @@ export default function Home() {
 
   // Fetch recipes on component mount with cache-busting query
   useEffect(() => {
-    fetch(`/recipes.json?timestamp=${new Date().getTime()}`) // Path from public folder with cache busting
+    fetch(`/recipes.json`, {
+      method: "GET",
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    })
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((error) => console.error("Error loading recipes:", error));
-  }, []); 
+  }, []);
+  
 
   // Filter recipes based on selected category
   const filteredRecipes = selectedCategory
