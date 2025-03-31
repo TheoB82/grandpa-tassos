@@ -17,21 +17,6 @@ body[lang="el"] {
 
 /* Additional styles */
 
-/* Flip animation for logo */
-@keyframes flip {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(180deg); /* Rotate halfway for the flip effect */
-  }
-}
-
-.flip-logo {
-  animation: flip 2s ease-out forwards; /* Apply flip animation */
-  transform-style: preserve-3d; /* Ensure 3D transform */
-  backface-visibility: hidden; /* Hide the backface when flipping */
-}
 
 /* Hamburger Menu */
 .hamburger-menu {
