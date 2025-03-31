@@ -10,9 +10,9 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState(""); // State for selected category
   const { language } = useLanguage();
 
-  // Fetch recipes on component mount
+  // Fetch recipes on component mount with cache-busting query
   useEffect(() => {
-    fetch("/recipes.json") // Path from public folder
+    fetch(`/recipes.json?timestamp=${new Date().getTime()}`) // Path from public folder with cache busting
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((error) => console.error("Error loading recipes:", error));
@@ -37,14 +37,20 @@ export default function Home() {
 
       {/* Embedded YouTube Video */}
       <div className="flex justify-center mb-10 min-h-[315px]">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/f_ZUEhudAWI?si=_-4Zyo3ZNiyjGJzt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-
-
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/f_ZUEhudAWI?si=_-4Zyo3ZNiyjGJzt" 
+          title="YouTube video player" 
+          frameBorder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerPolicy="strict-origin-when-cross-origin" 
+          allowFullScreen>
+        </iframe>
+      </div>
 
       {/* Recipe Grid */}
       <RecipeGrid recipes={filteredRecipes} language={language} />
-
     </div>
   );
 }
