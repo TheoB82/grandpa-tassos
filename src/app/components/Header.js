@@ -63,18 +63,19 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleRecipeClick = (recipe) => {
+  const handleRecipeClick = (recipe, event) => {
+    event.stopPropagation(); // Prevent unwanted bubbling issues
     if (recipe?.TitleEN) {
-      const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase(); // Generate the slug
-      console.log("Navigating to:", `/recipes/${slug}`); // Debugging log
-      router.push(`/recipes/${slug}`); // Navigate to the recipe page
-      setSearchQuery(""); // Clear the search query
-      setSearchResults([]); // Clear the search results
-      setIsMenuOpen(false); // Close the mobile menu
+      const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase();
+      router.push(`/recipes/${slug}`);
+      setSearchQuery(""); // Clear input field
+      setSearchResults([]); // Clear search results
+      setIsMenuOpen(false); // Close mobile menu if open
     } else {
       console.error("Invalid recipe clicked:", recipe);
     }
   };
+  
   
 
   const handleCategoryClick = (categoryPath) => {
