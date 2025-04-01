@@ -63,14 +63,14 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleRecipeClick = (recipe, event) => {
-    event.stopPropagation(); // Prevent unwanted bubbling issues
+  const handleRecipeClick = (recipe) => {
     if (recipe?.TitleEN) {
-      const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase();
-      router.push(`/recipes/${slug}`);
-      setSearchQuery(""); // Clear input field
-      setSearchResults([]); // Clear search results
-      setIsMenuOpen(false); // Close mobile menu if open
+      const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase(); // Generate the slug
+      console.log("Navigating to:", `/recipes/${slug}`); // Debugging log
+      router.push(`/recipes/${slug}`); // Navigate to the recipe page
+      setSearchQuery(""); // Clear the search query
+      setSearchResults([]); // Clear the search results
+      setIsMenuOpen(false); // Close the mobile menu
     } else {
       console.error("Invalid recipe clicked:", recipe);
     }
@@ -131,22 +131,20 @@ const Header = () => {
       onChange={(e) => setSearchQuery(e.target.value)}
       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
-   {searchResults.length > 0 && (
-  <ul className="mt-2 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-    {searchResults.map((recipe) => (
-      <li key={recipe.TitleEN} className="p-2 hover:bg-gray-100 cursor-pointer">
-        <button
-          className="w-full text-left"
-          onClick={(event) => handleRecipeClick(recipe, event)}
-        >
-          <div className="font-semibold">{recipe[`Title${language}`]}</div>
-          <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-        </button>
-      </li>
-    ))}
-  </ul>
-)}
-
+    {searchResults.length > 0 && (
+      <ul className="mt-2 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
+        {searchResults.map((recipe) => (
+          <li
+            key={recipe.TitleEN}
+            className="p-2 hover:bg-gray-100 cursor-pointer"
+            onClick={() => handleRecipeClick(recipe)} // Call the updated function
+          >
+            <div className="font-semibold">{recipe[`Title${language}`]}</div>
+            <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 )}
 
