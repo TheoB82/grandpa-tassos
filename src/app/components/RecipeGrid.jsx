@@ -56,7 +56,7 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
             key={index}
             className="bg-white border rounded-xl p-4 shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105"
           >
-            {/* Category - Only render if not on the category page */}
+           {/* Category - Only render if not on the category page */}
 {!isCategoryPage && (
   <div className="text-sm font-semibold mb-2 text-center tracking-wide">
     <Link
@@ -66,12 +66,11 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       className="text-blue-600 hover:underline"
     >
       {(language === "GR" ? recipe.CategoryGR : recipe.CategoryEN)
-        .toLowerCase()
-        .replace(/^\w/, (c) => c.toUpperCase())}
+        .charAt(0)
+        .toUpperCase() + (language === "GR" ? recipe.CategoryGR : recipe.CategoryEN).slice(1).toLowerCase()}
     </Link>
   </div>
 )}
-
 
             {/* Image */}
             <div className="h-48 bg-gray-200 rounded-md overflow-hidden">
