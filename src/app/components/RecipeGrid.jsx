@@ -12,9 +12,12 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
     if (typeof dateStr !== "string") return new Date(0); // Default to oldest date if invalid
     const parts = dateStr.split("/");
     if (parts.length !== 3) return new Date(0);
-    
+  
     const [day, month, year] = parts.map((part) => parseInt(part, 10));
-    return new Date(Date.UTC(year, month - 1, day)); // Ensures consistency across OS/browser
+    if (isNaN(day) || isNaN(month) || isNaN(year)) return new Date(0); // Handle invalid numbers
+  
+    // Return a valid Date object
+    return new Date(year, month - 1, day); // Use year, month (0-based), day
   };
 
   // Sort recipes by Date (newest first)
