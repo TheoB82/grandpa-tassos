@@ -128,16 +128,20 @@ const Header = () => {
     />
     {searchResults.length > 0 && (
       <ul className="mt-2 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
-        {searchResults.map((recipe) => (
-  <li key={recipe.TitleEN} className="p-2 hover:bg-gray-100 cursor-pointer">
-    <Link href={`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`}>
-      <div className="font-semibold">{recipe[`Title${language}`]}</div>
-      <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-    </Link>
-  </li>
-))}
-
-      </ul>
+      {searchResults.map((recipe) => {
+        const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase();
+        return (
+          <li 
+            key={recipe.TitleEN} 
+            className="p-2 hover:bg-gray-100 cursor-pointer" 
+            onClick={() => router.push(`/recipes/${slug}`)} // Ensure proper navigation
+          >
+            <div className="font-semibold">{recipe[`Title${language}`]}</div>
+            <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+          </li>
+        );
+      })}
+    </ul>    
     )}
   </div>
 )}
