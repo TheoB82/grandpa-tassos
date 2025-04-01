@@ -65,16 +65,14 @@ const Header = () => {
 
   const handleRecipeClick = (recipe) => {
     if (recipe?.TitleEN) {
-      const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase(); // Generate the slug
+      const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase();
       console.log("Navigating to:", `/recipes/${slug}`); // Debugging log
-      router.push(`/recipes/${slug}`); // Navigate to the recipe page
-      setSearchQuery(""); // Clear the search query
-      setSearchResults([]); // Clear the search results
-      setIsMenuOpen(false); // Close the mobile menu
+      router.push(`/recipes/${slug}`);
     } else {
       console.error("Invalid recipe clicked:", recipe);
     }
   };
+  
 
   const handleCategoryClick = (categoryPath) => {
     if (categoryPath) {
@@ -132,15 +130,14 @@ const Header = () => {
     {searchResults.length > 0 && (
       <ul className="mt-2 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
         {searchResults.map((recipe) => (
-          <li
-            key={recipe.TitleEN}
-            className="p-2 hover:bg-gray-100 cursor-pointer"
-            onClick={() => handleRecipeClick(recipe)} // Call the updated function
-          >
-            <div className="font-semibold">{recipe[`Title${language}`]}</div>
-            <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-          </li>
-        ))}
+  <li key={recipe.TitleEN} className="p-2 hover:bg-gray-100 cursor-pointer">
+    <Link href={`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`}>
+      <div className="font-semibold">{recipe[`Title${language}`]}</div>
+      <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+    </Link>
+  </li>
+))}
+
       </ul>
     )}
   </div>
