@@ -84,37 +84,64 @@ const Header = () => {
 
   return (
     <header className="w-full p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
-      {/* Mobile View */}
-      <div className="lg:hidden flex justify-between items-center">
-        {/* Burger Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-gray-700 text-2xl"
-        >
-          &#9776;
-        </button>
+     {/* Mobile View */}
+<div className="lg:hidden flex justify-between items-center">
+  {/* Burger Menu Button */}
+  <button
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
+    className="text-gray-700 text-2xl"
+  >
+    &#9776;
+  </button>
 
-        {/* Logo Centered */}
-        <Link href="/" className="mx-auto">
-          <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={78} height={78} />
-        </Link>
+  {/* Logo Centered */}
+  <Link href="/" className="mx-auto">
+    <Image src="/images/logo.png" alt="Grandpa Tassos Logo" width={78} height={78} />
+  </Link>
 
-        {/* Language Toggle */}
-        <div className="flex items-center space-x-2">
-          <button
-            className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("EN")}
+  {/* Language Toggle */}
+  <div className="flex items-center space-x-2">
+    <button
+      className={`hover:text-blue-500 ${language === "EN" ? "font-bold text-blue-600" : ""}`}
+      onClick={() => handleLanguageChange("EN")}
+    >
+      EN
+    </button>
+    <button
+      className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
+      onClick={() => handleLanguageChange("GR")}
+    >
+      ΕΛ
+    </button>
+  </div>
+</div>
+
+{/* Mobile Search Bar */}
+{isMenuOpen && (
+  <div className="lg:hidden mt-4 px-4">
+    <input
+      type="text"
+      placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    {searchResults.length > 0 && (
+      <ul className="mt-2 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
+        {searchResults.map((recipe) => (
+          <li
+            key={recipe.TitleEN}
+            className="p-2 hover:bg-gray-100 cursor-pointer"
+            onClick={() => handleRecipeClick(recipe)}
           >
-            EN
-          </button>
-          <button
-            className={`hover:text-blue-500 ${language === "GR" ? "font-bold text-blue-600" : ""}`}
-            onClick={() => handleLanguageChange("GR")}
-          >
-            ΕΛ
-          </button>
-        </div>
-      </div>
+            <div className="font-semibold">{recipe[`Title${language}`]}</div>
+            <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+)}
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
