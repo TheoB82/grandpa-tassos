@@ -123,7 +123,7 @@ const Header = () => {
 
 {/* Mobile Search Bar */}
 {isMenuOpen && (
-  <div className="lg:hidden mt-4 px-4">
+  <div className="lg:hidden mt-4 px-4 relative">
     <input
       type="text"
       placeholder={language === "EN" ? "Search recipes..." : "Αναζήτηση συνταγών..."}
@@ -137,7 +137,8 @@ const Header = () => {
           <li
             key={recipe.TitleEN}
             className="p-2 hover:bg-gray-100 cursor-pointer"
-            onClick={(event) => handleRecipeClick(recipe, event)} // Ensure this function is correctly defined
+            onClick={(event) => handleRecipeClick(recipe, event)} // Ensure this function is properly defined
+            onMouseDown={(e) => e.preventDefault()} // Prevent issues with mobile clicks
           >
             <div className="font-semibold">{recipe[`Title${language}`]}</div>
             <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
