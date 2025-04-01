@@ -65,7 +65,9 @@ const Header = () => {
 
   const handleRecipeClick = (recipe) => {
     if (recipe?.TitleEN) {
-      router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
+      const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase(); // Generate the slug
+      console.log("Navigating to:", `/recipes/${slug}`); // Debugging log
+      router.push(`/recipes/${slug}`); // Navigate to the recipe page
       setSearchQuery(""); // Clear the search query
       setSearchResults([]); // Clear the search results
       setIsMenuOpen(false); // Close the mobile menu
