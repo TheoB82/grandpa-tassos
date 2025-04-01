@@ -66,8 +66,9 @@ const Header = () => {
   const handleRecipeClick = (recipe) => {
     if (recipe?.TitleEN) {
       router.push(`/recipes/${recipe.TitleEN.replace(/\s+/g, "-").toLowerCase()}`);
-      setSearchQuery("");
-      setSearchResults([]);
+      setSearchQuery(""); // Clear the search query
+      setSearchResults([]); // Clear the search results
+      setIsMenuOpen(false); // Close the mobile menu
     } else {
       console.error("Invalid recipe clicked:", recipe);
     }
@@ -132,7 +133,7 @@ const Header = () => {
           <li
             key={recipe.TitleEN}
             className="p-2 hover:bg-gray-100 cursor-pointer"
-            onClick={() => handleRecipeClick(recipe)}
+            onClick={() => handleRecipeClick(recipe)} // Call the updated function
           >
             <div className="font-semibold">{recipe[`Title${language}`]}</div>
             <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
