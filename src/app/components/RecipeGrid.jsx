@@ -7,17 +7,19 @@ import { categoryMapping } from "../../utils/categoryMapping";
 const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
   const [visibleRecipes, setVisibleRecipes] = useState(12);
 
-  // Sort recipes by Date (most recent first)
-  const sortedRecipes = [...recipes].sort((a, b) => {
-    const parseDate = (dateStr) => {
-      if (typeof dateStr !== "string") return new Date(0); // Default to oldest date if invalid
-      const [day, month, year] = dateStr.split("/");
-      return new Date(`${year}-${month}-${day}T00:00:00`);
-    };
-  
-    return parseDate(b.Date) - parseDate(a.Date);
-  });
-  
+  // Parse dates properly across all devices (DD/MM/YYYY → YYYY-MM-DD)
+  const parseDate = (dateStr) => {
+    if (typeof dateStr !== "string") return new Date(0); // Default to oldest date if invalid
+    const parts = dateStr.split("/");
+    if (parts.length !== 3) return new Date(0);
+    
+    const [day, month, year] = parts.map((part) => parseInt(part, 10));
+    return new Date(Date.UTC(year, month - 1, day)); // Ensures consistency across OS/browser
+  };
+
+  // Sort recipes by Date (newest first)
+  const sortedRecipes = [...recipes].sort((a, b) => parseDate(b.Date) - parseDate(a.Date));
+
   // Function to get the image link from YouTube link
   const getImageLink = (recipe) => {
     const ytLink = recipe.LinkYT;
