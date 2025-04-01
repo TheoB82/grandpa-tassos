@@ -135,13 +135,14 @@ const Header = () => {
       <ul className="mt-2 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
         {searchResults.map((recipe) => (
           <li
-            key={recipe.TitleEN}
-            className="p-2 hover:bg-gray-100 cursor-pointer"
-            onClick={() => handleRecipeClick(recipe)} // Call the updated function
-          >
-            <div className="font-semibold">{recipe[`Title${language}`]}</div>
-            <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-          </li>
+          key={recipe.TitleEN}
+          className="p-2 hover:bg-gray-100 cursor-pointer"
+          onClick={(event) => handleRecipeClick(recipe, event)}
+        >
+          <div className="font-semibold">{recipe[`Title${language}`]}</div>
+          <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+        </li>
+        
         ))}
       </ul>
     )}
@@ -265,14 +266,15 @@ const Header = () => {
             {searchResults.length > 0 && (
               <ul className="absolute left-0 mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md z-50 max-h-64 overflow-y-auto">
                 {searchResults.map((recipe) => (
-                  <li
-                    key={recipe.TitleEN}
-                    className="p-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleRecipeClick(recipe)}
-                  >
-                    <div className="font-semibold">{recipe[`Title${language}`]}</div>
-                    <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
-                  </li>
+                 <li
+                 key={recipe.TitleEN}
+                 className="p-2 hover:bg-gray-100 cursor-pointer"
+                 onClick={(event) => handleRecipeClick(recipe, event)}
+               >
+                 <div className="font-semibold">{recipe[`Title${language}`]}</div>
+                 <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
+               </li>
+               
                 ))}
               </ul>
             )}
