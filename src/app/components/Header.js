@@ -137,7 +137,7 @@ const Header = () => {
           <li
             key={recipe.TitleEN}
             className="p-2 hover:bg-gray-100 cursor-pointer"
-            onClick={() => handleRecipeClick(recipe)} // Call the updated function
+            onClick={(event) => handleRecipeClick(recipe, event)}
           >
             <div className="font-semibold">{recipe[`Title${language}`]}</div>
             <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
