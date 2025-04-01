@@ -137,8 +137,12 @@ const Header = () => {
           <li
             key={recipe.TitleEN}
             className="p-2 hover:bg-gray-100 cursor-pointer"
-            onClick={(event) => handleRecipeClick(recipe, event)} // Ensure this function is properly defined
-            onMouseDown={(e) => e.preventDefault()} // Prevent issues with mobile clicks
+            onClick={(event) => handleRecipeClick(recipe, event)} // Make sure handleRecipeClick is defined
+            onTouchStart={(e) => {  // Handling touch event for mobile
+              e.preventDefault();
+              console.log("Mobile click detected");
+              handleRecipeClick(recipe, e);  // Ensure it calls the click handler for mobile as well
+            }}
           >
             <div className="font-semibold">{recipe[`Title${language}`]}</div>
             <div className="text-sm text-gray-600">{recipe[`ShortDescription${language}`]}</div>
