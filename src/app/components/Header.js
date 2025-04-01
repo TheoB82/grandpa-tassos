@@ -63,15 +63,14 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleRecipeClick = (recipe) => {
+  const handleRecipeClick = (recipe, event) => {
+    event.preventDefault();
     if (recipe?.TitleEN) {
       const slug = recipe.TitleEN.replace(/\s+/g, "-").toLowerCase();
-      console.log("Navigating to:", `/recipes/${slug}`); // Debugging log
+      console.log("Navigating to:", `/recipes/${slug}`);
       router.push(`/recipes/${slug}`);
-    } else {
-      console.error("Invalid recipe clicked:", recipe);
     }
-  };
+  };  
   
 
   const handleCategoryClick = (categoryPath) => {
