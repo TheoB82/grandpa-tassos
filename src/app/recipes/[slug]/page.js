@@ -1,4 +1,4 @@
-"use client";  // Ensure this file runs on the client side
+"use client"; // Ensure this file runs on the client side
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
@@ -68,28 +68,37 @@ const RecipePage = () => {
       <div className="max-w-4xl mx-auto p-8 mt-4">
         {/* Recipe Title */}
         <h1 className="text-3xl font-bold text-center mb-4">
-          {language === 'EN' ? recipe.TitleEN : recipe.TitleGR}
+          {language === "EN" ? recipe.TitleEN : recipe.TitleGR}
         </h1>
 
         {/* YouTube Video (If Exists) */}
         {recipe.LinkYT && getYouTubeEmbedUrl(recipe.LinkYT) && (
           <div className="flex justify-center mt-6">
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/-pHu1H97DPA?si=SJbxOeO-CU0AtxzD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe
+              width="560"
+              height="315"
+              src={getYouTubeEmbedUrl(recipe.LinkYT)} // Dynamically set the video URL
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
         )}
 
         {/* Short Description */}
         <p className="mt-6 text-xl text-center text-gray-800">
-          {language === 'EN' ? recipe.ShortDescriptionEN : recipe.ShortDescriptionGR}
+          {language === "EN" ? recipe.ShortDescriptionEN : recipe.ShortDescriptionGR}
         </p>
 
         {/* Long Description */}
-        {language === 'EL' || language === 'GR' ? (
+        {language === "EL" || language === "GR" ? (
           <div className="mt-8 bg-gray-100 p-6 rounded-lg shadow-lg">
-            {language === 'GR' && (
+            {language === "GR" && (
               <div dangerouslySetInnerHTML={{ __html: recipe.LongDescriptionGR }}></div>
             )}
-            {language === 'EN' && (
+            {language === "EN" && (
               <div dangerouslySetInnerHTML={{ __html: recipe.LongDescriptionEN }}></div>
             )}
           </div>
@@ -99,17 +108,27 @@ const RecipePage = () => {
         <div className="mt-6 flex flex-wrap justify-center">
           <div className="flex-1 mr-12 w-full md:w-1/2">
             <h2 className="text-2xl font-bold mt-6 text-gray-800">
-              {language === 'EN' ? "Execution" : "Εκτέλεση"}
+              {language === "EN" ? "Execution" : "Εκτέλεση"}
             </h2>
-            <div className="text-lg" dangerouslySetInnerHTML={{ __html: language === 'EN' ? recipe.ExecutionEN : recipe.ExecutionGR }}></div>
+            <div
+              className="text-lg"
+              dangerouslySetInnerHTML={{
+                __html: language === "EN" ? recipe.ExecutionEN : recipe.ExecutionGR,
+              }}
+            ></div>
           </div>
 
           {/* Ingredients Section */}
           <div className="p-6 bg-white border border-gray-300 shadow-lg rounded-lg max-w-xs w-full md:w-1/2">
             <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
-              {language === 'EN' ? "Ingredients" : "Συστατικά"}
+              {language === "EN" ? "Ingredients" : "Συστατικά"}
             </h2>
-            <div className="text-lg text-center" dangerouslySetInnerHTML={{ __html: language === 'EN' ? recipe.IngredientsEN : recipe.IngredientsGR }}></div>
+            <div
+              className="text-lg text-center"
+              dangerouslySetInnerHTML={{
+                __html: language === "EN" ? recipe.IngredientsEN : recipe.IngredientsGR,
+              }}
+            ></div>
           </div>
         </div>
       </div>
