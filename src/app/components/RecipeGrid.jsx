@@ -9,11 +9,15 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
 
   // Sort recipes by Date (most recent first)
   const sortedRecipes = [...recipes].sort((a, b) => {
-    const dateA = typeof a.Date === "string" ? a.Date.split("/").reverse().join("-") : "";
-    const dateB = typeof b.Date === "string" ? b.Date.split("/").reverse().join("-") : "";
-    return new Date(dateB) - new Date(dateA);
+    const parseDate = (dateStr) => {
+      if (typeof dateStr !== "string") return new Date(0); // Default to oldest date if invalid
+      const [day, month, year] = dateStr.split("/");
+      return new Date(`${year}-${month}-${day}T00:00:00`);
+    };
+  
+    return parseDate(b.Date) - parseDate(a.Date);
   });
-
+  
   // Function to get the image link from YouTube link
   const getImageLink = (recipe) => {
     const ytLink = recipe.LinkYT;
