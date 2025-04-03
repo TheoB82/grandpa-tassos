@@ -39,25 +39,16 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       /(?:youtube\.com\/.*[?&]v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([a-zA-Z0-9_-]{11})/
     );
     const videoId = videoIdMatch ? videoIdMatch[1] : null;
-  
+
     if (!videoId) return "/path/to/default-image.jpg";
-  
+
     const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
     const sdRes = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`;
     const hqRes = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-    const alternativeHQ = `https://i9.ytimg.com/vi/${videoId}/hqdefault.jpg`;  // Alternative URL format you mentioned
     const fallback = `https://i9.ytimg.com/vi/${videoId}/sddefault.jpg`;
-  
-    // Try each image URL in order of preference
-    return (
-      (await testImage(maxRes)) ||
-      (await testImage(sdRes)) ||
-      (await testImage(hqRes)) ||
-      (await testImage(alternativeHQ)) ||  // Added check for this alternative URL format
-      fallback
-    );
+
+    return (await testImage(maxRes)) || (await testImage(sdRes)) || (await testImage(hqRes)) || fallback;
   };
-  
 
   // Load thumbnails for visible recipes
   useEffect(() => {
