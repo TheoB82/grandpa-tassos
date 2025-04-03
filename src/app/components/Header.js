@@ -39,14 +39,14 @@ const Header = () => {
       setSearchResults([]);
       return;
     }
-
+  
     const filtered = recipes.filter((recipe) =>
       [recipe[`Title${language}`], recipe[`ShortDescription${language}`], recipe[`Tags${language}`]]
         .join(" ")
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
+        .toLowerCase() // Convert recipe fields to lowercase
+        .includes(searchQuery.toLowerCase()) // Convert search query to lowercase
     );
-
+  
     setSearchResults(filtered);
   }, [searchQuery, language, recipes]);
 
