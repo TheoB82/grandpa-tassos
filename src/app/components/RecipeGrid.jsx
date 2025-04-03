@@ -23,17 +23,17 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
   // Sort recipes by Date (newest first)
   const sortedRecipes = [...recipes].sort((a, b) => parseDate(b.Date) - parseDate(a.Date));
 
-  // Function to get the image link from YouTube link
   const getImageLink = (recipe) => {
     const ytLink = recipe.LinkYT;
     const videoIdMatch = ytLink?.match(
-      /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+      /(?:youtube\.com\/.*[?&]v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([a-zA-Z0-9_-]{11})/
     );
     const videoId = videoIdMatch ? videoIdMatch[1] : null;
     return videoId
       ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
       : "/path/to/default-image.jpg"; // Fallback image
   };
+  
 
   // Function to get the category path using categoryMapping
   const getCategoryPath = (categoryName) => {
