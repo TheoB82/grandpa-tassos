@@ -14,7 +14,7 @@ const AboutPage = () => {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto py-16 px-6 text-gray-900">
         <h1 className="text-4xl font-bold text-center mb-6">
-          {language === "EN" ? "About Grandpa Tassos" : "Σχετικά με τον Παππού Τάσο"}
+          {language === "EN" ? "About Grandpa Tassos" : "Ο Παππούς"}
         </h1>
         <p className="text-lg leading-relaxed text-gray-700">
           {language === "EN"

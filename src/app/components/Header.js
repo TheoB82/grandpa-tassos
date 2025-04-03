@@ -176,7 +176,7 @@ const Header = () => {
       )}
           </div>
           <Link href="/about" className="block px-4 py-2 hover:bg-gray-100">
-            {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+            {language === "EN" ? "About Grandpa" : "Ο Παππούς"}
           </Link>
           <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100">
             {language === "EN" ? "Contact" : "Επικοινωνία"}
@@ -226,7 +226,7 @@ const Header = () => {
           className="relative text-gray-700 hover:text-blue-500 transition-colors duration-300 
             after:block after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full hover:after:left-0"
         >
-          {language === "EN" ? "About Grandpa" : "Σχετικά με τον Παππού"}
+          {language === "EN" ? "About Grandpa" : "Ο Παππούς"}
         </Link>
       </li>
       <li>
