@@ -29,8 +29,9 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       /(?:youtube\.com\/.*[?&]v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([a-zA-Z0-9_-]{11})/
     );
     const videoId = videoIdMatch ? videoIdMatch[1] : null;
+  
     return videoId
-      ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+      ? `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`
       : "/path/to/default-image.jpg"; // Fallback image
   };
   
