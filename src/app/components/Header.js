@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
@@ -89,14 +88,6 @@ const Header = () => {
   };
 
   return (
-    <>
-      <Head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2171074805444072"
-          crossOrigin="anonymous"
-        ></script>
-      </Head>
     <header className="w-full p-4 bg-white text-gray-900 fixed top-0 left-0 right-0 shadow-md z-50">
      {/* Mobile View */}
 <div className="lg:hidden flex justify-between items-center">
@@ -324,7 +315,6 @@ const Header = () => {
         </div>
       </div>
     </header>
-    </>
   );
 };
 
