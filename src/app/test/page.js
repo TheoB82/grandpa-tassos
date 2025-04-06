@@ -2,6 +2,8 @@
 // src/app/test/page.js
 
 import React, { useState } from "react";
+import ReactQuill from 'react-quill'; // Import React Quill
+import 'react-quill/dist/quill.snow.css'; // Import the Quill styles
 
 // Categories list for Greek and English
 const categoriesGR = [
@@ -150,45 +152,45 @@ const RecipeToJson = () => {
       </div>
       <div>
         <label>Ingredients (GR): </label>
-        <textarea
+        <ReactQuill
           value={ingredientsGR}
-          onChange={(e) => setIngredientsGR(e.target.value)}
+          onChange={(value) => setIngredientsGR(value)}
         />
       </div>
       <div>
         <label>Ingredients (EN): </label>
-        <textarea
+        <ReactQuill
           value={ingredientsEN}
-          onChange={(e) => setIngredientsEN(e.target.value)}
+          onChange={(value) => setIngredientsEN(value)}
         />
       </div>
       <div>
         <label>Long Description (GR): </label>
-        <textarea
+        <ReactQuill
           value={longDescriptionGR}
-          onChange={(e) => setLongDescriptionGR(e.target.value)}
+          onChange={(value) => setLongDescriptionGR(value)}
         />
       </div>
       <div>
         <label>Long Description (EN): </label>
-        <textarea
+        <ReactQuill
           value={longDescriptionEN}
-          onChange={(e) => setLongDescriptionEN(e.target.value)}
+          onChange={(value) => setLongDescriptionEN(value)}
         />
       </div>
       <div>
         <label>Execution (GR): </label>
-        <textarea
+        <ReactQuill
           value={executionGR}
-          onChange={(e) => setExecutionGR(e.target.value)}
+          onChange={(value) => setExecutionGR(value)}
           placeholder="1. First step\n2. Second step\n3. Third step"
         />
       </div>
       <div>
         <label>Execution (EN): </label>
-        <textarea
+        <ReactQuill
           value={executionEN}
-          onChange={(e) => setExecutionEN(e.target.value)}
+          onChange={(value) => setExecutionEN(value)}
           placeholder="1. First step\n2. Second step\n3. Third step"
         />
       </div>
