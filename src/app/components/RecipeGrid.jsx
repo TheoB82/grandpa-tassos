@@ -66,8 +66,8 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
       className="text-blue-600 hover:underline"
     >
       {(language === "GR" ? recipe.CategoryGR : recipe.CategoryEN)
-        .toLowerCase()
-        .replace(/^\w/, (c) => c.toUpperCase())}
+  .toLowerCase()
+  .replace(/^\p{L}/u, (c) => c.toUpperCase())}
     </Link>
   </div>
 )}
