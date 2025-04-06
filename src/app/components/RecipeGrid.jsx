@@ -56,7 +56,7 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
             key={index}
             className="bg-white border rounded-xl p-4 shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105"
           >
-            {/* Category - Only render if not on the category page */}
+         {/* Category - Only render if not on the category page */}
 {!isCategoryPage && (
   <div className="text-sm font-semibold mb-2 text-center tracking-wide">
     <Link
@@ -71,7 +71,6 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
     </Link>
   </div>
 )}
-
 
             {/* Image */}
             <div className="h-48 bg-gray-200 rounded-md overflow-hidden">
