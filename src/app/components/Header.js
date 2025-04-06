@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { categoryMapping } from "../../utils/categoryMapping";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 const Header = () => {
   const { language, handleLanguageChange } = useLanguage();
