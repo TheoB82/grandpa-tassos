@@ -8,6 +8,9 @@ import Header from "./components/Header"; // Go up two levels and then into the 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
   const { language } = useLanguage();
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2171074805444072"
+     crossorigin="anonymous"></script>
 
   // Fetch recipes on component mount with cache-busting query
   useEffect(() => {
