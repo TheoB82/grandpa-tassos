@@ -24,20 +24,25 @@ export default function RecipeToJson() {
     setRecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
-  // Function to format the Execution fields to the correct HTML format
+  // Format ingredients using line separator
+  const formatIngredients = (ingredientsText) => {
+    const lines = ingredientsText.split("\n").filter(line => line.trim() !== "");
+    return lines.map(line => `${line.trim()},</p>\n<p class="font_7">`).join("").replace(/<\/p>\n<p class="font_7">$/, "");
+  };
+
+  // Format execution as ordered list
   const formatExecution = (executionText) => {
     const steps = executionText.split("\n").filter(step => step.trim() !== "");
     return `<ol class="font_8">\n  ${steps
-      .map(
-        (step) =>
-          `<li><p class="font_8">${step.trim()}</p></li>`
-      )
+      .map(step => `<li><p class="font_8">${step.trim()}</p></li>`)
       .join("\n  ")}\n</ol>`;
   };
 
   const handleDownload = () => {
     const formattedRecipe = {
       ...recipe,
+      IngredientsGR: formatIngredients(recipe.IngredientsGR),
+      IngredientsEN: formatIngredients(recipe.IngredientsEN),
       ExecutionGR: formatExecution(recipe.ExecutionGR),
       ExecutionEN: formatExecution(recipe.ExecutionEN),
     };
