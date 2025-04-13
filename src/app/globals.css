@@ -17,5 +17,10 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif; /* Default to Inter for English */
+}
+
+/* Greek Text: Apply 'Mynerve' font */
+html[lang="el"], .greek-text {
+  font-family: 'Mynerve', sans-serif;
 }
