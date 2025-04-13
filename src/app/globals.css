@@ -1,14 +1,12 @@
-/* Importing Google Fonts for Quicksand and Mynerve */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Default styles */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-/* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,39 +17,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Quicksand', sans-serif; /* Default font for English */
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Apply Mynerve font for Greek */
-html:lang(el) {
-  font-family: 'Mynerve', sans-serif; /* Greek font */
-}
-
-body {
-  font-family: 'Quicksand', sans-serif; /* Default font for English */
-}
-
-/* Additional styling for better control over fonts */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-  background: none;
-  border: none;
-  outline: none;
-}
-
