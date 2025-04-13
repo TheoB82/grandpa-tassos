@@ -13,10 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang={language === "GR" ? "el" : "en"}>
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@400;700&family=Mynerve&display=swap"
-          rel="stylesheet"
-        />
+      <link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@400;700&family=Mynerve&display=swap"
+  rel="stylesheet"
+/>
       </head>
       <body className="antialiased">
         <LanguageProvider>
