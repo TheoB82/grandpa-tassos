@@ -1,4 +1,5 @@
-import "../styles/globals.css";
+"use client";
+
 import { LanguageProvider } from "./context/LanguageContext"; // Correct path
 import Header from "./components/Header"; // Corrected path relative to src/app
 import CookieBanner from "./components/CookieBanner"; // Import CookieBanner component
