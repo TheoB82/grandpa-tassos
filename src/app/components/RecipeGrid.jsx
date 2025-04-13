@@ -48,7 +48,7 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
   };
 
   // Font class for language
-  const fontClass = language === "GR" ? "font-greek" : "font-english";
+  const fontClass = language === "el" ? "font-greek" : "font-english";
 
   return (
     <div>
