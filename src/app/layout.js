@@ -1,6 +1,6 @@
 "use client"; // Ensure this file runs on the client side
 import "../styles/globals.css";
-import { LanguageProvider } from "./context/LanguageContext"; // Correct path
+import { LanguageProvider, useLanguage } from "./context/LanguageContext"; // Correct path
 import Header from "./components/Header"; // Corrected path relative to src/app
 
 export default function RootLayout({ children }) {
