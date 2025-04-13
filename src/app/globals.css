@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Mynerve font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -27,5 +30,5 @@ html[lang="en"] body {
 
 /* Font for Greek */
 html[lang="el"] body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Mynerve', cursive;
 }
