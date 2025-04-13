@@ -8,8 +8,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const { language } = useLanguage(); // Access the language context
+
   return (
-    <html lang="en">
+    <html lang={language === "GR" ? "el" : "en"}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@400;700&family=Mynerve&display=swap"
