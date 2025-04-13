@@ -21,9 +21,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  body {
-    font-family: 'Mynerve', cursive !important;
-  }
+  
 }
 
 /* Font for English */
