@@ -47,6 +47,9 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
     setVisibleRecipes((prev) => prev + 12);
   };
 
+  // Font class for language
+  const fontClass = language === "GR" ? "font-greek" : "font-english";
+
   return (
     <div>
       {/* Recipe Grid */}
@@ -54,23 +57,23 @@ const RecipeGrid = ({ recipes, language, isCategoryPage }) => {
         {sortedRecipes.slice(0, visibleRecipes).map((recipe, index) => (
           <div
             key={index}
-            className="bg-white border rounded-xl p-4 shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105"
+            className={`bg-white border rounded-xl p-4 shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105 ${fontClass}`}
           >
-         {/* Category - Only render if not on the category page */}
-{!isCategoryPage && (
-  <div className="text-sm font-semibold mb-2 text-center tracking-wide">
-    <Link
-      href={getCategoryPath(
-        language === "GR" ? recipe.CategoryGR : recipe.CategoryEN
-      )}
-      className="text-blue-600 hover:underline"
-    >
-      {(language === "GR" ? recipe.CategoryGR : recipe.CategoryEN)
-  .toLowerCase()
-  .replace(/^\p{L}/u, (c) => c.toUpperCase())}
-    </Link>
-  </div>
-)}
+            {/* Category - Only render if not on the category page */}
+            {!isCategoryPage && (
+              <div className="text-sm font-semibold mb-2 text-center tracking-wide">
+                <Link
+                  href={getCategoryPath(
+                    language === "GR" ? recipe.CategoryGR : recipe.CategoryEN
+                  )}
+                  className="text-blue-600 hover:underline"
+                >
+                  {(language === "GR" ? recipe.CategoryGR : recipe.CategoryEN)
+                    .toLowerCase()
+                    .replace(/^\p{L}/u, (c) => c.toUpperCase())}
+                </Link>
+              </div>
+            )}
 
             {/* Image */}
             <div className="h-48 bg-gray-200 rounded-md overflow-hidden">
