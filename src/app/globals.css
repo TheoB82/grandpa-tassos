@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Mynerve font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
-
+/* Light and dark mode variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,18 +15,32 @@
   }
 }
 
-/* Default styling */
+/* Apply fonts based on language */
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: 'Quicksand', sans-serif; /* Fallback default */
 }
 
-/* Font for English */
+/* English */
 html[lang="en"] body {
   font-family: 'Quicksand', sans-serif;
 }
 
-/* Font for Greek */
+/* Greek */
 html[lang="el"] body {
-  font-family: 'Mynerve', sans-serif;
+  font-family: 'Mynerve', cursive;
+}
+
+/* Optional extras you might use */
+.serif {
+  font-family: 'PT Serif', serif;
+}
+
+.elegant {
+  font-family: 'EB Garamond', serif;
+}
+
+.inter {
+  font-family: 'Inter', sans-serif;
 }
