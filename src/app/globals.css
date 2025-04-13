@@ -30,5 +30,5 @@ html[lang="en"] body {
 
 /* Font for Greek */
 html[lang="el"] body {
-  font-family: 'Mynerve', cursive !important;
+  font-family: 'Mynerve', sans-serif;
 }
