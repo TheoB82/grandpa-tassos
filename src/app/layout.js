@@ -1,36 +1,7 @@
 import "../styles/globals.css";
-import { LanguageProvider, useLanguage } from "./context/LanguageContext";
-import Header from "./components/Header";
-import CookieBanner from "./components/CookieBanner";
-
-// Use a wrapper component to access language context
-function HTMLWrapper({ children }) {
-  const { language } = useLanguage();
-
-  return (
-    <html lang={language === "GR" ? "el" : "en"}>
-      <head>
-        {/* Google Fonts including Mynerve for Greek */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Mynerve&family=Quicksand:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2171074805444072"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
-      <body className="antialiased">
-        <Header />
-        <div className="pt-52">{children}</div>
-        <CookieBanner />
-      </body>
-    </html>
-  );
-}
+import { LanguageProvider } from "./context/LanguageContext"; // Correct path
+import Header from "./components/Header"; // Corrected path relative to src/app
+import CookieBanner from "./components/CookieBanner"; // Import CookieBanner component
 
 export const metadata = {
   title: "Grandpa Tassos",
@@ -39,8 +10,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <LanguageProvider>
-      <HTMLWrapper>{children}</HTMLWrapper>
-    </LanguageProvider>
+    <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased">
+        <LanguageProvider>
+          <Header />
+          <div className="pt-52">{children}</div>
+          <CookieBanner /> {/* Add the CookieBanner here */}
+        </LanguageProvider>
+      </body>
+    </html>
   );
 }

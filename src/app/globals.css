@@ -14,18 +14,8 @@
   }
 }
 
-/* Default styling */
 body {
   color: var(--foreground);
   background: var(--background);
-}
-
-/* Font for English */
-html[lang="en"] body {
-  font-family: 'Quicksand', sans-serif;
-}
-
-/* Font for Greek */
-html[lang="el"] body {
-  font-family: 'Mynerve', 'Inter', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
