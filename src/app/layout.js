@@ -1,23 +1,21 @@
 import "../styles/globals.css";
-import { LanguageProvider } from "./context/LanguageContext";
+import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import Header from "./components/Header";
 import CookieBanner from "./components/CookieBanner";
 
-export const metadata = {
-  title: "Grandpa Tassos",
-  description: "Authentic Greek recipes passed down through generations.",
-};
+// Use a wrapper component to access language context
+function HTMLWrapper({ children }) {
+  const { language } = useLanguage();
 
-export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang={language === "GR" ? "el" : "en"}>
       <head>
-        {/* Google Fonts */}
+        {/* Google Fonts including Mynerve for Greek */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Mynerve&family=Quicksand:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        
+
         {/* Google AdSense */}
         <script
           async
@@ -26,12 +24,23 @@ export default function RootLayout({ children }) {
         ></script>
       </head>
       <body className="antialiased">
-        <LanguageProvider>
-          <Header />
-          <div className="pt-52">{children}</div>
-          <CookieBanner />
-        </LanguageProvider>
+        <Header />
+        <div className="pt-52">{children}</div>
+        <CookieBanner />
       </body>
     </html>
+  );
+}
+
+export const metadata = {
+  title: "Grandpa Tassos",
+  description: "Authentic Greek recipes passed down through generations.",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <LanguageProvider>
+      <HTMLWrapper>{children}</HTMLWrapper>
+    </LanguageProvider>
   );
 }
