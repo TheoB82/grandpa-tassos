@@ -44,7 +44,7 @@ export default function Home() {
 
       {/* Embedded YouTube Video */}
       <div className="flex justify-center mb-10 min-h-[315px]">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/6nhU9sMP-0Q?si=hGu6Etcoi7E6YVOi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/3jfv3M5v1fQ?si=VTa4FSRLxD6dqoSi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
        </div>
 
       {/* Recipe Grid */}
