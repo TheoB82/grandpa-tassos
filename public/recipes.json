@@ -6434,14 +6434,25 @@
             "TagsGR": "[\"Τυρόπιτα\",\"Τραβηχτό φύλλο\",\"Σπιτικό\",\"Φέτα\",\"Μαγειρική\"]",
             "TagsEN": "[\"Cheese Pie\",\"Stretched Dough\",\"Homemade\",\"Feta\",\"Cooking\"]",
             "Date": "19/09/2025"
+        },
+        
+        {
+            "CategoryGR": "Γλυκά",
+            "CategoryEN": "Desserts",
+            "Image": "wix:image://v1/bc7fb2_example4.jpg",
+            "TitleGR": "Γρήγορη Μηλόπιτα με καραμελωμένα αμύγδαλα",
+            "TitleEN": "Quick Apple Cake with Caramelized Almonds",
+            "ShortDescriptionGR": "Μια γρήγορη και εύκολη μηλόπιτα με ζουμερά μήλα, σταφίδες και τραγανά καραμελωμένα αμύγδαλα.",
+            "ShortDescriptionEN": "A quick and easy apple cake with juicy apples, raisins, and crunchy caramelized almonds.",
+            "IngredientsGR": "<p class=\"font_7\">250 γρ αλεύρι γοχ</p>\n<p class=\"font_7\">100 γρ ζάχαρη</p>\n<p class=\"font_7\">2 αυγά</p>\n<p class=\"font_7\">15 γρ μπέικιν</p>\n<p class=\"font_7\">100 γρ λιωμένο βούτυρο</p>\n<p class=\"font_7\">180 γρ γιαούρτι 3,5%</p>\n<p class=\"font_7\">1,5 κ.γ. εκχύλισμα βανίλιας</p>\n<p class=\"font_7\">5-6 μήλα</p>\n<p class=\"font_7\">40 γρ σταφίδες</p>\n<p class=\"font_7\">80 γρ αμύγδαλα χοντροκομμένα</p>\n<p class=\"font_7\">1-2 κ.σ. νερό</p>\n<p class=\"font_7\">2 κ.σ. ζάχαρη</p>\n<p class=\"font_7\">1 λεμόνι το ξύσμα</p>",
+            "IngredientsEN": "<p class=\"font_7\">250 g all-purpose flour</p>\n<p class=\"font_7\">100 g sugar</p>\n<p class=\"font_7\">2 eggs</p>\n<p class=\"font_7\">15 g baking powder</p>\n<p class=\"font_7\">100 g melted butter</p>\n<p class=\"font_7\">180 g yogurt 3.5%</p>\n<p class=\"font_7\">1.5 tsp vanilla extract</p>\n<p class=\"font_7\">5-6 apples</p>\n<p class=\"font_7\">40 g raisins</p>\n<p class=\"font_7\">80 g chopped almonds</p>\n<p class=\"font_7\">1-2 tbsp water</p>\n<p class=\"font_7\">2 tbsp sugar</p>\n<p class=\"font_7\">Zest of 1 lemon</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Μια γρήγορη, εύκολη και νόστιμη μηλόπιτα με ζουμερά μήλα, σταφίδες και καραμελωμένα αμύγδαλα. Ιδανική για γλυκό κέρασμα ή πρωινό συνοδευόμενο από καφέ.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">A quick, easy, and delicious apple cake with juicy apples, raisins, and caramelized almonds. Perfect as a dessert or served with coffee.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li>Κόψτε τα αμύγδαλα και ανακατέψτε με 2 κ.σ. ζάχαρη και 1-2 κ.σ. νερό. Αφήστε στην άκρη.</li>\n<li>Μουλιάστε τις σταφίδες σε γλυκό κόκκινο κρασί, αν θέλετε.</li>\n<li>Καθαρίστε, κόψτε και κρατήστε τα μήλα σε νερό με λίγες σταγόνες λεμόνι για να μη μαυρίσουν.</li>\n<li>Χτυπήστε τα αυγά με 100 γρ ζάχαρη μέχρι να διαλυθεί η ζάχαρη (~1,5 λεπτά).</li>\n<li>Προσθέστε 250 γρ αλεύρι με 15 γρ μπέικιν, 180 γρ γιαούρτι, 1,5 κ.γ. εκχύλισμα βανίλιας και ξύσμα λεμονιού.</li>\n<li>Ρίξτε σταδιακά 100 γρ λιωμένο βούτυρο και ανακατέψτε μέχρι ομοιογενές μείγμα.</li>\n<li>Ρίξτε το μείγμα σε βουτυρωμένη ή με χαρτί ψησίματος 24 εκ. φόρμα.</li>\n<li>Τοποθετήστε τα μήλα πάνω από τη ζύμη, πασπαλίστε τις σταφίδες και τα καραμελωμένα αμύγδαλα.</li>\n<li>Ψήστε σε προθερμασμένο φούρνο 180°C, αέρας, στη δεύτερη σχάρα από κάτω, για περίπου 53 λεπτά. Στα 25 λεπτά καλύψτε με αντικολλητικό χαρτί για να μην καεί.</li>\n<li>Αφήστε να κρυώσει και αν θέλετε, πασπαλίστε λίγη ζάχαρη άχνη πριν σερβίρετε.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li>Chop almonds and mix with 2 tbsp sugar and 1-2 tbsp water. Set aside.</li>\n<li>Soak raisins in sweet red wine, if desired.</li>\n<li>Peel and quarter apples, keep in water with a few drops of lemon juice to prevent browning.</li>\n<li>Beat eggs with 100 g sugar until dissolved (~1.5 minutes).</li>\n<li>Add 250 g flour with 15 g baking powder, 180 g yogurt, 1.5 tsp vanilla extract, and lemon zest.</li>\n<li>Gradually add 100 g melted butter and mix until uniform.</li>\n<li>Pour batter into a greased or parchment-lined 24 cm springform pan.</li>\n<li>Place apples on top, sprinkle with raisins and caramelized almonds.</li>\n<li>Bake in preheated oven at 180°C, fan, second rack from bottom, for about 53 minutes. Cover with parchment after 25 minutes to avoid over-browning.</li>\n<li>Let cool and optionally dust with powdered sugar before serving.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/3jfv3M5v1fQ",
+            "TagsGR": "[\"Μηλόπιτα\",\"Αμύγδαλα\",\"Καραμελωμένα\",\"Γρήγορη\",\"Επιδόρπιο\"]",
+            "TagsEN": "[\"Apple Cake\",\"Almonds\",\"Caramelized\",\"Quick\",\"Dessert\"]",
+            "Date": "25/09/2025"
         }
-        
-        
-        
-        
-        
-        
-        
-          
-          
-]
+    ]
