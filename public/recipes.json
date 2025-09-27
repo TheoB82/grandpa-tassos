@@ -6320,7 +6320,27 @@
             "TagsGR": "[\"Λικέρ\",\"Πεπόνι\",\"Καλοκαίρι\",\"Σπιτικό Λικέρ\",\"Γιορτινά\",\"Εορταστικά\",\"Εύκολη Συνταγή\",\"Κοκτέιλ\"]",
             "TagsEN": "[\"Liqueur\",\"Melon\",\"Summer Recipes\",\"Homemade Liqueur\",\"Festive Drinks\",\"Easy Recipes\",\"Cocktails\",\"Refreshing Drinks\"]",
             "Date": "31/07/2025"
+        },
+        {
+            "CategoryGR": "Κυρίως",
+            "CategoryEN": "Mains",
+            "Image": "wix:image://v1/bc7fb2_3026840ec8b34c03bfc1c4f7ac663618~mv2.jpg/368518146_1620015865073643_8017363444422972624_n.jpg#originWidth=1125&originHeight=750",
+            "TitleGR": "Χοιρινό Αρκαδίας Λαγωτό",
+            "TitleEN": "Arcadian Pork",
+            "ShortDescriptionGR": "Ένα πιάτο με μοναδική γεύση από την Αρκαδία.",
+            "ShortDescriptionEN": "A dish with a unique flavor from Arcadia.",
+            "IngredientsGR": "<p class=\"font_7\">400 γρ. χοιρινό λαιμό ή σπάλα</p>\n<p class=\"font_7\">2 μεγάλα κρεμμύδια ψιλοκομμένα</p>\n<p class=\"font_7\">3 μεγάλες ντομάτες φρέσκες στον τρίφτη (650 γρ)</p>\n<p class=\"font_7\">1 κ.σ. πελτέ ντομάτας (25 γρ)</p>\n<p class=\"font_7\">80 ml ελαιόλαδο</p>\n<p class=\"font_7\">1 κ.σ. ζάχαρη (15 γρ)</p>\n<p class=\"font_7\">1 ξυλάκι κανέλας</p>\n<p class=\"font_7\">Αλάτι, πιπέρι φρεσκοτριμμένο</p>\n<p class=\"font_7\"><strong>Για τη σκορδοσάλτσα:</strong></p>\n<p class=\"font_7\">3 φέτες ψωμί μπαγιάτικο χωρίς την κόρα (120 γρ)</p>\n<p class=\"font_7\">8–10 σκελίδες σκόρδου πολτοποιημένες</p>\n<p class=\"font_7\">100 γρ. καρυδόψιχα</p>\n<p class=\"font_7\">2–3 σφηνάκια ξύδι (80 ml)</p>",
+            "IngredientsEN": "<p class=\"font_7\">400 g pork neck or shoulder</p>\n<p class=\"font_7\">2 large onions, finely chopped</p>\n<p class=\"font_7\">3 large fresh tomatoes, grated (650 g)</p>\n<p class=\"font_7\">1 tbsp tomato paste (25 g)</p>\n<p class=\"font_7\">80 ml olive oil</p>\n<p class=\"font_7\">1 tbsp sugar (15 g)</p>\n<p class=\"font_7\">1 cinnamon stick</p>\n<p class=\"font_7\">Salt, freshly ground pepper</p>\n<p class=\"font_7\"><strong>For the garlic sauce:</strong></p>\n<p class=\"font_7\">3 slices stale bread, crust removed (120 g)</p>\n<p class=\"font_7\">8–10 cloves garlic, crushed</p>\n<p class=\"font_7\">100 g walnuts</p>\n<p class=\"font_7\">2–3 shots white vinegar (80 ml)</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Το Χοιρινό Αρκαδίας Λαγωτό είναι ένα παραδοσιακό πιάτο με ρίζες στο ορεινό τμήμα της Αρκαδίας. Η συνταγή χρησιμοποιεί χοιρινό κρέας, φρέσκες ντομάτες, κρεμμύδι και μπαχαρικά για να δημιουργήσει ένα πλούσιο και αρωματικό γεύμα, συνοδευόμενο από σκορδοσάλτσα με καρύδια και ψωμί.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">Arcadian Pork Lagoto is a traditional dish rooted in the mountainous region of Arcadia. The recipe uses pork, fresh tomatoes, onions, and spices to create a rich and flavorful meal, accompanied by a garlic sauce made with walnuts and bread.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Κόψτε το χοιρινό σε κύβους 3–3,5 εκ. και βάλτε τα στο τηγάνι με 80 ml ελαιόλαδο για να ροδίσουν από όλες τις πλευρές.</p></li>\n  <li><p class=\"font_7\">Αφαιρέστε το κρέας και σοτάρετε τα κρεμμύδια μέχρι να μαραθούν.</p></li>\n  <li><p class=\"font_7\">Προσθέστε τον πελτέ ντομάτας και 1 κ.σ. ζάχαρη και σοτάρετε για λίγο.</p></li>\n  <li><p class=\"font_7\">Ρίξτε τις τριμμένες ντομάτες και ανακατέψτε.</p></li>\n  <li><p class=\"font_7\">Επιστρέψτε το κρέας στο σκεύος, προσθέστε αλάτι, πιπέρι και τη ραβδωτή κανέλα. Προαιρετικά λίγο τσίλι. Καλύψτε με νερό και μαγειρέψτε για 1–1,5 ώρα μέχρι να μαλακώσει το κρέας.</p></li>\n  <li><p class=\"font_7\">Για τη σκορδοσάλτσα, πολτοποιήστε το σκόρδο, τα καρύδια και το ψωμί, προσθέστε ξύδι και ανακατέψτε.</p></li>\n  <li><p class=\"font_7\">Αφαιρέστε την κανέλα, καλύψτε και αφήστε το φαγητό να καθίσει για 20 λεπτά. Προσθέστε τα καρύδια λίγο πριν το σερβίρισμα.</p></li>\n  <li><p class=\"font_7\">Σερβίρετε με πατάτες ή ζυμαρικά και τριμμένη ξηρή μυζήθρα για επιπλέον γεύση.</p></li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Cut the pork into 3–3.5 cm cubes and sear in 80 ml olive oil until browned on all sides.</p></li>\n  <li><p class=\"font_7\">Remove the meat and sauté the onions until soft.</p></li>\n  <li><p class=\"font_7\">Add the tomato paste and 1 tbsp sugar and sauté briefly.</p></li>\n  <li><p class=\"font_7\">Add the grated tomatoes and stir.</p></li>\n  <li><p class=\"font_7\">Return the meat to the pot, add salt, pepper, and the cinnamon stick. Optionally add some chili. Cover with water and cook for 1–1.5 hours until the meat is tender.</p></li>\n  <li><p class=\"font_7\">For the garlic sauce, crush the garlic, walnuts, and bread, then add vinegar and mix.</p></li>\n  <li><p class=\"font_7\">Remove the cinnamon, cover, and let the dish rest for 20 minutes. Add walnuts just before serving.</p></li>\n  <li><p class=\"font_7\">Serve with potatoes or pasta and grated Mizithra cheese for extra flavor.</p></li>\n</ol>",
+            "LinkYT": "https://youtu.be/pFurE_zgJKc",
+            "TagsGR": "[\"Χοιρινό\",\"Αρκαδία\",\"Λαγωτό\",\"Σπιτικό\",\"Παραδοσιακό\",\"Σκορδοσάλτσα\",\"Καλοκαίρι\",\"Μαγειρική\"]",
+            "TagsEN": "[\"Pork\",\"Arcadia\",\"Lagoto\",\"Homemade\",\"Traditional\",\"Garlic Sauce\",\"Summer\",\"Cooking\"]",
+            "Date": "06/08/2025"
         }
+        
         
           
           
