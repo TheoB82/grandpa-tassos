@@ -6339,7 +6339,27 @@
             "TagsGR": "[\"Χοιρινό\",\"Αρκαδία\",\"Λαγωτό\",\"Σπιτικό\",\"Παραδοσιακό\",\"Σκορδοσάλτσα\",\"Καλοκαίρι\",\"Μαγειρική\"]",
             "TagsEN": "[\"Pork\",\"Arcadia\",\"Lagoto\",\"Homemade\",\"Traditional\",\"Garlic Sauce\",\"Summer\",\"Cooking\"]",
             "Date": "06/08/2025"
+        },
+        {
+            "CategoryGR": "Ορεκτικά",
+            "CategoryEN": "Starters",
+            "Image": "wix:image://v1/bc7fb2_3026840ec8b34c03bfc1c4f7ac663618~mv2.jpg/368518146_1620015865073643_8017363444422972624_n.jpg#originWidth=1125&originHeight=750",
+            "TitleGR": "Σαλάτα με Ψητά Λαχανικά",
+            "TitleEN": "Grilled Vegetable Salad",
+            "ShortDescriptionGR": "Τέλειο συνοδευτικό αλλά και τσιπουρομεζές.",
+            "ShortDescriptionEN": "Perfect side dish and tsipouro appetizer.",
+            "IngredientsGR": "<p class=\"font_7\">1–2 μελιτζάνες</p>\n<p class=\"font_7\">Πιπεριές Φλωρίνης, πιπεριές κέρατο</p>\n<p class=\"font_7\">Ντομάτες</p>\n<p class=\"font_7\">Κρεμμύδι ξερό</p>\n<p class=\"font_7\">Φρέσκο κρεμμυδάκι</p>\n<p class=\"font_7\">Δυόσμος, μαϊντανός, όλα κατά βούληση</p>\n<p class=\"font_7\"><strong>Ντρέσινγκ:</strong></p>\n<p class=\"font_7\">Ελαιόλαδο, ξύδι, πετιμέζι, κατά βούληση</p>",
+            "IngredientsEN": "<p class=\"font_7\">1–2 eggplants</p>\n<p class=\"font_7\">Florina peppers, horn peppers</p>\n<p class=\"font_7\">Tomatoes</p>\n<p class=\"font_7\">Dry onion</p>\n<p class=\"font_7\">Fresh spring onion</p>\n<p class=\"font_7\">Mint, parsley, all to taste</p>\n<p class=\"font_7\"><strong>Dressing:</strong></p>\n<p class=\"font_7\">Olive oil, vinegar, grape molasses, to taste</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Μια δροσερή σαλάτα με ψητά λαχανικά, ιδανική ως συνοδευτικό ή τσιπουρομεζές. Τα λαχανικά ψήνονται πάνω σε φλόγα ή φούρνο και συνδυάζονται με φρέσκα μυρωδικά και ένα νόστιμο ντρέσινγκ από ελαιόλαδο, ξύδι και πετιμέζι.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">A refreshing grilled vegetable salad, perfect as a side dish or tsipouro appetizer. Vegetables are grilled over fire or baked and combined with fresh herbs and a flavorful dressing made of olive oil, vinegar, and grape molasses.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Ανάψτε φωτιά ή προθερμάνετε τον φούρνο.</p></li>\n  <li><p class=\"font_7\">Ψήστε τη μελιτζάνα στη φλόγα και τα υπόλοιπα λαχανικά στα κάρβουνα ή στο φούρνο.</p></li>\n  <li><p class=\"font_7\">Αφήστε τα λαχανικά σκεπασμένα για λίγη ώρα για να καθαρίζουν πιο εύκολα.</p></li>\n  <li><p class=\"font_7\">Ξεφλουδίστε τις πιπεριές, τις ντομάτες και τη μελιτζάνα. Αφαιρέστε τα κουκούτσια αν θέλετε.</p></li>\n  <li><p class=\"font_7\">Ψιλοκόψτε το ξερό και φρέσκο κρεμμύδι και ανακατέψτε με τα τρυφερά φύλλα κρεμμυδιού.</p></li>\n  <li><p class=\"font_7\">Προετοιμάστε το ντρέσινγκ σε μπολ με ελαιόλαδο, ξύδι και πετιμέζι κατά βούληση.</p></li>\n  <li><p class=\"font_7\">Κόψτε τα ψητά λαχανικά, προσθέστε τα στο μπολ με τα μυρωδικά και το ντρέσινγκ. Ανακατέψτε καλά.</p></li>\n  <li><p class=\"font_7\">Δοκιμάστε το αλάτι και την οξύτητα και προσθέστε αν χρειάζεται. Σερβίρετε ως συνοδευτικό ή τσιπουρομεζέ.</p></li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Light the fire or preheat the oven.</p></li>\n  <li><p class=\"font_7\">Grill the eggplant over the flame and the other vegetables on coals or in the oven.</p></li>\n  <li><p class=\"font_7\">Cover the vegetables for a few minutes to make peeling easier.</p></li>\n  <li><p class=\"font_7\">Peel the peppers, tomatoes, and eggplant. Remove seeds if desired.</p></li>\n  <li><p class=\"font_7\">Chop the dry and fresh onions and mix with the tender spring onion leaves.</p></li>\n  <li><p class=\"font_7\">Prepare the dressing in a bowl with olive oil, vinegar, and grape molasses to taste.</p></li>\n  <li><p class=\"font_7\">Cut the grilled vegetables, add to the bowl with herbs and dressing, and mix well.</p></li>\n  <li><p class=\"font_7\">Adjust salt and acidity as needed. Serve as a side dish or tsipouro appetizer.</p></li>\n</ol>",
+            "LinkYT": "https://youtu.be/ygZWkcIcXOA",
+            "TagsGR": "[\"Σαλάτα\",\"Ψητά Λαχανικά\",\"Τσιπουρομεζές\",\"Ορεκτικό\",\"Καλοκαίρι\",\"Μυρωδικά\",\"Ντρέσινγκ\",\"Φούρνος\"]",
+            "TagsEN": "[\"Salad\",\"Grilled Vegetables\",\"Tsipouro Appetizer\",\"Starter\",\"Summer\",\"Herbs\",\"Dressing\",\"Oven\"]",
+            "Date": "12/08/2025"
         }
+        
         
         
           
