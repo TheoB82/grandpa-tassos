@@ -6396,7 +6396,27 @@
             "TagsGR": "[\"Μελιτζανόπιτα\",\"Μπατζίνα\",\"Ζυμαρόπιτα\",\"Ψητή\",\"Καλοκαιρινή\",\"Λαχανικά\",\"Φέτα\"]",
             "TagsEN": "[\"Eggplant Pie\",\"Batzina\",\"Dough Pie\",\"Baked\",\"Summer\",\"Vegetables\",\"Feta\"]",
             "Date": "20/08/2025"
+        },
+        {
+            "CategoryGR": "Κυρίως",
+            "CategoryEN": "Mains",
+            "Image": "wix:image://v1/bc7fb2_example2.jpg",
+            "TitleGR": "Μπιφτέκια αέρινα και ζουμερά γεμάτα γεύση",
+            "TitleEN": "Fluffy and Juicy Burgers Full of Flavor",
+            "ShortDescriptionGR": "Το μπιφτέκι είναι η χαρά της κουζίνας, ζουμερά και γεμάτα γεύση.",
+            "ShortDescriptionEN": "Burgers are the joy of the kitchen, juicy and full of flavor.",
+            "IngredientsGR": "<p class=\"font_7\">1 κιλό κιμά μοσχαρίσιο (στήθος, λαιμό ή λάπα)</p>\n<p class=\"font_7\">150 γρ. μπαγιάτικο ψωμί χωρίς κόρα</p>\n<p class=\"font_7\">½ φλιτζανάκι του καφέ ελαιόλαδο (30 γρ)</p>\n<p class=\"font_7\">2 αυγά</p>\n<p class=\"font_7\">25 ml ξύδι (2 κ.σ.)</p>\n<p class=\"font_7\">2 κρεμμύδια (170 γρ)</p>\n<p class=\"font_7\">1 σκελίδα σκόρδο</p>\n<p class=\"font_7\">1 χούφτα μαϊντανό</p>\n<p class=\"font_7\">120 γρ. νερό</p>\n<p class=\"font_7\">15-18 γρ. αλάτι ή κατά γούστο</p>\n<p class=\"font_7\">2 γρ. πιπέρι</p>\n<p class=\"font_7\">1 κ.σ. ρίγανη</p>\n<p class=\"font_7\">1 κ.σ. μουστάρδα (20 γρ) (προαιρετικά)</p>",
+            "IngredientsEN": "<p class=\"font_7\">1 kg ground beef (brisket, neck, or shoulder)</p>\n<p class=\"font_7\">150 g stale bread, crust removed</p>\n<p class=\"font_7\">½ espresso cup olive oil (30 g)</p>\n<p class=\"font_7\">2 eggs</p>\n<p class=\"font_7\">25 ml vinegar (2 tbsp)</p>\n<p class=\"font_7\">2 onions (170 g)</p>\n<p class=\"font_7\">1 garlic clove</p>\n<p class=\"font_7\">1 handful parsley</p>\n<p class=\"font_7\">120 g water</p>\n<p class=\"font_7\">15-18 g salt or to taste</p>\n<p class=\"font_7\">2 g pepper</p>\n<p class=\"font_7\">1 tbsp oregano</p>\n<p class=\"font_7\">1 tbsp mustard (20 g) (optional)</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Ζουμερά και αέρινα μπιφτέκια, εύκολα στην παρασκευή, γεμάτα αρώματα από φρέσκα υλικά και μπαχαρικά. Ιδανικά για γεύμα ή δείπνο, συνοδεύονται υπέροχα με πατάτες ή σαλάτα.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">Juicy and fluffy burgers, easy to make, packed with aromas from fresh ingredients and spices. Perfect for lunch or dinner, they pair wonderfully with fries or salad.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li>Μουσκέψτε το μπαγιάτικο ψωμί και αφήστε το στην άκρη.</li>\n<li>Βάλτε όλα τα υλικά (κιμά, κρεμμύδι, σκόρδο, μαϊντανό, αλάτι, πιπέρι, ρίγανη, μουστάρδα, αυγά, ελαιόλαδο, ξύδι, νερό) σε ένα μπλέντερ και πολτοποιήστε.</li>\n<li>Προσθέστε το ψωμί και ζυμώστε καλά το μείγμα για περίπου 8 λεπτά.</li>\n<li>Σκεπάστε με μεμβράνη και αφήστε το στο ψυγείο για 1–2 ώρες ή όλη τη νύχτα.</li>\n<li>Πλάστε τα μπιφτέκια (περίπου 130 g το καθένα) και βρέξτε τα χέρια με νερό για να μην κολλάνε.</li>\n<li>Ψήστε τα σε αντικολλητικό τηγάνι, ηλεκτρική σχάρα ή φούρνο με γκριλ, 4 λεπτά ανά πλευρά ή ανάλογα με το μέγεθος.</li>\n<li>Σκεπάστε τα για 5 λεπτά πριν τα σερβίρετε.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li>Soak the stale bread and set aside.</li>\n<li>Place all ingredients (ground beef, onions, garlic, parsley, salt, pepper, oregano, mustard, eggs, olive oil, vinegar, water) in a blender and puree.</li>\n<li>Add the bread and knead the mixture well for about 8 minutes.</li>\n<li>Cover with plastic wrap and refrigerate for 1–2 hours or overnight.</li>\n<li>Shape the burgers (about 130 g each) and moisten hands with water to prevent sticking.</li>\n<li>Grill or fry on a nonstick pan, electric grill, or oven broiler for about 4 minutes per side, depending on size.</li>\n<li>Cover for 5 minutes before serving.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/1sKwR31k2Ik",
+            "TagsGR": "[\"Μπιφτέκια\",\"Αέρινα\",\"Ζουμερά\",\"Κυρίως\",\"Μοσχαρίσιο\",\"Μαγειρική\"]",
+            "TagsEN": "[\"Burgers\",\"Fluffy\",\"Juicy\",\"Mains\",\"Beef\",\"Cooking\"]",
+            "Date": "07/09/2025"
         }
+        
         
         
         
