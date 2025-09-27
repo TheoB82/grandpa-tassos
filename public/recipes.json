@@ -6377,7 +6377,27 @@
             "TagsGR": "[\"Φανουρόπιτα\",\"Κέικ\",\"Παραδοσιακό Γλυκό\",\"Πορτοκάλι\",\"Καρύδια\",\"Σταφίδες\",\"Εύκολη Συνταγή\",\"Χωρίς Μίξερ\"]",
             "TagsEN": "[\"Fanouropita\",\"Cake\",\"Traditional Dessert\",\"Orange\",\"Walnuts\",\"Raisins\",\"Easy Recipe\",\"No Mixer\"]",
             "Date": "18/08/2025"
+        },
+        {
+            "CategoryGR": "Ψωμιά & Ζύμες",
+            "CategoryEN": "Breads & Dough",
+            "Image": "wix:image://v1/bc7fb2_example.jpg", 
+            "TitleGR": "Μελιτζανόπιτα χωρίς φύλλο",
+            "TitleEN": "Eggplant Pie without Phyllo",
+            "ShortDescriptionGR": "Μπατζίνα ή ζυμαρόπιτα, πλούσια και νόστιμη, χωρίς φύλλο.",
+            "ShortDescriptionEN": "Batzina or dough pie, rich and tasty, without phyllo.",
+            "IngredientsGR": "<p class=\"font_7\">1 kg μελιτζάνες</p>\n<p class=\"font_7\">1 μεγάλο κρεμμύδι</p>\n<p class=\"font_7\">3 πιπεριές Φλωρίνης</p>\n<p class=\"font_7\">3 πιπεριές κέρατο</p>\n<p class=\"font_7\">2 μέτριες ντομάτες</p>\n<p class=\"font_7\">500 γρ. φέτα</p>\n<p class=\"font_7\">Αλάτι, μαύρο πιπέρι</p>\n<p class=\"font_7\">½ ματσάκι μαϊντανό</p>\n<p class=\"font_7\">½ ματσάκι δυόσμο</p>\n<p class=\"font_7\">30 γρ. τραχανά</p>\n<p class=\"font_7\">30 γρ. βούτυρο</p>\n<p class=\"font_7\">Για τη ζύμη: 300 γρ. αλεύρι για κάθε χρήση</p>\n<p class=\"font_7\">300 γρ. καλαμποκάλευρο</p>\n<p class=\"font_7\">1 αυγό</p>\n<p class=\"font_7\">200 ml γάλα ή ξινόγαλο</p>\n<p class=\"font_7\">50 ml ελαιόλαδο</p>\n<p class=\"font_7\">400 ml νερό</p>\n<p class=\"font_7\">2 κ.γ. αλάτι</p>",
+            "IngredientsEN": "<p class=\"font_7\">1 kg eggplants</p>\n<p class=\"font_7\">1 large onion</p>\n<p class=\"font_7\">3 Florina peppers</p>\n<p class=\"font_7\">3 horn peppers</p>\n<p class=\"font_7\">2 medium tomatoes</p>\n<p class=\"font_7\">500 g feta cheese</p>\n<p class=\"font_7\">Salt, black pepper</p>\n<p class=\"font_7\">½ bunch parsley</p>\n<p class=\"font_7\">½ bunch mint</p>\n<p class=\"font_7\">30 g trachana</p>\n<p class=\"font_7\">30 g butter</p>\n<p class=\"font_7\">For the dough: 300 g all-purpose flour</p>\n<p class=\"font_7\">300 g cornmeal</p>\n<p class=\"font_7\">1 egg</p>\n<p class=\"font_7\">200 ml milk or buttermilk</p>\n<p class=\"font_7\">50 ml olive oil</p>\n<p class=\"font_7\">400 ml water</p>\n<p class=\"font_7\">2 tsp salt</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Μια καλοκαιρινή πίτα χωρίς φύλλο με κύριο υλικό τη μελιτζάνα, γεμάτη γεύση και αρώματα από φρέσκα λαχανικά και μυρωδικά. Ιδανική για όσους αγαπούν τις ζυμαρόπιτες και την παραδοσιακή ελληνική κουζίνα.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">A summer pie without phyllo, featuring eggplant as the main ingredient, packed with flavors from fresh vegetables and herbs. Perfect for lovers of dough pies and traditional Greek cuisine.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li>Προθερμάνετε τον φούρνο στους 220°C με αέρα.</li>\n<li>Κόψτε τις μελιτζάνες κατά μήκος και κάντε διαγώνιες χαρακιές.</li>\n<li>Τοποθετήστε τις μελιτζάνες και τα υπόλοιπα λαχανικά σε ταψί, αλατίστε και ραντίστε με λίγο ελαιόλαδο.</li>\n<li>Ψήστε τα λαχανικά στον φούρνο μέχρι να μαλακώσουν.</li>\n<li>Ετοιμάστε τη ζύμη: Ανακατέψτε το αλεύρι, καλαμποκάλευρο, αλάτι, αυγό, ελαιόλαδο, γάλα/ξινόγαλο και νερό μέχρι να γίνει ομοιογενές μείγμα.</li>\n<li>Ξεφλουδίστε τα ψημένα λαχανικά και αφαιρέστε τους σπόρους από τις πιπεριές.</li>\n<li>Ανακατέψτε τα λαχανικά με ψιλοκομμένο μαϊντανό, δυόσμο, αλάτι, πιπέρι και 2/3 της φέτας (350 g).</li>\n<li>Λαδώστε ένα ταψί 27x40 εκ., πασπαλίστε με καλαμποκάλευρο και ρίξτε το 1/3 της ζύμης.</li>\n<li>Προσθέστε τη γέμιση και ισιώστε την (~1,5 cm πάχος), πασπαλίστε με τραχανά ή ψίχουλα (30 g) και τη υπόλοιπη φέτα κομμένη σε κύβους.</li>\n<li>Ρίξτε την υπόλοιπη ζύμη πάνω από τη γέμιση, προσθέστε φλούδες βουτύρου και λίγο καλαμποκάλευρο.</li>\n<li>Ψήστε σε προθερμασμένο φούρνο στους 180°C για περίπου 1 ώρα.</li>\n<li>Αφήστε την πίτα να κρυώσει ελαφρώς πριν το κόψιμο.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li>Preheat the oven to 220°C with fan.</li>\n<li>Slice the eggplants lengthwise and make crosswise cuts.</li>\n<li>Place the eggplants and other vegetables on a baking tray, season with salt, and drizzle with olive oil.</li>\n<li>Bake the vegetables until tender.</li>\n<li>Prepare the dough: Mix flour, cornmeal, salt, egg, olive oil, milk/buttermilk, and water until smooth.</li>\n<li>Peel the roasted vegetables and remove seeds from the peppers.</li>\n<li>Mix vegetables with chopped parsley, mint, salt, pepper, and 2/3 of the feta (350 g).</li>\n<li>Grease a 27x40 cm pan, sprinkle with cornmeal, and pour 1/3 of the batter.</li>\n<li>Add the filling and spread evenly (~1.5 cm thick), sprinkle with trachana or breadcrumbs (30 g), and remaining feta in cubes.</li>\n<li>Pour the remaining batter over the filling, add butter flakes, and a little cornmeal.</li>\n<li>Bake in a preheated oven at 180°C for about 1 hour.</li>\n<li>Let the pie cool slightly before slicing.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/Dlc8tRXgFCM",
+            "TagsGR": "[\"Μελιτζανόπιτα\",\"Μπατζίνα\",\"Ζυμαρόπιτα\",\"Ψητή\",\"Καλοκαιρινή\",\"Λαχανικά\",\"Φέτα\"]",
+            "TagsEN": "[\"Eggplant Pie\",\"Batzina\",\"Dough Pie\",\"Baked\",\"Summer\",\"Vegetables\",\"Feta\"]",
+            "Date": "20/08/2025"
         }
+        
         
         
         
