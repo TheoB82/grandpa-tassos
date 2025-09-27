@@ -6301,7 +6301,27 @@
             "TagsEN": "potato salad, vegan, vegetarian, Greek recipe, summer dish, side dish, fasting recipe, picnic food, no mayo, healthy salad, easy recipe, Mediterranean, olive oil, mustard dressing, meal prep, gluten-free",
             "LinkYT": "https://youtu.be/6nhU9sMP-0Q",
             "Date": "30/07/2025"
-          }
+          },
+          {
+            "CategoryGR": "Εορταστικά",
+            "CategoryEN": "Festive",
+            "Image": "wix:image://v1/bc7fb2_3026840ec8b34c03bfc1c4f7ac663618~mv2.jpg/368518146_1620015865073643_8017363444422972624_n.jpg#originWidth=1125&originHeight=750",
+            "TitleGR": "Λικέρ Πεπόνι",
+            "TitleEN": "Melon Liqueur",
+            "ShortDescriptionGR": "Δροσερό και αρωματικό σπιτικό λικέρ με πεπόνι, βότκα και λίγο λεμόνι.",
+            "ShortDescriptionEN": "A refreshing and fragrant homemade melon liqueur with vodka and a hint of lemon.",
+            "IngredientsGR": "<p class=\"font_7\">800 γρ. σάρκα πεπονιού</p>\n<p class=\"font_7\">300 ml νερό</p>\n<p class=\"font_7\">120 γρ. ζάχαρη</p>\n<p class=\"font_7\">360 ml βότκα 40%</p>\n<p class=\"font_7\">Χυμό από μισό λεμόνι</p>",
+            "IngredientsEN": "<p class=\"font_7\">800 g melon flesh</p>\n<p class=\"font_7\">300 ml water</p>\n<p class=\"font_7\">120 g sugar</p>\n<p class=\"font_7\">360 ml vodka (40%)</p>\n<p class=\"font_7\">Juice of ½ lemon</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Αυτό το σπιτικό λικέρ πεπόνι είναι δροσερό, αρωματικό και γεμάτο καλοκαιρινή γεύση. Με λίγα απλά υλικά – φρέσκο πεπόνι, ζάχαρη, βότκα και λίγο λεμόνι – φτιάχνετε ένα γλυκό και ευωδιαστό ποτό που σερβίρεται ιδανικά παγωμένο μετά το φαγητό ή χρησιμοποιείται σε κοκτέιλ.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">This homemade melon liqueur is light, refreshing, and full of summer flavor. With just fresh melon, sugar, vodka, and a hint of lemon, you can create a sweet and fragrant drink that’s perfect to serve chilled after a meal or to use in cocktails.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Κόψτε τη σάρκα του πεπονιού σε μικρά κομμάτια και βάλτε τα στο μπλέντερ. Χτυπήστε μέχρι να γίνει πουρές.</p></li>\n  <li><p class=\"font_7\">Σε ένα κατσαρολάκι βάλτε το νερό και τη ζάχαρη. Ζεστάνετε ανακατεύοντας μέχρι να διαλυθεί πλήρως η ζάχαρη. Αφήστε το σιρόπι να κρυώσει.</p></li>\n  <li><p class=\"font_7\">Σε ένα μεγάλο γυάλινο βάζο ανακατέψτε τον πουρέ πεπονιού, το κρύο σιρόπι, τη βότκα και τον χυμό λεμονιού.</p></li>\n  <li><p class=\"font_7\">Κλείστε το βάζο και αφήστε το σε δροσερό, σκοτεινό μέρος για 5 ημέρες. Ανακινείτε καθημερινά.</p></li>\n  <li><p class=\"font_7\">Μετά από 5 ημέρες, σουρώστε με λεπτό σουρωτήρι ή τουλπάνι.</p></li>\n  <li><p class=\"font_7\">Μεταφέρετε σε αποστειρωμένα μπουκάλια και φυλάξτε στο ψυγείο.</p></li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Cut the melon flesh into small pieces and blend until smooth.</p></li>\n  <li><p class=\"font_7\">In a saucepan, combine the water and sugar. Heat gently, stirring until the sugar dissolves completely. Allow to cool.</p></li>\n  <li><p class=\"font_7\">In a large glass jar, mix the melon purée, cooled syrup, vodka, and lemon juice.</p></li>\n  <li><p class=\"font_7\">Seal the jar and store it in a cool, dark place for 5 days, shaking daily.</p></li>\n  <li><p class=\"font_7\">After 5 days, strain the mixture through a fine sieve or cheesecloth.</p></li>\n  <li><p class=\"font_7\">Transfer into sterilized bottles and refrigerate.</p></li>\n</ol>",
+            "LinkYT": "https://youtu.be/LUkD5j72Irw",
+            "TagsGR": "[\"Λικέρ\",\"Πεπόνι\",\"Καλοκαίρι\",\"Σπιτικό Λικέρ\",\"Γιορτινά\",\"Εορταστικά\",\"Εύκολη Συνταγή\",\"Κοκτέιλ\"]",
+            "TagsEN": "[\"Liqueur\",\"Melon\",\"Summer Recipes\",\"Homemade Liqueur\",\"Festive Drinks\",\"Easy Recipes\",\"Cocktails\",\"Refreshing Drinks\"]",
+            "Date": "31/07/2025"
+        }
+        
           
           
 ]
