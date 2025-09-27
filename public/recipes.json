@@ -6358,7 +6358,27 @@
             "TagsGR": "[\"Σαλάτα\",\"Ψητά Λαχανικά\",\"Τσιπουρομεζές\",\"Ορεκτικό\",\"Καλοκαίρι\",\"Μυρωδικά\",\"Ντρέσινγκ\",\"Φούρνος\"]",
             "TagsEN": "[\"Salad\",\"Grilled Vegetables\",\"Tsipouro Appetizer\",\"Starter\",\"Summer\",\"Herbs\",\"Dressing\",\"Oven\"]",
             "Date": "12/08/2025"
+        },
+        {
+            "CategoryGR": "Γλυκά",
+            "CategoryEN": "Desserts",
+            "Image": "wix:image://v1/bc7fb2_3026840ec8b34c03bfc1c4f7ac663618~mv2.jpg/368518146_1620015865073643_8017363444422972624_n.jpg#originWidth=1125&originHeight=750",
+            "TitleGR": "Φανουρόπιτα",
+            "TitleEN": "Fanouropita",
+            "ShortDescriptionGR": "Εύκολη αφράτη, ετοιμάζεται γρήγορα χωρίς μίξερ.",
+            "ShortDescriptionEN": "Easy and fluffy, prepared quickly without a mixer.",
+            "IngredientsGR": "<p class=\"font_7\">500 γρ. αλεύρι που φουσκώνει μόνο του</p>\n<p class=\"font_7\">310 μλ χυμό + ξύσμα από 2 πορτοκάλια</p>\n<p class=\"font_7\">280 γρ. ζάχαρη άχνη</p>\n<p class=\"font_7\">250 γρ. ελαιόλαδο</p>\n<p class=\"font_7\">2 κάψουλες βανιλίνη</p>\n<p class=\"font_7\">75 γρ. καρύδια</p>\n<p class=\"font_7\">¼ κ.γ. γαρίφαλο σε σκόνη</p>\n<p class=\"font_7\">1 ½ κ.γ. κανέλα σκόνη</p>\n<p class=\"font_7\">75 γρ. σταφίδες</p>",
+            "IngredientsEN": "<p class=\"font_7\">500 g self-raising flour</p>\n<p class=\"font_7\">310 ml juice + zest of 2 oranges</p>\n<p class=\"font_7\">280 g powdered sugar</p>\n<p class=\"font_7\">250 g olive oil</p>\n<p class=\"font_7\">2 vanilla capsules</p>\n<p class=\"font_7\">75 g walnuts</p>\n<p class=\"font_7\">¼ tsp ground cloves</p>\n<p class=\"font_7\">1 ½ tsp ground cinnamon</p>\n<p class=\"font_7\">75 g raisins</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Μια αφράτη και νόστιμη Φανουρόπιτα, εύκολη στην παρασκευή χωρίς να χρειάζεται μίξερ. Ιδανική για να τιμήσετε τον Άγιο Φανούριο ή να απολαύσετε ένα παραδοσιακό γλυκό με πορτοκάλι και μυρωδικά.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">A fluffy and delicious Fanouropita, easy to make without a mixer. Perfect for honoring Saint Fanourios or enjoying a traditional cake with orange and spices.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Προθερμάνετε τον φούρνο στους 180°C (ανω-κατω θερμοκρασία).</p></li>\n  <li><p class=\"font_7\">Ρίξτε τις σταφίδες σε λίγο χυμό πορτοκαλιού για να μουλιάσουν.</p></li>\n  <li><p class=\"font_7\">Ψιλοκόψτε τα καρύδια σε πολυμίξερ.</p></li>\n  <li><p class=\"font_7\">Σε μεγάλο μπολ ανακατέψτε τον χυμό πορτοκαλιού, το ελαιόλαδο, τη ζάχαρη άχνη και τη βανιλίνη.</p></li>\n  <li><p class=\"font_7\">Προσθέστε το αλεύρι κοσκινισμένο, το γαρίφαλο, την κανέλα και το ξύσμα πορτοκαλιού. Ανακατέψτε καλά μέχρι να ομογενοποιηθεί το μείγμα.</p></li>\n  <li><p class=\"font_7\">Προσθέστε τα καρύδια και τις σταφίδες αλευρωμένες για να μην καταβυθιστούν κατά το ψήσιμο.</p></li>\n  <li><p class=\"font_7\">Αλείψτε με λίγο λάδι τα τοιχώματα μιας φόρμας 24 εκ. και στρώστε αντικολλητικό χαρτί. Ρίξτε μέσα το μείγμα και ισιώστε την επιφάνεια.</p></li>\n  <li><p class=\"font_7\">Ψήστε για 40–45 λεπτά, χωρίς να ανοίξετε τον φούρνο την πρώτη μισή ώρα. Κάντε το τεστ με ένα ξυλάκι για να ελέγξετε αν είναι έτοιμο.</p></li>\n  <li><p class=\"font_7\">Αφήστε τον κέικ να κρυώσει και διακοσμήστε με ζάχαρη άχνη και κανέλα όπως επιθυμείτε.</p></li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n  <li><p class=\"font_7\">Preheat the oven to 180°C (top and bottom heat).</p></li>\n  <li><p class=\"font_7\">Soak the raisins in a little orange juice.</p></li>\n  <li><p class=\"font_7\">Chop the walnuts in a food processor.</p></li>\n  <li><p class=\"font_7\">In a large bowl, mix orange juice, olive oil, powdered sugar, and vanilla.</p></li>\n  <li><p class=\"font_7\">Add the sifted flour, cloves, cinnamon, and orange zest. Stir until the batter is smooth.</p></li>\n  <li><p class=\"font_7\">Fold in the walnuts and floured raisins to prevent sinking during baking.</p></li>\n  <li><p class=\"font_7\">Grease a 24 cm baking pan with a little oil and line with parchment paper. Pour in the batter and level the surface.</p></li>\n  <li><p class=\"font_7\">Bake for 40–45 minutes, keeping the oven closed for the first half hour. Test with a skewer to ensure it’s cooked through.</p></li>\n  <li><p class=\"font_7\">Let the cake cool completely, then dust with powdered sugar and cinnamon as desired.</p></li>\n</ol>",
+            "LinkYT": "https://youtu.be/YHvgYhgaaG4",
+            "TagsGR": "[\"Φανουρόπιτα\",\"Κέικ\",\"Παραδοσιακό Γλυκό\",\"Πορτοκάλι\",\"Καρύδια\",\"Σταφίδες\",\"Εύκολη Συνταγή\",\"Χωρίς Μίξερ\"]",
+            "TagsEN": "[\"Fanouropita\",\"Cake\",\"Traditional Dessert\",\"Orange\",\"Walnuts\",\"Raisins\",\"Easy Recipe\",\"No Mixer\"]",
+            "Date": "18/08/2025"
         }
+        
         
         
         
