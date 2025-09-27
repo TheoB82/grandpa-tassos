@@ -6415,7 +6415,27 @@
             "TagsGR": "[\"Μπιφτέκια\",\"Αέρινα\",\"Ζουμερά\",\"Κυρίως\",\"Μοσχαρίσιο\",\"Μαγειρική\"]",
             "TagsEN": "[\"Burgers\",\"Fluffy\",\"Juicy\",\"Mains\",\"Beef\",\"Cooking\"]",
             "Date": "07/09/2025"
+        },
+        {
+            "CategoryGR": "Ψωμιά & Ζύμες",
+            "CategoryEN": "Breads & Dough",
+            "Image": "wix:image://v1/bc7fb2_example3.jpg",
+            "TitleGR": "Τυρόπιτα με τραβηχτό φύλλο σπιτικό",
+            "TitleEN": "Cheese Pie with Homemade Stretched Dough",
+            "ShortDescriptionGR": "Η αγαπημένη πίτα της Ελλάδας με λεπτά φύλλα και πλούσια γέμιση.",
+            "ShortDescriptionEN": "Greece's favorite pie with thin layered dough and rich filling.",
+            "IngredientsGR": "<p class=\"font_7\">Ζύμη:</p>\n<p class=\"font_7\">640 γρ αλεύρι για κάθε χρήση</p>\n<p class=\"font_7\">330 μλ χλιαρό νερό</p>\n<p class=\"font_7\">2 κ.γ. αλάτι γεμάτα</p>\n<p class=\"font_7\">30 γρ ελαιόλαδο (5 κ.σ.)</p>\n<p class=\"font_7\">20 μλ ξύδι (2 ½ κ.σ.)</p>\n<p class=\"font_7\">150 γρ βούτυρο λιωμένο</p>\n<p class=\"font_7\">50 γρ ελαιόλαδο</p>\n<p class=\"font_7\">Λίγο νισεστέ</p>\n<p class=\"font_7\">Γέμιση:</p>\n<p class=\"font_7\">550 γρ φέτα</p>\n<p class=\"font_7\">250 γρ γιαούρτι</p>\n<p class=\"font_7\">3-4 αυγά</p>\n<p class=\"font_7\">2 κ.σ. θυμάρι φρέσκο</p>\n<p class=\"font_7\">Πιπέρι μαύρο</p>",
+            "IngredientsEN": "<p class=\"font_7\">Dough:</p>\n<p class=\"font_7\">640 g all-purpose flour</p>\n<p class=\"font_7\">330 ml lukewarm water</p>\n<p class=\"font_7\">2 tsp salt, heaping</p>\n<p class=\"font_7\">30 g olive oil (5 tbsp)</p>\n<p class=\"font_7\">20 ml vinegar (2 ½ tbsp)</p>\n<p class=\"font_7\">150 g melted butter</p>\n<p class=\"font_7\">50 g olive oil</p>\n<p class=\"font_7\">A little cornstarch</p>\n<p class=\"font_7\">Filling:</p>\n<p class=\"font_7\">550 g feta cheese</p>\n<p class=\"font_7\">250 g Greek yogurt</p>\n<p class=\"font_7\">3-4 eggs</p>\n<p class=\"font_7\">2 tbsp fresh thyme</p>\n<p class=\"font_7\">Black pepper</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Μια παραδοσιακή ελληνική τυρόπιτα με λεπτά τραβηχτά φύλλα και πλούσια, ζουμερή γέμιση από φέτα, γιαούρτι και αυγά. Ιδανική για οικογενειακά γεύματα ή ειδικές περιστάσεις.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">A traditional Greek cheese pie with thin stretched dough layers and a rich, juicy filling of feta, yogurt, and eggs. Perfect for family meals or special occasions.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li>Ανακατέψτε το αλεύρι με αλάτι, προσθέστε ξύδι, ελαιόλαδο και χλιαρό νερό και ζυμώστε για 10-12 λεπτά μέχρι να γίνει ελαστικό και μαλακό.</li>\n<li>Αφήστε το ζυμάρι να ξεκουραστεί για ½ ώρα, μετά χωρίστε σε 24 μπαλίτσες και αφήστε στο ψυγείο για 1 ώρα.</li>\n<li>Ετοιμάστε τη γέμιση: θρυμματίστε τη φέτα, προσθέστε γιαούρτι, αυγά, φρέσκο θυμάρι και μαύρο πιπέρι, ανακατέψτε καλά.</li>\n<li>Ανοίξτε τα φύλλα, αλείψτε με βούτυρο και ελαιόλαδο, στρώστε τα σε ζεματισμένη φόρμα 32 εκ., αφήνοντας περίπου μισό εκατοστό ακάλυπτο γύρω γύρω.</li>\n<li>Τοποθετήστε τη γέμιση πάνω στα φύλλα και σκεπάστε με τα υπόλοιπα φύλλα, αλείφοντας κάθε φύλλο με βούτυρο.</li>\n<li>Ψήστε σε προθερμασμένο φούρνο 180°C για περίπου 55 λεπτά.</li>\n<li>Αφήστε να κρυώσει περίπου 20 λεπτά πριν το κόψετε και σερβίρετε.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li>Mix flour with salt, add vinegar, olive oil, and lukewarm water. Knead for 10-12 minutes until soft and elastic.</li>\n<li>Let the dough rest for ½ hour, then divide into 24 balls and refrigerate for 1 hour.</li>\n<li>Prepare the filling: crumble feta, add yogurt, eggs, fresh thyme, and black pepper, mix well.</li>\n<li>Roll out the dough sheets, brush with butter and olive oil, layer them in a greased 32 cm pan, leaving about 0.5 cm around uncovered.</li>\n<li>Place the filling on the sheets and cover with remaining sheets, brushing each layer with butter.</li>\n<li>Bake in a preheated oven at 180°C for about 55 minutes.</li>\n<li>Let cool for about 20 minutes before cutting and serving.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/vE9Ujx41TPk",
+            "TagsGR": "[\"Τυρόπιτα\",\"Τραβηχτό φύλλο\",\"Σπιτικό\",\"Φέτα\",\"Μαγειρική\"]",
+            "TagsEN": "[\"Cheese Pie\",\"Stretched Dough\",\"Homemade\",\"Feta\",\"Cooking\"]",
+            "Date": "19/09/2025"
         }
+        
         
         
         
