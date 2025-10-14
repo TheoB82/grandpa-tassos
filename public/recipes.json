@@ -6478,8 +6478,8 @@
             "CategoryGR": "Ψωμιά & Ζύμες",
             "CategoryEN": "Breads & Dough",
             "Image": "wix:image://v1/example_spanakotyropitakia.jpg",
-            "TitleGR": "Αφράτα Σπανακοτυροπιτάκια",
-            "TitleEN": "Fluffy Spinach and Cheese Pies",
+            "TitleGR": "Αφράτα Ζαμπονοτυροπιτάκια",
+            "TitleEN": "Fluffy Ham and Cheese Pies",
             "ShortDescriptionGR": "Μικρές αφράτες πίτες γεμιστές με τυρί και ζαμπόν, ιδανικές για σνακ ή πρωινό.",
             "ShortDescriptionEN": "Small fluffy pies filled with cheese and ham, perfect for a snack or breakfast.",
             "IngredientsGR": "<p class=\"font_7\">Για τη ζύμη:</p>\n<p class=\"font_7\">250 ml ζεστό γάλα</p>\n<p class=\"font_7\">30 g ζάχαρη</p>\n<p class=\"font_7\">7 g ξηρή μαγιά</p>\n<p class=\"font_7\">2 αυγά χτυπημένα</p>\n<p class=\"font_7\">500 g αλεύρι για όλες τις χρήσεις</p>\n<p class=\"font_7\">8 g αλάτι ψιλό</p>\n<p class=\"font_7\">90 g βούτυρο</p>\n<p class=\"font_7\">Για τη γέμιση:</p>\n<p class=\"font_7\">200 g κίτρινο τυρί τριμμένο</p>\n<p class=\"font_7\">200 g ζαμπόν κομμένο σε μικρούς κύβους</p>\n<p class=\"font_7\">60 g βούτυρο</p>\n<p class=\"font_7\">Για επικάλυψη:</p>\n<p class=\"font_7\">1 κρόκο αυγού</p>\n<p class=\"font_7\">1 κ.σ. γάλα</p>",
@@ -6489,8 +6489,8 @@
             "ExecutionGR": "<ol class=\"font_7\">\n<li>Σε ένα μεγάλο μπολ ανακατεύουμε το ζεστό γάλα, τη ζάχαρη, τη μαγιά και τα αυγά.</li>\n<li>Προσθέτουμε το αλεύρι κοσκινισμένο και το αλάτι, ανακατεύουμε και προσθέτουμε το βούτυρο. Ζυμώνουμε μέχρι να ενσωματωθεί και αφήνουμε τη ζύμη σκεπασμένη να ξεκουραστεί για 90 λεπτά σε ζεστό μέρος.</li>\n<li>Σε ένα μπολ ανακατεύουμε το τυρί, το ζαμπόν και το μαλακό βούτυρο για τη γέμιση. Προαιρετικά προσθέτουμε μαύρο πιπέρι.</li>\n<li>Βουτυρώνουμε ένα ταψί 40 εκ. και απλώνουμε τη ζύμη στον πάγκο. Διπλώνουμε μια-δυο φορές και χωρίζουμε σε δύο μέρη, ανοίγοντας κάθε μέρος σε χοντρό φύλλο.</li>\n<li>Με ένα ποτήρι κόβουμε δισκάκια 9-10 εκ. διάμετρο και βάζουμε λίγη από τη γέμιση στο κέντρο, κλείνοντας σε πουγκί.</li>\n<li>Τοποθετούμε τα πουγκιά στο βουτυρωμένο ταψί με 1 δάχτυλο απόσταση, σκεπάζουμε με πετσέτα και αφήνουμε 30 λεπτά να ξεκουραστούν.</li>\n<li>Χτυπάμε τον κρόκο αυγού με 1 κ.σ. γάλα και αλείφουμε τα πιτάκια.</li>\n<li>Ψήνουμε σε φούρνο 180°C αντιστάσεις για περίπου 30 λεπτά μέχρι να ροδίσουν.</li>\n</ol>",
             "ExecutionEN": "<ol class=\"font_7\">\n<li>In a large bowl, mix warm milk, sugar, yeast, and beaten eggs.</li>\n<li>Add sifted flour and salt, mix, then add butter. Knead until incorporated and let the dough rest covered for 90 minutes in a warm spot.</li>\n<li>In another bowl, mix the cheese, ham, and soft butter for the filling. Optionally, add black pepper.</li>\n<li>Butter a 40 cm baking tray and roll out the dough on the counter. Fold once or twice and divide into two parts, rolling each into a thick sheet.</li>\n<li>Cut circles 9-10 cm in diameter with a glass and place some filling in the center, closing into a pouch.</li>\n<li>Place the pouches in the buttered tray with 1 finger space, cover with a towel, and let rest 30 minutes.</li>\n<li>Beat the egg yolk with 1 tbsp milk and brush over the pies.</li>\n<li>Bake in a 180°C conventional oven for about 30 minutes until golden brown.</li>\n</ol>",
             "LinkYT": "https://youtu.be/D9yACdB-nr4?si=1AIUdahmGl__VF7J",
-            "TagsGR": "[\"Σπανακοτυροπιτάκια\",\"Τυρί\",\"Ζαμπόν\",\"Ζύμη\",\"Αλμυρό\"]",
-            "TagsEN": "[\"SpinachCheesePies\",\"Cheese\",\"Ham\",\"Dough\",\"Savory\"]",
+            "TagsGR": "[\"Ζαμπονοτυροπιτάκια\",\"Τυρί\",\"Ζαμπόν\",\"Ζύμη\",\"Αλμυρό\"]",
+            "TagsEN": "[\"HamCheesePies\",\"Cheese\",\"Ham\",\"Dough\",\"Savory\"]",
             "Date": "14/10/2025"
         }
         
