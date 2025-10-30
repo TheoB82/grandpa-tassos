@@ -6511,7 +6511,27 @@
             "TagsGR": "[\"Τας Κεμπάπ\",\"Μελιτζάνα\",\"Μοσχάρι\",\"Ντομάτα\",\"Φούρνος\"]",
             "TagsEN": "[\"TasKebab\",\"Eggplant\",\"Beef\",\"Tomato\",\"OvenBaked\"]",
             "Date": "21/10/2025"
-        }
+        },
+        {
+            "CategoryGR": "Μεζέδες",
+            "CategoryEN": "Starters",
+            "Image": "wix:image://v1/example_lakerda_skoumpri.jpg",
+            "TitleGR": "Η Λακέρδα του Φτωχού – Σκουμπρί Μαρινάτο",
+            "TitleEN": "Poor Man’s Lakerda – Marinated Mackerel",
+            "ShortDescriptionGR": "Παραδοσιακός μεζές με σκουμπρί μαριναρισμένο σε αρωματική άλμη, που θυμίζει τη λακέρδα. Ένα απλό αλλά εκλεκτό πιάτο για ούζο ή τσίπουρο.",
+            "ShortDescriptionEN": "Traditional Greek meze of marinated mackerel, a simple yet elegant dish reminiscent of lakerda, perfect with ouzo or tsipouro.",
+            "IngredientsGR": "<p class=\"font_7\">2 σκουμπριά (περίπου 1 κιλό)</p>\n<p class=\"font_7\"><strong>Για τη μαρινάδα:</strong></p>\n<p class=\"font_7\">400 ml νερό</p>\n<p class=\"font_7\">1 κ.σ. αλάτι</p>\n<p class=\"font_7\">1 κ.σ. ζάχαρη</p>\n<p class=\"font_7\">1½ κρεμμύδι (σε κομμάτια)</p>\n<p class=\"font_7\">3 δαφνόφυλλα</p>\n<p class=\"font_7\">1 κ.γ. κόκκους κόλιανδρου</p>\n<p class=\"font_7\">1 κ.γ. κόκκους μαύρου πιπεριού</p>\n<p class=\"font_7\">8 κόκκους μπαχάρι (προαιρετικά)</p>\n<p class=\"font_7\">2 κ.σ. ελαιόλαδο</p>\n<p class=\"font_7\">2 κ.σ. ξύδι λευκό</p>\n<p class=\"font_7\"><strong>Για τη συντήρηση:</strong></p>\n<p class=\"font_7\">1-2 τσίλι πιπεριές</p>\n<p class=\"font_7\">1-2 σκελίδες σκόρδο</p>\n<p class=\"font_7\">Ελαιόλαδο και σπορέλαιο για κάλυψη</p>",
+            "IngredientsEN": "<p class=\"font_7\">2 mackerels (about 1 kg)</p>\n<p class=\"font_7\"><strong>For the marinade:</strong></p>\n<p class=\"font_7\">400 ml water</p>\n<p class=\"font_7\">1 tbsp salt</p>\n<p class=\"font_7\">1 tbsp sugar</p>\n<p class=\"font_7\">1½ onion (quartered)</p>\n<p class=\"font_7\">3 bay leaves</p>\n<p class=\"font_7\">1 tsp coriander seeds</p>\n<p class=\"font_7\">1 tsp black peppercorns</p>\n<p class=\"font_7\">8 allspice berries (optional)</p>\n<p class=\"font_7\">2 tbsp olive oil</p>\n<p class=\"font_7\">2 tbsp white vinegar</p>\n<p class=\"font_7\"><strong>For preservation:</strong></p>\n<p class=\"font_7\">1–2 chili peppers</p>\n<p class=\"font_7\">1–2 garlic cloves</p>\n<p class=\"font_7\">Olive and sunflower oil for storing</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Η «λακέρδα του φτωχού» είναι ένα απλό αλλά γεμάτο γεύση μαριναρισμένο σκουμπρί, εμπνευσμένο από τη διάσημη λακέρδα. Η μαρινάδα βράζεται με αρωματικά και μπαχαρικά, το ψάρι καθαρίζεται και αφήνεται να ωριμάσει για 12–24 ώρες στο ψυγείο. Ιδανικό συνοδευτικό για ούζο ή τσίπουρο.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">“Poor Man’s Lakerda” is a simple yet flavorful marinated mackerel inspired by traditional lakerda. The aromatic brine infuses the fish overnight, resulting in a tender, tangy meze that pairs beautifully with ouzo or tsipouro.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li>Βάλτε 400 ml νερό σε κατσαρόλα και προσθέστε αλάτι, ζάχαρη, κρεμμύδι, ελαιόλαδο, ξύδι, πιπέρι, κόλιανδρο, μπαχάρι και δάφνη.</li>\n<li>Βράστε για 8–10 λεπτά σε χαμηλή φωτιά και αφήστε να κρυώσει εντελώς.</li>\n<li>Καθαρίστε τα σκουμπριά: αφαιρέστε εντόσθια, κεφάλι και λεπτή μεμβράνη της επιδερμίδας.</li>\n<li>Κόψτε σε φιλέτα ή κομμάτια και τοποθετήστε τα σε δοχείο.</li>\n<li>Προσθέστε τη μαρινάδα, το κρεμμύδι και προαιρετικά τσίλι και σκόρδο.</li>\n<li>Καλύψτε και αφήστε στο ψυγείο για 12–24 ώρες.</li>\n<li>Για μακροχρόνια διατήρηση, καλύψτε με ελαιόλαδο και σπορέλαιο.</li>\n<li>Σερβίρετε με ψιλοκομμένο κρεμμύδι, μαϊντανό, λεμόνι και λίγο ελαιόλαδο.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li>Pour 400 ml water into a pot and add salt, sugar, onion, olive oil, vinegar, peppercorns, coriander, allspice, and bay leaves.</li>\n<li>Simmer for 8–10 minutes, then let the brine cool completely.</li>\n<li>Clean the mackerel: remove guts, head, and the thin membrane of skin.</li>\n<li>Cut into fillets or pieces and place in a container.</li>\n<li>Add the cooled marinade along with onion, garlic, and optional chili.</li>\n<li>Cover and refrigerate for 12–24 hours.</li>\n<li>For long storage, cover with a mix of olive and sunflower oil.</li>\n<li>Serve with chopped onion, parsley, lemon, and olive oil.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/4S8BY3RJbz4",
+            "TagsGR": "[\"Σκουμπρί\",\"Μαρινάτο\",\"Μεζές\",\"Λακέρδα\",\"Τσίπουρο\"]",
+            "TagsEN": "[\"Mackerel\",\"Marinated\",\"Meze\",\"Lakerda\",\"Tsipouro\"]",
+            "Date": "29/10/2025"
+          }
+          
         
         
         
