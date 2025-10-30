@@ -67,14 +67,22 @@ export default function Home() {
         {/* Main Content with padding for fixed header */}
         <main className="pt-36 pb-10">
           {/* Title */}
-          <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
+          <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 px-4">
             {language === "EN" ? "My Recipes" : "Οι Συνταγές μου"}
           </h1>
 
           {/* Embedded YouTube Video */}
           <div className="flex justify-center mb-10 px-4">
             <div className="w-full max-w-2xl aspect-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/4S8BY3RJbz4?si=ksoODIgLtgqlNuxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/4S8BY3RJbz4?si=ksoODIgLtgqlNuxE" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              />
             </div>
           </div>
 
