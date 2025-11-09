@@ -6530,7 +6530,27 @@
             "TagsGR": "[\"Σκουμπρί\",\"Μαρινάτο\",\"Μεζές\",\"Λακέρδα\",\"Τσίπουρο\"]",
             "TagsEN": "[\"Mackerel\",\"Marinated\",\"Meze\",\"Lakerda\",\"Tsipouro\"]",
             "Date": "29/10/2025"
+          },
+          {
+            "CategoryGR": "Γλυκά",
+            "CategoryEN": "Desserts",
+            "Image": "wix:image://v1/example_coconut_dessert.jpg",
+            "TitleGR": "Γλυκό Καρύδας",
+            "TitleEN": "Coconut Dessert",
+            "ShortDescriptionGR": "Δροσερό, κρεμώδες και απίστευτα αρωματικό γλυκό καρύδας χωρίς ψήσιμο, ιδανικό με σάλτσα βατόμουρου ή φράουλας.",
+            "ShortDescriptionEN": "A refreshing, creamy, and aromatic coconut dessert with no baking required, perfect with a berry or raspberry sauce.",
+            "IngredientsGR": "<p class=\"font_7\"><strong>Για την κρέμα καρύδας:</strong></p>\n<p class=\"font_7\">400 ml κρέμα καρύδας</p>\n<p class=\"font_7\">500 ml γάλα</p>\n<p class=\"font_7\">170 g μασκαρπόνε</p>\n<p class=\"font_7\">150 g ζάχαρη</p>\n<p class=\"font_7\">80 g κορν φλάουρ</p>\n<p class=\"font_7\">50 g λευκή σοκολάτα</p>\n<p class=\"font_7\">1 πρέζα αλάτι</p>\n<p class=\"font_7\">1 κ.γ. λάδι</p>\n<p class=\"font_7\">2 κ.σ. ινδοκάρυδο</p>\n<p class=\"font_7\"><strong>Για τη σάλτσα βατόμουρου:</strong></p>\n<p class=\"font_7\">300 g βατόμουρα (κατεψυγμένα)</p>\n<p class=\"font_7\">50 g ζάχαρη</p>\n<p class=\"font_7\">1/2 λεμόνι (χυμός)</p>",
+            "IngredientsEN": "<p class=\"font_7\"><strong>For the coconut cream:</strong></p>\n<p class=\"font_7\">400 ml coconut cream</p>\n<p class=\"font_7\">500 ml milk</p>\n<p class=\"font_7\">170 g mascarpone</p>\n<p class=\"font_7\">150 g sugar</p>\n<p class=\"font_7\">80 g cornflour</p>\n<p class=\"font_7\">50 g white chocolate</p>\n<p class=\"font_7\">1 pinch of salt</p>\n<p class=\"font_7\">1 tsp oil</p>\n<p class=\"font_7\">2 tbsp shredded coconut</p>\n<p class=\"font_7\"><strong>For the berry sauce:</strong></p>\n<p class=\"font_7\">300 g frozen berries (e.g. blueberries or raspberries)</p>\n<p class=\"font_7\">50 g sugar</p>\n<p class=\"font_7\">Juice of 1/2 lemon</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Δροσερό, κρεμώδες και απίστευτα αρωματικό γλυκό καρύδας! Φτιάχνεται σε λίγα λεπτά, δεν χρειάζεται ψήσιμο και ταιριάζει τέλεια με σάλτσα από βατόμουρο ή φράουλα. Ένα επιδόρπιο που θα γίνει αγαπημένο σε κάθε σπίτι!</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">A refreshing, creamy, and wonderfully fragrant coconut dessert! It’s quick to make, requires no baking, and pairs perfectly with a vibrant berry sauce. A dessert that everyone will love!</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li>Σε κατσαρόλα, ανακατέψτε την κρέμα καρύδας, το γάλα, τη ζάχαρη, το κορν φλάουρ και το αλάτι μέχρι να διαλυθεί τελείως το κορν φλάουρ.</li>\n<li>Ζεστάνετε σε μέτρια φωτιά, ανακατεύοντας συνεχώς, μέχρι να πήξει η κρέμα.</li>\n<li>Αποσύρετε από τη φωτιά και προσθέστε τη λευκή σοκολάτα, το μασκαρπόνε και το λάδι. Ανακατέψτε μέχρι να γίνουν λεία κρέμα.</li>\n<li>Προσθέστε το ινδοκάρυδο και ανακατέψτε απαλά.</li>\n<li>Μοιράστε την κρέμα σε ποτήρια ή μπολάκια και αφήστε να κρυώσουν. Βάλτε στο ψυγείο για τουλάχιστον 2 ώρες.</li>\n<li>Για τη σάλτσα βατόμουρου: βάλτε σε κατσαρολάκι τα βατόμουρα, τη ζάχαρη και τον χυμό λεμονιού. Σιγοβράστε για 8–10 λεπτά μέχρι να δέσει ελαφρά η σάλτσα.</li>\n<li>Αφήστε τη να κρυώσει και περιχύστε την πάνω από την κρέμα πριν το σερβίρισμα.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li>In a saucepan, combine coconut cream, milk, sugar, cornflour, and salt. Stir until the cornflour is fully dissolved.</li>\n<li>Heat over medium heat, stirring constantly, until the mixture thickens into a smooth cream.</li>\n<li>Remove from the heat and add white chocolate, mascarpone, and oil. Mix until smooth and creamy.</li>\n<li>Stir in the shredded coconut gently.</li>\n<li>Divide the cream into glasses or bowls and let cool. Refrigerate for at least 2 hours.</li>\n<li>For the berry sauce: place the berries, sugar, and lemon juice in a small pot. Simmer for 8–10 minutes until slightly thickened.</li>\n<li>Allow to cool, then pour over the coconut cream before serving.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/i3_UzalxblY",
+            "TagsGR": "[\"Καρύδα\",\"Βατόμουρο\",\"Κρέμα\",\"Επιδόρπιο\",\"Χωρίς Ψήσιμο\"]",
+            "TagsEN": "[\"Coconut\",\"Berry\",\"Cream\",\"Dessert\",\"NoBake\"]",
+            "Date": "09/11/2025"
           }
+          
           
         
         
