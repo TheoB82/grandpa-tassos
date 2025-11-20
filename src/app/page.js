@@ -64,7 +64,7 @@ export default function Home() {
         {/* Header Component */}
         <Header />
 
-        {/* Main Content with padding for fixed header */}
+        {/* Main Content with padding for hfixed header */}
         <main className="pt-[140px] pb-10">
           {/* Title */}
           <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 px-4">
