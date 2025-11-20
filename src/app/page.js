@@ -11,7 +11,7 @@ export default function Home() {
   const [error, setError] = useState(null);
   const { language } = useLanguage();
 
-  // Fetch recipes on component mount with cache-busting query
+  // Fetch recipes with cache-busting
   useEffect(() => {
     setIsLoading(true);
     fetch(`/recipes.json?timestamp=${new Date().getTime()}`)
@@ -38,7 +38,6 @@ export default function Home() {
       });
   }, []);
 
-  // Filter recipes by language
   const filteredRecipes = recipes.map((recipe) => ({
     ...recipe,
     Category: recipe[`Category${language}`],
@@ -52,7 +51,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Google AdSense Script */}
+      {/* Google AdSense */}
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2171074805444072"
@@ -61,24 +60,37 @@ export default function Home() {
       />
 
       <div className="bg-gray-100 min-h-screen">
-        {/* Header Component */}
+        {/* Fixed header */}
         <Header />
 
-        {/* Main Content with padding for hfixed header */}
-        <main className="pt-[140px] pb-10">
-          {/* Title */}
-          <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 px-4">
-            {language === "EN" ? "My Recipes" : "Οι Συνταγές μου"}
-          </h1>
+        {/* MAIN CONTENT */}
+        {/* Reduced top spacing to match logo header height */}
+        <main className="pt-[120px] pb-10">
 
-          {/* Embedded YouTube Video */}
-          <div className="flex justify-center items-center w-full mb-10">
-          <div className="aspect-video w-full max-w-3xl mx-auto">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/cMATp4Xix0Q?si=WjvkkBCprl5PE1bI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          {/* CENTERED PAGE WRAPPER */}
+          <div className="max-w-4xl mx-auto w-full px-4">
+
+            {/* Title */}
+            <h1 className="text-4xl font-bold text-center mb-6 text-gray-800">
+              {language === "EN" ? "My Recipes" : "Οι Συνταγές μου"}
+            </h1>
+
+            {/* Centered YouTube video */}
+            <div className="w-full flex justify-center mb-10">
+              <div className="aspect-video w-full max-w-3xl mx-auto">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/cMATp4Xix0Q?si=WjvkkBCprl5PE1bI"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
+
           </div>
 
-          {/* Loading State */}
+          {/* LOADING STATE */}
           {isLoading && (
             <div className="flex justify-center items-center py-20">
               <div className="text-center">
@@ -90,34 +102,21 @@ export default function Home() {
             </div>
           )}
 
-          {/* Error State */}
-          {error && !isLoading && (
+          {/* ERROR */}
+          {!isLoading && error && (
             <div className="max-w-2xl mx-auto px-4 py-10">
               <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-                <svg
-                  className="w-12 h-12 text-red-500 mx-auto mb-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
                 <h2 className="text-xl font-semibold text-red-800 mb-2">
                   {language === "EN" ? "Oops! Something went wrong" : "Ωχ! Κάτι πήγε στραβά"}
                 </h2>
                 <p className="text-red-600 mb-4">
-                  {language === "EN" 
-                    ? "We couldn't load the recipes. Please try refreshing the page." 
-                    : "Δεν μπορέσαμε να φορτώσουμε τις συνταγές. Παρακαλώ δοκιμάστε να ανανεώσετε τη σελίδα."}
+                  {language === "EN"
+                    ? "We couldn't load the recipes. Please refresh the page."
+                    : "Δεν μπορέσαμε να φορτώσουμε τις συνταγές. Παρακαλώ ανανεώστε τη σελίδα."}
                 </p>
                 <button
                   onClick={() => window.location.reload()}
-                  className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
+                  className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg"
                 >
                   {language === "EN" ? "Refresh Page" : "Ανανέωση Σελίδας"}
                 </button>
@@ -125,26 +124,13 @@ export default function Home() {
             </div>
           )}
 
-          {/* Recipe Grid */}
+          {/* RECIPES GRID */}
           {!isLoading && !error && (
             <>
               {filteredRecipes.length > 0 ? (
                 <RecipeGrid recipes={filteredRecipes} language={language} />
               ) : (
                 <div className="text-center py-20 px-4">
-                  <svg
-                    className="w-16 h-16 text-gray-400 mx-auto mb-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
                   <p className="text-xl text-gray-600">
                     {language === "EN" ? "No recipes available yet" : "Δεν υπάρχουν ακόμα συνταγές"}
                   </p>
@@ -154,10 +140,13 @@ export default function Home() {
           )}
         </main>
 
-        {/* Footer */}
+        {/* FOOTER */}
         <footer className="bg-gray-800 text-white py-6 text-center">
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} {language === "EN" ? "Grandpa Tassos Cooking. All rights reserved." : "Grandpa Tassos Cooking. Με την επιφύλαξη παντός δικαιώματος."}
+            &copy; {new Date().getFullYear()}{" "}
+            {language === "EN"
+              ? "Grandpa Tassos Cooking. All rights reserved."
+              : "Grandpa Tassos Cooking. Με την επιφύλαξη παντός δικαιώματος."}
           </p>
         </footer>
       </div>
