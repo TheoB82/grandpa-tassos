@@ -6549,7 +6549,28 @@
             "TagsGR": "[\"Καρύδα\",\"Βατόμουρο\",\"Κρέμα\",\"Επιδόρπιο\",\"Χωρίς Ψήσιμο\"]",
             "TagsEN": "[\"Coconut\",\"Berry\",\"Cream\",\"Dessert\",\"NoBake\"]",
             "Date": "09/11/2025"
+          },
+
+          {
+            "CategoryGR": "Κυρίως",
+            "CategoryEN": "Mains",
+            "Image": "wix:image://v1/example_lamb_head_soup.jpg",
+            "TitleGR": "Κεφαλάκι & Ποδαράκια Αρνίσια – Σούπα Παραδοσιακή",
+            "TitleEN": "Lamb Head and Trotters soup",
+            "ShortDescriptionGR": "Παραδοσιακή ελληνική σούπα με κεφαλάκι και ποδαράκια αρνίσια, βρασμένη αργά με αρωματικά λαχανικά για πλούσιο ζωμό.",
+            "ShortDescriptionEN": "A traditional Greek soup made with lamb head and trotters, slowly simmered with aromatic vegetables for a rich and comforting broth.",
+            "IngredientsGR": "<p class=\"font_7\">1 κεφαλάκι αρνίσιο, καλά πλυμένο και καθαρισμένο</p>\n<p class=\"font_7\">3–4 ποδαράκια αρνίσια</p>\n<p class=\"font_7\">2 καρότα, κομμένα στη μέση</p>\n<p class=\"font_7\">2 κρεμμύδια, ολόκληρα ή στα 2</p>\n<p class=\"font_7\">4–5 κλωνάρια σέλινο ή ρίζα σέλινου</p>\n<p class=\"font_7\">1 φύλλο δάφνης</p>\n<p class=\"font_7\">1 κ.σ. κόκκους από χρωματιστά πιπέρια</p>\n<p class=\"font_7\">Αλάτι</p>",
+            "IngredientsEN": "<p class=\"font_7\">1 lamb head, thoroughly washed and cleaned</p>\n<p class=\"font_7\">3–4 lamb trotters</p>\n<p class=\"font_7\">2 carrots, cut in half</p>\n<p class=\"font_7\">2 onions, whole or halved</p>\n<p class=\"font_7\">4–5 celery stalks or celery root</p>\n<p class=\"font_7\">1 bay leaf</p>\n<p class=\"font_7\">1 tbsp mixed peppercorns</p>\n<p class=\"font_7\">Salt</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Μια αυθεντική παραδοσιακή ελληνική σούπα που φτιάχνεται με κεφαλάκι και ποδαράκια αρνίσια, τα οποία βράζουν αργά για να δημιουργήσουν έναν βαθύ, πλούσιο και θρεπτικό ζωμό. Ιδανική για κρύες μέρες ή για επίσημα τραπέζια, καθώς αποτελεί κλασικό φαγητό της ελληνικής παράδοσης.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">A classic traditional Greek soup made with lamb head and trotters, slowly simmered to produce a rich, flavorful, and nutritious broth. Perfect for cold days or festive meals, this soup is a staple of Greek culinary heritage.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li>Πλύντε πολύ καλά το κεφαλάκι και τα ποδαράκια και καθαρίστε τα σχολαστικά.</li>\n<li>Βάλτε τα σε μεγάλη κατσαρόλα και καλύψτε τα με άφθονο νερό.</li>\n<li>Μόλις πάρουν βράση, ξαφρίστε καλά τον ζωμό.</li>\n<li>Προσθέστε τα καρότα, τα κρεμμύδια, το σέλινο, τη δάφνη, τους κόκκους πιπεριού και αλάτι.</li>\n<li>Χαμηλώστε τη φωτιά και σιγοβράστε για περίπου 2–3 ώρες, μέχρι να μαλακώσει πολύ καλά το κρέας.</li>\n<li>Αφαιρέστε το κεφαλάκι και τα ποδαράκια και ξεψαχνίστε το κρέας προσεκτικά.</li>\n<li>Σουρώστε τον ζωμό και επιστρέψτε το καθαρό κρέας στην κατσαρόλα.</li>\n<li>Σερβίρετε τη σούπα ζεστή, με λεμόνι ή φρεσκοτριμμένο πιπέρι.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li>Wash the lamb head and trotters very thoroughly and clean them well.</li>\n<li>Place them in a large pot and cover with plenty of water.</li>\n<li>Once it reaches a boil, skim off the foam that forms on the surface.</li>\n<li>Add the carrots, onions, celery, bay leaf, peppercorns, and salt.</li>\n<li>Lower the heat and simmer gently for 2–3 hours, until the meat is extremely tender.</li>\n<li>Remove the head and trotters, then carefully separate the meat from the bones.</li>\n<li>Strain the broth and return the clean meat to the pot.</li>\n<li>Serve the soup hot with lemon or freshly ground pepper.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/cMATp4Xix0Q",
+            "TagsGR": "[\"Παραδοσιακή\",\"Αρνί\",\"Σούπα\",\"Κεφαλάκι\",\"Ποδαράκια\"]",
+            "TagsEN": "[\"Traditional\",\"Lamb\",\"Soup\",\"Head\",\"Trotters\"]",
+            "Date": "20/11/2025"
           }
+          
           
           
         
