@@ -224,7 +224,7 @@ export default function Header() {
       )}
 
       {/* ------------------------- DESKTOP HEADER ------------------------- */}
-      <div className="hidden lg:flex items-center justify-center relative">
+      <div className="hidden lg:flex items-center justify-center relative h-40">
 
         {/* TRUE CENTER LOGO */}
         <div className="absolute left-1/2 -translate-x-1/2">
