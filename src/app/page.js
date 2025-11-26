@@ -78,13 +78,7 @@ export default function Home() {
             {/* Centered YouTube video */}
             <div className="w-full flex justify-center mb-10">
               <div className="aspect-video w-full max-w-3xl mx-auto">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/cMATp4Xix0Q?si=WjvkkBCprl5PE1bI"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/wMZqIWjjAFY?si=KyU8_Hnmm85N5ivn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
             </div>
 
