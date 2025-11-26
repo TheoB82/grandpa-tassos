@@ -16,9 +16,7 @@ export default function Home() {
     setIsLoading(true);
     fetch(`/recipes.json?timestamp=${new Date().getTime()}`)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return response.json();
       })
       .then((data) => {
@@ -33,11 +31,10 @@ export default function Home() {
         console.error("Error loading recipes:", error);
         setError(error.message);
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .finally(() => setIsLoading(false));
   }, []);
 
+  // Localize recipes
   const filteredRecipes = recipes.map((recipe) => ({
     ...recipe,
     Category: recipe[`Category${language}`],
@@ -51,7 +48,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Google AdSense */}
+      {/* Google Ads */}
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2171074805444072"
@@ -60,101 +57,108 @@ export default function Home() {
       />
 
       <div className="bg-gray-100 min-h-screen">
-        {/* Fixed Header */}
+        {/* FIXED HEADER */}
         <Header />
 
-        {/* Main Content */}
-        <main className="pt-[120px] pb-10">
-          {/* CENTERED WRAPPER (Title + Video + Recipes) */}
-          <div className="max-w-3xl mx-auto w-full px-0">
-            
-            {/* Title */}
-            <h1 className="text-4xl font-bold text-center mb-6 text-gray-800">
+        {/* MAIN CONTENT BELOW HEADER */}
+        <main className="pt-[170px] pb-10">
+          
+          {/* ----------------------------- */}
+          {/* CENTERED TITLE + YOUTUBE VIDEO */}
+          {/* ----------------------------- */}
+          <div className="max-w-3xl mx-auto w-full px-4 text-center">
+
+            {/* Title (perfectly aligned under header logo) */}
+            <h1 className="text-4xl font-bold mb-6 text-gray-800">
               {language === "EN" ? "My Recipes" : "Οι Συνταγές μου"}
             </h1>
 
-            {/* YOUTUBE VIDEO — now aligned with title */}
-            <div className="w-full flex justify-center mb-10">
-              <div className="aspect-video w-full max-w-3xl">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/wMZqIWjjAFY?si=KyU8_Hnmm85N5ivn"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>
+            {/* YouTube video (now perfectly aligned with title & logo) */}
+            <div className="aspect-video w-full mb-10">
+              <iframe
+                src="https://www.youtube.com/embed/wMZqIWjjAFY?si=KyU8_Hnmm85N5ivn"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
             </div>
 
-            {/* LOADING STATE */}
-            {isLoading && (
-              <div className="flex justify-center items-center py-20">
-                <div className="text-center">
-                  <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
-                  <p className="text-gray-600">
-                    {language === "EN"
-                      ? "Loading recipes..."
-                      : "Φόρτωση συνταγών..."}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* ERROR */}
-            {!isLoading && error && (
-              <div className="max-w-2xl mx-auto px-4 py-10">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-                  <h2 className="text-xl font-semibold text-red-800 mb-2">
-                    {language === "EN"
-                      ? "Oops! Something went wrong"
-                      : "Ωχ! Κάτι πήγε στραβά"}
-                  </h2>
-                  <p className="text-red-600 mb-4">
-                    {language === "EN"
-                      ? "We couldn't load the recipes. Please refresh the page."
-                      : "Δεν μπορέσαμε να φορτώσουμε τις συνταγές. Παρακαλώ ανανεώστε τη σελίδα."}
-                  </p>
-                  <button
-                    onClick={() => window.location.reload()}
-                    className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg"
-                  >
-                    {language === "EN" ? "Refresh Page" : "Ανανέωση Σελίδας"}
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* RECIPES GRID */}
-            {!isLoading && !error && (
-              <>
-                {filteredRecipes.length > 0 ? (
-                  <RecipeGrid recipes={filteredRecipes} language={language} />
-                ) : (
-                  <div className="text-center py-20 px-4">
-                    <p className="text-xl text-gray-600">
-                      {language === "EN"
-                        ? "No recipes available yet"
-                        : "Δεν υπάρχουν ακόμα συνταγές"}
-                    </p>
-                  </div>
-                )}
-              </>
-            )}
           </div>
+
+          {/* ----------------------------- */}
+          {/* LOADING STATE */}
+          {/* ----------------------------- */}
+          {isLoading && (
+            <div className="flex justify-center items-center py-20">
+              <div className="text-center">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+                <p className="text-gray-600">
+                  {language === "EN" ? "Loading recipes..." : "Φόρτωση συνταγών..."}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* ----------------------------- */}
+          {/* ERROR BLOCK */}
+          {/* ----------------------------- */}
+          {!isLoading && error && (
+            <div className="max-w-2xl mx-auto px-4 py-10">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+                <h2 className="text-xl font-semibold text-red-800 mb-2">
+                  {language === "EN"
+                    ? "Oops! Something went wrong"
+                    : "Ωχ! Κάτι πήγε στραβά"}
+                </h2>
+                <p className="text-red-600 mb-4">
+                  {language === "EN"
+                    ? "We couldn't load the recipes. Please refresh the page."
+                    : "Δεν μπορέσαμε να φορτώσουμε τις συνταγές. Παρακαλώ ανανεώστε τη σελίδα."}
+                </p>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg"
+                >
+                  {language === "EN" ? "Refresh Page" : "Ανανέωση Σελίδας"}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ----------------------------- */}
+          {/* RECIPE GRID (full width but centered) */}
+          {/* ----------------------------- */}
+          {!isLoading && !error && (
+            <div className="max-w-6xl mx-auto w-full px-4">
+              {filteredRecipes.length > 0 ? (
+                <RecipeGrid recipes={filteredRecipes} language={language} />
+              ) : (
+                <div className="text-center py-20 px-4">
+                  <p className="text-xl text-gray-600">
+                    {language === "EN"
+                      ? "No recipes available yet"
+                      : "Δεν υπάρχουν ακόμα συνταγές"}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
         </main>
 
-        {/* Footer */}
+        {/* FOOTER */}
         <footer className="bg-gray-800 text-white py-6 text-center">
           <p className="text-sm">
-            &copy; {new Date().getFullYear()}{" "}
+            © {new Date().getFullYear()}{" "}
             {language === "EN"
               ? "Grandpa Tassos Cooking. All rights reserved."
               : "Grandpa Tassos Cooking. Με την επιφύλαξη παντός δικαιώματος."}
           </p>
         </footer>
+
       </div>
     </>
   );
