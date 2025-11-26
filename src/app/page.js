@@ -66,7 +66,7 @@ export default function Home() {
         {/* Main Content */}
         <main className="pt-[120px] pb-10">
           {/* CENTERED WRAPPER (Title + Video + Recipes) */}
-          <div className="max-w-4xl mx-auto w-full px-4">
+          <div className="max-w-3xl mx-auto w-full px-0">
             
             {/* Title */}
             <h1 className="text-4xl font-bold text-center mb-6 text-gray-800">
