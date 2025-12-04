@@ -75,15 +75,7 @@ export default function Home() {
 
             {/* YouTube video (now perfectly aligned with title & logo) */}
             <div className="aspect-video w-full mb-10">
-              <iframe
-                src="https://www.youtube.com/embed/wMZqIWjjAFY?si=KyU8_Hnmm85N5ivn"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/vaEStNucB9g?si=4C9blR_GtOJ9lGKL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
           </div>

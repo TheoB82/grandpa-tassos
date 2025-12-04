@@ -6589,12 +6589,29 @@
             "TagsGR": "[\"Μελομακάρονα\",\"Χριστούγεννα\",\"Σιρόπι\",\"Γλυκό\",\"Πορτοκάλι\"]",
             "TagsEN": "[\"Melomakarona\",\"Christmas\",\"Syrup\",\"Dessert\",\"Orange\"]",
             "Date": "26/11/2025"
+          },
+
+          {
+            "CategoryGR": "Εορταστικά",
+            "CategoryEN": "Festive",
+            "Image": "wix:image://v1/example_orange_liqueur.jpg",
+            "TitleGR": "Χριστουγεννιάτικο Λικέρ Πορτοκάλι",
+            "TitleEN": "Christmas Orange Liqueur",
+            "ShortDescriptionGR": "Αρωματικό, γιορτινό λικέρ πορτοκάλι με φρέσκα εσπεριδοειδή, μπαχαρικά και ποιοτική βότκα. Ιδανικό για το χριστουγεννιάτικο τραπέζι ή για δώρο.",
+            "ShortDescriptionEN": "A festive orange liqueur made with fresh citrus, warm spices and quality vodka. Perfect for the Christmas table or as a homemade gift.",
+            "IngredientsGR": "<p class=\"font_7\"><strong>Για το άρωμα / εκχύλισμα:</strong></p>\n<p class=\"font_7\">3 βιολογικά πορτοκάλια</p>\n<p class=\"font_7\">1 λεμόνι</p>\n<p class=\"font_7\">500 ml βότκα ή τσικουδιά / οινόπνευμα ποτοποιίας</p>\n<p class=\"font_7\">2 ξυλάκια κανέλας</p>\n<p class=\"font_7\">5–6 γαρίφαλα</p>\n<p class=\"font_7\">2 λεπτές φέτες τζίντζερ</p>\n<p class=\"font_7\">1 φρεσκοανοιγμένη βανίλια (λοβός)</p>\n\n<p class=\"font_7\"><strong>Για το σιρόπι:</strong></p>\n<p class=\"font_7\">250 g ζάχαρη</p>\n<p class=\"font_7\">250 ml νερό</p>\n<p class=\"font_7\">2 κ.σ. μέλι</p>",
+            "IngredientsEN": "<p class=\"font_7\"><strong>For the aromatic infusion:</strong></p>\n<p class=\"font_7\">3 organic oranges</p>\n<p class=\"font_7\">1 lemon</p>\n<p class=\"font_7\">500 ml vodka or tsikoudia / neutral alcohol (40%)</p>\n<p class=\"font_7\">2 cinnamon sticks</p>\n<p class=\"font_7\">5–6 whole cloves</p>\n<p class=\"font_7\">2 thin slices of fresh ginger</p>\n<p class=\"font_7\">1 fresh vanilla bean</p>\n\n<p class=\"font_7\"><strong>For the syrup:</strong></p>\n<p class=\"font_7\">250 g sugar</p>\n<p class=\"font_7\">250 ml water</p>\n<p class=\"font_7\">2 tbsp honey</p>",
+            "LongDescriptionGR": "<p class=\"font_7\">Φτιάξε το πιο γιορτινό και αρωματικό λικέρ πορτοκάλι! Με φρέσκα πορτοκάλια, λεμόνι, ζεστά μπαχαρικά και ποιοτική βότκα, αυτό το λικέρ είναι ιδανικό για το χριστουγεννιάτικο τραπέζι, για δώρο ή απλώς για να γεμίσει το σπίτι με άρωμα γιορτών. Ετοιμάζεται εύκολα, με απλά βήματα, και δίνει λαμπερό χρώμα και πλούσιο αρωματικό προφίλ.</p>",
+            "LongDescriptionEN": "<p class=\"font_7\">Make the most festive and aromatic orange liqueur! With fresh oranges, lemon, warm spices and good quality vodka, this liqueur is perfect for the Christmas table, as a gift, or simply to fill your home with holiday aroma. Easy to prepare with simple steps, it gives a bright color and a rich, Christmas-style flavour profile.</p>",
+            "ExecutionGR": "<ol class=\"font_7\">\n<li><strong>Προετοιμασία εσπεριδοειδών:</strong> Πλένεις πολύ καλά τα πορτοκάλια και το λεμόνι και τα σκουπίζεις. Με peeler παίρνεις μόνο το πορτοκαλί / κίτρινο μέρος της φλούδας, χωρίς το άσπρο που πικρίζει.</li>\n<li><strong>Αρωματική εκχύλιση:</strong> Βάζεις τις φλούδες σε μεγάλο γυάλινο βάζο. Προσθέτεις τα ξυλάκια κανέλας, τα γαρίφαλα, τις φέτες τζίντζερ και τον λοβό βανίλιας (χαραγμένο στη μέση).</li>\n<li>Ρίχνεις τη βότκα (ή άλλο ποτό 40%) μέσα στο βάζο, μέχρι να καλύψει καλά τις φλούδες και τα μπαχαρικά. Κλείνεις αεροστεγώς.</li>\n<li><strong>Ωρίμανση:</strong> Τοποθετείς το βάζο σε ζεστό σημείο (π.χ. πάνω σε καλοριφέρ ή δίπλα, μέχρι 40–45°C) και το αφήνεις για περίπου 4 ημέρες, σε σκοτεινό μέρος. Ανακινείς ελαφρά μία φορά την ημέρα.</li>\n<li><strong>Σιρόπι:</strong> Σε κατσαρολάκι βάζεις τη ζάχαρη και το νερό. Ζεσταίνεις μέχρι να διαλυθεί η ζάχαρη, χωρίς να βράσεις πολύ. Προσθέτεις το μέλι, ανακατεύεις και αφήνεις το σιρόπι να κρυώσει τελείως.</li>\n<li><strong>Στράγγισμα:</strong> Σουρώνεις τη βότκα από τις φλούδες και τα μπαχαρικά, περνώντας τη μέσα από φίλτρο ή λεπτή σήτα για να γίνει διαυγής.</li>\n<li><strong>Ένωση:</strong> Όταν το σιρόπι έχει κρυώσει εντελώς, το προσθέτεις στο αρωματισμένο αλκοόλ και ανακατεύεις καλά.</li>\n<li><strong>Ξεκούραση:</strong> Μεταφέρεις το λικέρ σε καθαρά μπουκάλια και το αφήνεις 2–3 ημέρες να ξεκουραστεί, ώστε να δέσουν τα αρώματα. Σερβίρεις δροσερό. Είναι λαμπερό, αρωματικό και απόλυτα χριστουγεννιάτικο.</li>\n</ol>",
+            "ExecutionEN": "<ol class=\"font_7\">\n<li><strong>Prepare the citrus:</strong> Wash the oranges and lemon very well and pat dry. Using a peeler, remove only the colored part of the peel (no white pith, as it is bitter).</li>\n<li><strong>Make the aromatic infusion:</strong> Place the citrus peels into a large glass jar. Add the cinnamon sticks, cloves, ginger slices and the vanilla bean (split open).</li>\n<li>Pour in the vodka (or other 40% alcohol) until it fully covers the peels and spices. Seal the jar tightly.</li>\n<li><strong>Infuse:</strong> Place the sealed jar in a warm spot (e.g. on or near a radiator, up to about 40–45°C) and leave it for about 4 days in a dark place, shaking gently once a day.</li>\n<li><strong>Prepare the syrup:</strong> In a small pot, add the sugar and water. Heat gently until the sugar dissolves, without boiling hard. Add the honey, stir and let the syrup cool completely.</li>\n<li><strong>Strain:</strong> Strain the infused alcohol through a fine sieve or filter to remove the peels and spices, so it becomes clear.</li>\n<li><strong>Combine:</strong> When the syrup is fully cold, mix it with the aromatic alcohol and stir well to combine.</li>\n<li><strong>Rest:</strong> Pour the liqueur into clean bottles and let it rest for 2–3 days so the flavours can meld. Serve chilled. Bright, fragrant and perfectly Christmassy.</li>\n</ol>",
+            "LinkYT": "https://youtu.be/vaEStNucB9g",
+            "TagsGR": "[\"Λικέρ\",\"Πορτοκάλι\",\"Χριστούγεννα\",\"Ποτό\",\"Σπιτικό\"]",
+            "TagsEN": "[\"Liqueur\",\"Orange\",\"Christmas\",\"Drink\",\"Homemade\"]",
+            "Date": "04/12/2025"
           }
           
           
-          
-          
-        
-        
+    
         
     ]
